@@ -11,6 +11,21 @@ public class Ticket {
 	private	int cost;
 	private int person;
 	
+	public Ticket() {}	// 기본 이니셜라이저
+	public Ticket(String userName, String userId, String seatNum,
+			String roomNum, String movieName, String date, String reserveDate,
+			int cost, int person) {
+		this.userName = userName;
+		this.userId = userId;
+		this.seatNum = seatNum;
+		this.roomNum = roomNum;
+		this.movieName = movieName;
+		this.date = date;
+		this.reserveDate = reserveDate;
+		this.cost = cost;
+		this.person = person;
+	}
+	
 	public String getUserName() {
 		return userName;
 	}
