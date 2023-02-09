@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author mamma
- *
- */
-module test {
-}
