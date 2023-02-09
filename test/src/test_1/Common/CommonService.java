@@ -1,4 +1,4 @@
-package test_1;
+package test_1.Common;
 
 import java.sql.Connection;
 

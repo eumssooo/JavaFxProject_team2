@@ -1,4 +1,4 @@
-package test_1;
+package test_1.View;
 
 public class Ticket {
 	private String userName;

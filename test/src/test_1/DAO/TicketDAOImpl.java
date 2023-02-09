@@ -1,9 +1,13 @@
-package test_1;
+package test_1.DAO;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import test_1.Common.CommonService;
+import test_1.Common.CommonServiceImpl;
+import test_1.View.Ticket;
 
 
 public class TicketDAOImpl implements TicketDAO{

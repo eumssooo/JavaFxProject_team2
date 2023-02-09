@@ -1,7 +1,12 @@
-package test_1;
+package test_1.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
+import test_1.Common.CommonService;
+import test_1.Common.CommonServiceImpl;
+import test_1.DAO.TicketDAO;
+import test_1.DAO.TicketDAOImpl;
+import test_1.View.Ticket;
 
 public class ConfirmController {
 	private static Parent root;
