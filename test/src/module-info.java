@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author mamma
+ *
+ */
+module test {
+}
