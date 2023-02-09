@@ -1,4 +1,4 @@
-package test_1;
+package test_1.View;
 
 public class User {
 	private String name;

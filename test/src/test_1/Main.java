@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import test_1.Controller.ConfirmController;
 
 public class Main extends Application{
 
@@ -12,11 +13,12 @@ public class Main extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
 		FXMLLoader loader = new FXMLLoader(
-				getClass().getResource("../login.fxml"));	// 경로 수정
+				getClass().getResource("../login.fxml"));	// 경로 수정, controller 등록
 		Parent root = loader.load();
 		
-		loginController ctrl = loader.getController();
+		ConfirmController ctrl = loader.getController();
 		ctrl.setRoot(root);
+		System.out.println("test");
 		
 		primaryStage.setScene(new Scene(root));
 		primaryStage.setTitle("로그인");
