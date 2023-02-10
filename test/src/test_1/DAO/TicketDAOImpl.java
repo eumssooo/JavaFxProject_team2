@@ -5,9 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import test_1.Common.CommonService;
-import test_1.Common.CommonServiceImpl;
-import test_1.View.Ticket;
+import test_1.Common.*;
+import test_1.View.*;
 
 
 public class TicketDAOImpl implements TicketDAO{

@@ -2,21 +2,22 @@ package test_1.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
-import test_1.Common.CommonService;
-import test_1.Common.CommonServiceImpl;
-import test_1.DAO.TicketDAO;
-import test_1.DAO.TicketDAOImpl;
-import test_1.View.Ticket;
+import test_1.View.*;
+import test_1.Service.*;
+import test_1.Common.*;
+import test_1.DAO.*;
 
 public class ConfirmController {
 	private static Parent root;
 	private static Ticket t;
 	private static CommonService cs;
 	private static TicketDAO td;
+	private static TicketService ts;
 	
 	public ConfirmController() {
 		cs = new CommonServiceImpl();
 		td = new TicketDAOImpl();
+		ts = new TicketServiceImpl();
 	}
 
 	public void setRoot(Parent root) {

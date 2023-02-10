@@ -13,7 +13,7 @@ public class Main extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
 		FXMLLoader loader = new FXMLLoader(
-				getClass().getResource("../login.fxml"));	// 경로 수정, controller 등록
+				getClass().getResource("../TicketConfirm.fxml"));	// 경로 수정, controller 등록
 		Parent root = loader.load();
 		
 		ConfirmController ctrl = loader.getController();
@@ -21,7 +21,7 @@ public class Main extends Application{
 		System.out.println("test");
 		
 		primaryStage.setScene(new Scene(root));
-		primaryStage.setTitle("로그인");
+		primaryStage.setTitle("티켓 확인");
 		primaryStage.show();
 	}
 
