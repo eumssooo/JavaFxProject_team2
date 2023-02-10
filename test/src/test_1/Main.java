@@ -18,6 +18,7 @@ public class Main extends Application{
 		
 		ConfirmController ctrl = loader.getController();
 		ctrl.setRoot(root);
+		System.out.println("test");
 		
 		primaryStage.setScene(new Scene(root));
 		primaryStage.setTitle("로그인");
