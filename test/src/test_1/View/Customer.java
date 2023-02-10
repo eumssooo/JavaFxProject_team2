@@ -1,6 +1,6 @@
 package test_1.View;
 
-public class User {
+public class Customer {
 	private String name;
 	private String phone;
 	private int age;
