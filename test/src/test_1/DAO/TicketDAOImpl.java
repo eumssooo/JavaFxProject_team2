@@ -39,12 +39,12 @@ public class TicketDAOImpl implements TicketDAO{
 				String seatNum = rs.getString(3);
 				String roomNum = rs.getString(4);
 				String movieName = rs.getString(5);
-				String date = rs.getString(6);
+				String day = rs.getString(6);
 				String reserveDate = rs.getString(7);
 				int cost = rs.getInt(8);
 				int person = rs.getInt(9);
 				Ticket ticketVO = new Ticket(userName,userId,seatNum,roomNum,
-						movieName,date,reserveDate,cost,person);
+						movieName,day,reserveDate,cost,person);
 				ticketList.add(ticketVO);
 				System.out.println("티켓 확인 작업");
 			}
@@ -67,7 +67,7 @@ public class TicketDAOImpl implements TicketDAO{
 			pstmt.setString(2, t.getSeatNum());
 			pstmt.setString(3, t.getRoomNum());
 			pstmt.setString(4, t.getMovieName());
-			pstmt.setString(5, t.getDate());;
+			pstmt.setString(5, t.getDay());;
 			pstmt.executeUpdate();
 			System.out.println("티켓 예약 취소 작업");
 			
@@ -87,7 +87,7 @@ public class TicketDAOImpl implements TicketDAO{
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, t.getRoomNum());
-			pstmt.setString(2, t.getDate());
+			pstmt.setString(2, t.getDay());
 			pstmt.setString(3, t.getSeatNum());
 			pstmt.executeUpdate();
 			System.out.println("좌석 예약 취소 작업");
@@ -114,7 +114,7 @@ public class TicketDAOImpl implements TicketDAO{
 			pstmt.setString(3, t.getSeatNum());
 			pstmt.setString(4, t.getRoomNum());
 			pstmt.setString(5, t.getMovieName());
-			pstmt.setString(6, t.getDate());
+			pstmt.setString(6, t.getDay());
 			pstmt.setString(7, t.getReserveDate());
 			pstmt.setInt(8, t.getCost());
 			pstmt.setInt(9, t.getPerson());
