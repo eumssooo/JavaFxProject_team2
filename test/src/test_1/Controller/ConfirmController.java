@@ -1,7 +1,10 @@
 package test_1.Controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import test_1.View.*;
 import test_1.Service.*;
 import test_1.Common.*;
@@ -13,6 +16,8 @@ public class ConfirmController {
 	private static CommonService cs;
 	private static TicketDAO td;
 	private static TicketService ts;
+	@FXML
+    private Label lblTest;
 	
 	public ConfirmController() {
 		cs = new CommonServiceImpl();
@@ -24,11 +29,15 @@ public class ConfirmController {
 		// TODO Auto-generated method stub
 		this.root = root;
 	}
+	
+	// 예매 내역 UI 출력
+	public void printTickets() {
+		ts.printTicket(root);
+	}
 
 	// 돌아가기 ( 전 화면으로 가도록 수정해야 함)
 	public void cancelProc(ActionEvent event) {
 		cs.windowClose(event);
-		
 		//		Stage complete(결제완료 화면) = (Stage) root.getScene().getWindow();
 		//		FXMLLoader loader = new FXMLLoader(
 		//		getClass().getResource("../../complete(결제완료화면).fxml"));
