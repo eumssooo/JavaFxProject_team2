@@ -3,7 +3,7 @@ package test_1.View;
 public class Seat {
 	private String roomNum;
 	private String seatNum;
-	private String date;
+	private String day;
 	private String reserved;
 	
 	public String getRoomNum() {
@@ -18,11 +18,11 @@ public class Seat {
 	public void setSeatNum(String seatnum) {
 		this.seatNum = seatnum;
 	}
-	public String getDate() {
-		return date;
+	public String getDay() {
+		return day;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setDay(String day) {
+		this.day = day;
 	}
 	public String getReserved() {
 		return reserved;

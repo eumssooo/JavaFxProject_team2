@@ -60,7 +60,7 @@ public class TicketDAOImpl implements TicketDAO{
 	public void cancelTicket(Ticket t) {
 		String sql = "delete from ticket "+ "where userId = ? "
 				+ "and seatNum = ? and roomNum = ? and movieName = ? "
-				+ "and date = ?";
+				+ "and day = ?";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, t.getUserId());
@@ -82,7 +82,7 @@ public class TicketDAOImpl implements TicketDAO{
 	@Override
 	public void cancelSeat(Ticket t) {
 		String sql = "delete from seat where roomNum = ? "
-				+ "and date = ? and seatNum = ?";
+				+ "and day = ? and seatNum = ?";
 
 		try {
 			pstmt = con.prepareStatement(sql);
