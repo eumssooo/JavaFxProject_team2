@@ -1,23 +1,16 @@
 package test_1.View;
 
 public class Movie {
-	private String title;
-	private String time;
-	private String ageLimit;
-	private String imageSrc;
-	private int runtime;
+	private String title; // 영화 제목
+	private String ageLimit; // 상영 제한 나이
+	private String imageSrc; // 포스터
+	private int runtime; // 영화 상영 시간
 	
 	public String getTitle() {
 		return title;
 	}
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	public String getTime() {
-		return time;
-	}
-	public void setTime(String time) {
-		this.time = time;
 	}
 	public String getAgeLimit() {
 		return ageLimit;
