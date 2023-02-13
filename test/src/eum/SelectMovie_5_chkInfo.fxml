@@ -30,17 +30,17 @@ xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:contro
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="chkTitle" text="영화 제목" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label fx:id="chkTitle" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label text="상영 시간" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-      <Label text="상영관" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-      <Label text="잔여 좌석 수 " GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-      <Label text="선택 인원" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-      <Label text="금액" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
-      <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="90.0" text="좌석 선택" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.valignment="TOP">
+      <Label fx:id="chkDate" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+      <Label fx:id="chkRoom" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+      <Label fx:id="chkSeat" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+      <Label fx:id="chkPersonNum" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+      <Label fx:id="cost" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+      <Button onAction="#checkMovieInfo" mnemonicParsing="false" prefHeight="42.0" prefWidth="90.0" text="좌석 선택" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.valignment="TOP">
          <font>
             <Font size="14.0" />
          </font>

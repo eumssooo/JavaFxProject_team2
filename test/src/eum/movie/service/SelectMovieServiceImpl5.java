@@ -26,20 +26,28 @@ public class SelectMovieServiceImpl5 implements SelectMovieService5{
 
 
 	@Override
-	public void checkMovieInfo(Parent root) {
+	public void checkMovieInfo(Parent chkInfo) { // 좌석선택 화면으로 넘기기
 		// TODO Auto-generated method stub
-		
+		// Stage 좌석선택화면 = (Stage) chkInfo.getScene().getWindow();
+		// FXMLLoader loader = new FXMLLoader(
+		//		getClass().getResource("../../좌석선택.fxml"));
+		// try {
+		// 	(좌석 선택 Parent)  = loader.load();
+
+		//	좌석선택화면.setScene(new Scene(좌석 선택 Parent));
+		// } catch (Exception e) {
+		//	e.printStackTrace();
+		// }
 		
 	}
 
 	@Override
 	public void previousPage5(Parent chkInfo) {
 		// TODO Auto-generated method stub
+		// 관람 인원 선택 페이지 (이전 페이지) 로드
 		Stage SelectMovie_4_Person = (Stage) chkInfo.getScene().getWindow();
 		FXMLLoader loader = new FXMLLoader(
 				getClass().getResource("../../SelectMovie_4_Person.fxml"));
-
-
 
 		try {
 			selectPerson = loader.load();
@@ -50,7 +58,6 @@ public class SelectMovieServiceImpl5 implements SelectMovieService5{
 		}
 
 		SelectMovieController ctrl = loader.getController();
-
 
 		ctrl.setSelectPerson(selectPerson);
 

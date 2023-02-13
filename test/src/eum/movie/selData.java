@@ -4,7 +4,8 @@ public class selData {
 private String selDate;
 private String selTitle;
 private int selSession;
-private int selPersonNum;
+private int selAdultNum;
+private int selChildrenNum;
 
 public String getSelDate() {
 	return selDate;
@@ -24,10 +25,19 @@ public int getSelSession() {
 public void setSelSession(int selSession) {
 	this.selSession = selSession;
 }
-public int getSelPersonNum() {
-	return selPersonNum;
+public int getSelAdultNum() {
+	return selAdultNum;
 }
-public void setSelPersonNum(int selPersonNum) {
-	this.selPersonNum = selPersonNum;
+public void setSelAdultNum(int selAdultNum) {
+	this.selAdultNum = selAdultNum;
 }
+public int getSelChildrenNum() {
+	return selChildrenNum;
 }
+public void setSelChildrenNum(int selChildrenNum) {
+	this.selChildrenNum = selChildrenNum;
+}
+
+
+}
+
