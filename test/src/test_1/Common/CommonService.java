@@ -8,4 +8,6 @@ public interface CommonService {
 	public void windowClose(ActionEvent event);
 	public void alertMsg(String subject, String head, String content);
 	public Connection conn();
+	
+	public void errorMsg(String subject, String head, String content);
 }
