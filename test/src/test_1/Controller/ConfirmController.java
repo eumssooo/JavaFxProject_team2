@@ -32,7 +32,7 @@ public class ConfirmController {
 	
 	// 예매 내역 UI 출력
 	public void printTickets() {
-		ts.printTicket(root);
+		ts.printTicket(root ,t);
 	}
 
 	// 돌아가기 ( 전 화면으로 가도록 수정해야 함)

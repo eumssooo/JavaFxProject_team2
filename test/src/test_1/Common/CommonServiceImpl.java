@@ -33,7 +33,7 @@ public class CommonServiceImpl implements CommonService{
 	@Override
 	public Connection conn() {
 		// TODO Auto-generated method stub
-		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String user = "system";
 		String pass = "oracle";
 
