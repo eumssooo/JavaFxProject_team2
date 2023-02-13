@@ -34,17 +34,17 @@ public class TicketDAOImpl implements TicketDAO{
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				String userName = rs.getString(1);
-				String seatNum = rs.getString(3);
-				String roomNum = rs.getString(4);
-				String movieName = rs.getString(5);
-				String day = rs.getString(6);
-				String reserveDate = rs.getString(7);
-				int cost = rs.getInt(8);
-				int person = rs.getInt(9);
-				Ticket ticketVO = new Ticket(userName,userId,seatNum,roomNum,
-						movieName,day,reserveDate,cost,person);
-				ticketList.add(ticketVO);
+				Ticket t = new Ticket();
+				t.setUserId(rs.getString(1));
+				t.setUserName( rs.getString(3));
+				t.setRoomNum(rs.getString(4));
+				t.setMovieName(rs.getString(5));
+				t.setDay(rs.getString(6));
+				t.setReserveDate(rs.getString(7));
+				t.setCost(rs.getInt(8));
+				t.setPerson( rs.getInt(9));
+				
+				ticketList.add(t);
 				System.out.println("티켓 확인 작업");
 			}
 		} catch (SQLException e) {
@@ -105,7 +105,7 @@ public class TicketDAOImpl implements TicketDAO{
 		String reserveDate = f.format(now.getTime());
 		t.setReserveDate(reserveDate);
 
-		String sql = "insert into ticket values (?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into ticket values (?,?,?,?,?,?,?,?,?)";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, t.getUserName());

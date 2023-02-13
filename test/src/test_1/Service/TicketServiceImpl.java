@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -17,8 +18,8 @@ import test_1.View.*;
 import test_1.DAO.*;
 
 public class TicketServiceImpl implements TicketService{
-	private Ticket ticket;
-	private ArrayList<Ticket> tickets;
+//	private Ticket ticket;
+//	private ArrayList<Ticket> tickets;
 	private TicketDAO td;
 	
 	public TicketServiceImpl(){
@@ -26,15 +27,17 @@ public class TicketServiceImpl implements TicketService{
 	}
 
 	@Override
-	public void printTicket(Parent root) {
+	public void printTicket(Parent root, Ticket ticket) {
 		// TODO Auto-generated method stub
+		
 		Label confirmTitle = (Label)root.lookup("#confirmTitle");
-//		tickets = td.selectTicket(ticket.getUserId());
-//		confirmTitle.setText(ticket.getUserName() + " 님의 예매 내역");
-		confirmTitle.setText("님의 예매 내역");
+//		tickets = td.selectTicket(ticket.getUserId());	//ticket.getUserId()
+		confirmTitle.setText(ticket.getUserName() + " 님의 예매 내역"); //ticket.getUserName()
+		
+		Button cancelTicket = (Button)root.lookup("#cancelTicket");
 		
 		TableView<Ticket> tableView = new TableView<Ticket>();
-		tableView = (TableView)root.lookup("#main");
+		tableView = (TableView)root.lookup("#confirmTable");
 		
 		TableColumn<Ticket, String> userName = new TableColumn<>("userName");
 		userName.setCellValueFactory(new PropertyValueFactory<>("userName"));
@@ -53,7 +56,7 @@ public class TicketServiceImpl implements TicketService{
 		
 		tableView.getColumns().addAll(userName, movieName,roomNum,day,seatNum,cost,reserveDate);
 		
-		List<Ticket> ticketList = td.selectTicket(ticket.getUserId());
+		List<Ticket> ticketList = td.selectTicket(ticket.getUserId());	// ticket.getUserId()
 		ObservableList<Ticket> data = 
 				FXCollections.observableArrayList(ticketList);
 		tableView.setItems(data);
