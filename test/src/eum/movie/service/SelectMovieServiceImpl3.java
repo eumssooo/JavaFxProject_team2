@@ -4,7 +4,10 @@ package eum.movie.service;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import eum.movie.Movie;
 import eum.movie.SelectMovieController;
@@ -17,10 +20,10 @@ public class SelectMovieServiceImpl3 implements SelectMovieService3 {
 	Parent selectMovie;
 	Parent selectPerson;
 	Movie m = new Movie();
-	selData sd = new selData();
+
 
 	private static CommonService cs;
-	private static  MovieDAO md;
+	private static MovieDAO md;
 
 	public SelectMovieServiceImpl3 () {
 		cs = new CommonServiceImpl();
@@ -28,8 +31,9 @@ public class SelectMovieServiceImpl3 implements SelectMovieService3 {
 	}
 
 	@Override
-	public void nextPage3(Parent selectSession) {
+	public void nextPage3(Parent selectSession, selData sd) {
 		// TODO Auto-generated method stub
+
 		// 상영 회차 선택 토글버튼
 		ToggleButton session_1 = (ToggleButton) selectSession.lookup("#session_1");
 		ToggleButton session_2 = (ToggleButton) selectSession.lookup("#session_2");
@@ -81,7 +85,7 @@ public class SelectMovieServiceImpl3 implements SelectMovieService3 {
 	}
 
 	@Override
-	public void previousPage3(Parent selectSession) {
+	public void previousPage3(Parent selectSession, selData sd) {
 		// TODO Auto-generated method stub
 		// 영화 선택 페이지 (이전 페이지) 로드
 		Stage SelectMovie_2_Movie = (Stage) selectSession.getScene().getWindow();
@@ -102,6 +106,21 @@ public class SelectMovieServiceImpl3 implements SelectMovieService3 {
 
 		SelectMovie_2_Movie.setTitle("영화 선택");
 		SelectMovie_2_Movie.show();
+
+		// 데이터 지우기
+		sd.setSelTitle(null);
+
+		// 영화 선택 콤보박스
+		ComboBox<String> cmbMovie = (ComboBox<String>) selectMovie.lookup("#cmbMovie");
+		cmbMovie.getItems().addAll("타이타닉","더 퍼스트 슬램덩크","아바타 물의 길","바빌론");
+
+		// 영화 포스터
+		ImageView imgMovie = (ImageView) selectMovie.lookup("#imgMovie");
+		// 콤보박스 클릭시 데이터 확인
+		cmbMovie.getSelectionModel().selectedItemProperty().addListener
+		( (v, oldValue, newValue) ->
+		imgMovie.setImage
+		(new Image(getClass().getResource("/image/"+newValue+".jpg").toExternalForm())));
+
 	}
-
-
+}

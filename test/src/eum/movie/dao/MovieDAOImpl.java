@@ -3,8 +3,7 @@ package eum.movie.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
+
 
 import eum.movie.service.CommonService;
 import eum.movie.service.CommonServiceImpl;
@@ -15,7 +14,6 @@ public class MovieDAOImpl implements MovieDAO {
 	private static Connection con;
 	private static PreparedStatement pstmt;
 	private static ResultSet rs;
-
 	private static CommonService cs;
 
 	Movie m = new Movie();
@@ -27,101 +25,28 @@ public class MovieDAOImpl implements MovieDAO {
 		con = cs.conn();
 	}
 
-
-	public boolean insertSelectedData (selData sd) {
-		// TODO Auto-generated method stub		
-		// 관람일, 영화, 관람회차, 관람 인원 수
-
-		String sql = "insert into selectedData values(?,?,?,?)";
-
-
+	
+	public int movieRunningTime(String title) { // 러닝타임 받아오기
+		// TODO Auto-generated method stub
+		String sql = "select runtime from movie where title = ?";
+		// select runtime from movie where title = '타이타닉';
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, sd.getSelDate());
-			pstmt.setString(2, sd.getSelTitle());
-			pstmt.setInt(3, sd.getSelSession());
-			pstmt.setInt(4, sd.getSelPersonNum());
+			pstmt.setString(1,title);
+				
+			rs = pstmt.executeQuery();
 
-			int result = pstmt.executeUpdate();
-
-			if(result == 1) {
-				System.out.println("데이터 저장 성공");
-				pstmt.close();
-				return true;
+			while (rs.next()) {
+			int runtime = rs.getInt(1);			
+			return runtime;
 			}
+			pstmt.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		return false;
+		return 0;
 	}
-//
-//
-//	@Override
-//	public boolean insertSelDate(selData sd) {
-//		// TODO Auto-generated method stub
-//		String sql = "insert into selectedData (selDate) values(?)";
-//
-//
-//		try {
-//			pstmt = con.prepareStatement(sql);
-//			pstmt.setString(1, sd.getSelDate());
-//			int result = pstmt.executeUpdate();
-//
-//			if(result == 1) {
-//				System.out.println("데이터 저장 성공");
-//				pstmt.close();
-//				return true;
-//			}
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			e.printStackTrace();
-//		}
-//		
-//		return false;
-//	}
-//
-//
-//	@Override
-//	public boolean insertSelTitle(selData sd) {
-//		// TODO Auto-generated method stub
-//		String sql = "insert into selectedData (selTitle) values(?)";
-//
-//
-//		try {
-//			pstmt = con.prepareStatement(sql);
-//			pstmt.setString(1, sd.getSelTitle());
-//			int result = pstmt.executeUpdate();
-//
-//			if(result == 1) {
-//				System.out.println("데이터 저장 성공");
-//				pstmt.close();
-//				return true;
-//			}
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			e.printStackTrace();
-//		}
-//		
-//		return false;
-//	}
-//
-//
-//	@Override
-//	public boolean insertSelSession(selData sd) {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
-//
-//
-//	@Override
-//	public boolean insertSelPersonNum(selData sd) {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
-//
-//
-
 }
 
 

@@ -26,7 +26,7 @@ public class SelectMovieServiceImpl5 implements SelectMovieService5{
 
 
 	@Override
-	public void checkMovieInfo(Parent chkInfo) { // 좌석선택 화면으로 넘기기
+	public void checkMovieInfo(Parent chkInfo,selData sd) { // 좌석선택 화면으로 넘기기
 		// TODO Auto-generated method stub
 		// Stage 좌석선택화면 = (Stage) chkInfo.getScene().getWindow();
 		// FXMLLoader loader = new FXMLLoader(
@@ -42,7 +42,7 @@ public class SelectMovieServiceImpl5 implements SelectMovieService5{
 	}
 
 	@Override
-	public void previousPage5(Parent chkInfo) {
+	public void previousPage5(Parent chkInfo, selData sd) {
 		// TODO Auto-generated method stub
 		// 관람 인원 선택 페이지 (이전 페이지) 로드
 		Stage SelectMovie_4_Person = (Stage) chkInfo.getScene().getWindow();
@@ -60,6 +60,8 @@ public class SelectMovieServiceImpl5 implements SelectMovieService5{
 		SelectMovieController ctrl = loader.getController();
 
 		ctrl.setSelectPerson(selectPerson);
+		sd.setSelAdultNum(0);
+		sd.setSelChildrenNum(0);
 
 		SelectMovie_4_Person.setTitle("관람 인원 선택");
 		SelectMovie_4_Person.show();

@@ -19,19 +19,21 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 
 	private static CommonService cs;
 	private static  MovieDAO md;
-	Movie m = new Movie();
-	selData sd;
 
+	int ticketCostAdult = 14000;
+	int ticketCostChildren = 11000;
+
+	Movie m = new Movie();
 
 	public SelectMovieServiceImpl4 () {
 		cs = new CommonServiceImpl();
 		md = new MovieDAOImpl();
-		sd = new selData();
 	}
 
 	@Override
-	public void nextPage4(Parent selectPerson) {
+	public void nextPage4(Parent selectPerson, selData sd) {
 		// TODO Auto-generated method stub
+
 
 		// 인원선택 토글버튼 - 성인
 		ToggleButton adult_1 = (ToggleButton) selectPerson.lookup("#adult_1");
@@ -98,19 +100,19 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 
 			SelectMovie_5_chkInfo.setTitle("예매 정보 확인");
 			SelectMovie_5_chkInfo.show();
-
+			
 			// 예매 정보 확인 페이지에 들어갈 정보
 			// 영화 제목
 			Label chkTitle = (Label) chkInfo.lookup("#chkTitle"); 
-			chkTitle.setText("제목"); // chkTitle.setText(sd.getSelTitle());
+			chkTitle.setText(sd.getSelTitle());
 			// 상영 날짜
 			Label chkDate = (Label) chkInfo.lookup("#chkDate"); 
-			chkDate.setText("날짜"); // chkDate.setText(sd.getSelDate());
-			// 상영관
+			chkDate.setText(sd.getSelDate());
+			// 상영관, 상영 시간
 			Label chkRoom = (Label) chkInfo.lookup("#chkRoom"); 
-			chkRoom.setText("관"); // chkRoom.setText("" + sd.getSelSession());
+			chkRoom.setText("" + sd.getSelSession()); // 회차에 연결된 상영관 값 연결
 			// 잔여 좌석
-			Label chkSeat = (Label) chkInfo.lookup("#chkSeat"); 
+			// Label chkSeat = (Label) chkInfo.lookup("#chkSeat"); 
 			// chkSeat.setText("잔여 좌석");
 			// 관람 인원
 			Label chkPersonNum = (Label) chkInfo.lookup("#chkPersonNum"); 
@@ -125,11 +127,11 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 			// 총 금액
 			Label cost = (Label) chkInfo.lookup("#cost"); 
 			cost.setText((sd.getSelAdultNum()*ticketCostAdult + sd.getSelChildrenNum()*ticketCostChildren) + "원");
-
+			
 			//값 잘 넘어오는지 확인용
-			System.out.println(sd.getSelDate()); // 안넘어옴
-			System.out.println(sd.getSelTitle()); // 안넘어옴
-			System.out.println(sd.getSelSession()); // 안넘어옴
+			System.out.println(sd.getSelDate());
+			System.out.println(sd.getSelTitle());
+			System.out.println(sd.getSelSession());
 			System.out.println(sd.getSelAdultNum());
 			System.out.println(sd.getSelChildrenNum());
 
@@ -137,7 +139,7 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 	}
 
 	@Override
-	public void previousPage4(Parent selectPerson) {
+	public void previousPage4(Parent selectPerson, selData sd) {
 		// TODO Auto-generated method stub
 		// 상영회차 선택(이전 페이지)으로 이동
 		Stage SelectMovie_3_Session = (Stage) selectPerson.getScene().getWindow();
@@ -159,7 +161,6 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 
 		SelectMovie_3_Session.setTitle("상영 회차 선택");
 		SelectMovie_3_Session.show();
-		// 데이터 추가 필요
 	}
 
 }
