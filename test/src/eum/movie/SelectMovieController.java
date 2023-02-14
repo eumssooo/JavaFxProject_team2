@@ -15,12 +15,12 @@ import eum.movie.service.SelectMovieServiceImpl5;
 
 public class SelectMovieController {
 
-	private Parent root;
+	private Parent selectDate;
 	private Parent selectMovie;
 	private Parent selectSession;
 	private Parent selectPerson;
 	private Parent chkInfo;
-	private selData sd;
+	public static selData sd;
 
 
 
@@ -41,44 +41,44 @@ public class SelectMovieController {
 	public void setSelData (selData sd) {
 		this.sd= sd;
 	}
-	
+
 	// 1페이지
-	public void setRoot(Parent root) {
+	public void setSelectDate(Parent selectDate) {
 		// TODO Auto-generated method stub
-		this.root = root;
+		this.selectDate = selectDate;
 	}
 
 	public void nextPage1 () {
-		sms1.nextPage1(root);
+		sms1.nextPage1(selectDate);
 	}
-	
-	
+
+
 	// 2페이지
 	public void setSelectMovie(Parent selectMovie) {
 		// TODO Auto-generated method stub
 		this.selectMovie = selectMovie;
 	}
-	
+
 	public void previousPage2 () {
-		sms2.previousPage2(selectMovie);
+		sms2.previousPage2(selectMovie,sd);
 	}
 
 	public void nextPage2 () {
-		sms2.nextPage2(selectMovie);
+		sms2.nextPage2(selectMovie, sd);
 	}
-	
+
 	// 3페이지
 	public void setSelectSession(Parent selectSession) {
 		// TODO Auto-generated method stub
 		this.selectSession = selectSession;
 	}
-	
+
 	public void previousPage3 () {
-		sms3.previousPage3(selectSession);
+		sms3.previousPage3(selectSession, sd);
 	}
 
 	public void nextPage3 () {
-		sms3.nextPage3(selectSession);
+		sms3.nextPage3(selectSession,sd);
 	}
 
 	// 4페이지
@@ -86,39 +86,29 @@ public class SelectMovieController {
 		// TODO Auto-generated method stub
 		this.selectPerson = selectPerson;
 	}
-	
+
 	public void previousPage4 () {
-		sms4.previousPage4(selectPerson);
+		sms4.previousPage4(selectPerson, sd);
 	}
 
 	public void nextPage4 () {
-		sms4.nextPage4(selectPerson);
+		sms4.nextPage4(selectPerson,sd);
 	}
-	
+
 	// 5페이지
 	public void setCheckInfo(Parent chkInfo) {
 		// TODO Auto-generated method stub
 		this.chkInfo = chkInfo;
 	}
-	
+
 	public void previousPage5 () {
-		sms5.previousPage5(chkInfo);
+		sms5.previousPage5(chkInfo, sd);
 	}
 
 
 	public void checkMovieInfo() {
-		sms5.checkMovieInfo(root);
+		sms5.checkMovieInfo(chkInfo,sd);
 	}
-
-
-
-
-
-
-
-
-
-
 
 
 }
