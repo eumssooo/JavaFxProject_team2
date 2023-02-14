@@ -33,11 +33,11 @@ public class SelectMovieServiceImpl1 implements SelectMovieService1{
 
 
 	@Override
-	public void nextPage1(Parent root) {
+	public void nextPage1(Parent selectDate) {
 		// TODO Auto-generated method stub
 
 
-		ComboBox<String> cmbDate = (ComboBox<String>) root.lookup("#cmbDate"); // 날짜 선택 콤보 박스
+		ComboBox<String> cmbDate = (ComboBox<String>) selectDate.lookup("#cmbDate"); // 날짜 선택 콤보 박스
 		if(cmbDate.getValue() != null) {	// 콤보박스 선택시 (데이터 변경 필요)
 			if(cmbDate.getValue().equals("2월 15일")) {
 				sd.setSelDate(cmbDate.getValue());
@@ -57,7 +57,7 @@ public class SelectMovieServiceImpl1 implements SelectMovieService1{
 			}
 
 			// 영화 선택 페이지 (다음 페이지) 로드
-			Stage SelectMovie_2_Movie = (Stage) root.getScene().getWindow();
+			Stage SelectMovie_2_Movie = (Stage) selectDate.getScene().getWindow();
 			FXMLLoader loader = new FXMLLoader(
 					getClass().getResource("../../SelectMovie_2_Movie.fxml"));
 
