@@ -35,8 +35,8 @@ public class TicketDAOImpl implements TicketDAO{
 
 			while (rs.next()) {
 				Ticket t = new Ticket();
-				t.setUserId(rs.getString(1));
-				t.setUserName( rs.getString(3));
+				t.setUserName(rs.getString(1));
+				t.setSeatNum( rs.getString(3));
 				t.setRoomNum(rs.getString(4));
 				t.setMovieName(rs.getString(5));
 				t.setDay(rs.getString(6));
@@ -62,11 +62,11 @@ public class TicketDAOImpl implements TicketDAO{
 				+ "and day = ?";
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, t.getUserId());
-			pstmt.setString(2, t.getSeatNum());
-			pstmt.setString(3, t.getRoomNum());
-			pstmt.setString(4, t.getMovieName());
-			pstmt.setString(5, t.getDay());;
+			pstmt.setString(2, t.getUserId());
+			pstmt.setString(3, t.getSeatNum());
+			pstmt.setString(4, t.getRoomNum());
+			pstmt.setString(5, t.getMovieName());
+			pstmt.setString(6, t.getDay());;
 			pstmt.executeUpdate();
 			System.out.println("티켓 예약 취소 작업");
 			
@@ -81,13 +81,13 @@ public class TicketDAOImpl implements TicketDAO{
 	@Override
 	public void cancelSeat(Ticket t) {
 		String sql = "delete from seat where roomNum = ? "
-				+ "and day = ? and seatNum = ?";
+				+ "and day = ? and seatNum = ? and reserved = ? ";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, t.getRoomNum());
-			pstmt.setString(2, t.getDay());
-			pstmt.setString(3, t.getSeatNum());
+			pstmt.setString(1, t.getDay());
+			pstmt.setString(3, t.getRoomNum());
+			pstmt.setString(4, t.getSeatNum());
 			pstmt.executeUpdate();
 			System.out.println("좌석 예약 취소 작업");
 

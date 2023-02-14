@@ -15,15 +15,21 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import test_1.View.*;
+import test_1.Common.CommonService;
+import test_1.Common.CommonServiceImpl;
 import test_1.DAO.*;
 
 public class TicketServiceImpl implements TicketService{
 //	private Ticket ticket;
-//	private ArrayList<Ticket> tickets;
+	private ArrayList<Ticket> tickets;
 	private TicketDAO td;
+	private CommonService cs;
 	
 	public TicketServiceImpl(){
 		td = new TicketDAOImpl();
+		cs = new CommonServiceImpl();
+		
+		cs.conn();
 	}
 
 	@Override
@@ -31,7 +37,7 @@ public class TicketServiceImpl implements TicketService{
 		// TODO Auto-generated method stub
 		
 		Label confirmTitle = (Label)root.lookup("#confirmTitle");
-//		tickets = td.selectTicket(ticket.getUserId());	//ticket.getUserId()
+		tickets = td.selectTicket(ticket.getUserId());	//ticket.getUserId()
 		confirmTitle.setText(ticket.getUserName() + " 님의 예매 내역"); //ticket.getUserName()
 		
 		Button cancelTicket = (Button)root.lookup("#cancelTicket");
@@ -60,8 +66,6 @@ public class TicketServiceImpl implements TicketService{
 		ObservableList<Ticket> data = 
 				FXCollections.observableArrayList(ticketList);
 		tableView.setItems(data);
-		
-		
 		
 	}
 
