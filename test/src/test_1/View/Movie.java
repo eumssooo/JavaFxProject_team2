@@ -5,6 +5,7 @@ public class Movie {
 	private String ageLimit; // 상영 제한 나이
 	private String imageSrc; // 포스터
 	private int runtime; // 영화 상영 시간
+	private String time;
 	
 	public String getTitle() {
 		return title;
