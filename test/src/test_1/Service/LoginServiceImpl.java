@@ -2,7 +2,6 @@ package test_1.Service;
 
 import java.io.IOException;
 
-import eum.movie.SelectMovieController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,6 +14,7 @@ import javafx.stage.Stage;
 import test_1.Common.CommonService;
 import test_1.Common.CommonServiceImpl;
 import test_1.Controller.LoginController;
+import test_1.Controller.SelectMovieController;
 import test_1.DAO.LoginDAO;
 import test_1.DAO.LoginDAOImpl;
 
