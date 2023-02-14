@@ -29,6 +29,14 @@ public class SelectMovieServiceImpl3 implements SelectMovieService3 {
 		cs = new CommonServiceImpl();
 		md = new MovieDAOImpl();
 	}
+	
+	// 상영 시간 계산
+	public String movieTime (int a, int b, int c) {
+		int movieH = (a * 60 + b +c ) /60;
+		int movieM = (a * 60 + b +c ) %60;	
+		String movieTime = (movieH + ":" + movieM);
+		return movieTime;
+	}
 
 	@Override
 	public void nextPage3(Parent selectSession, selData sd) {
@@ -43,20 +51,15 @@ public class SelectMovieServiceImpl3 implements SelectMovieService3 {
 
 		//  선택한 상영회차 입력
 		if (session_1.isSelected()) {
-			sd.setSelSession(1);
-			System.out.println(sd.getSelSession());
+			sd.setSelTime("9:00 - " + movieTime(9,0,md.movieRunningTime(sd.getSelTitle())));
 		} else if (session_2.isSelected()) {
-			sd.setSelSession(2);
-			System.out.println(sd.getSelSession());
+			sd.setSelTime("12:30 - "+ movieTime(12,30,md.movieRunningTime(sd.getSelTitle())));
 		} else if (session_3.isSelected()) {
-			sd.setSelSession(3);
-			System.out.println(sd.getSelSession());
+			sd.setSelTime("16:00 - "+ movieTime(16,0,md.movieRunningTime(sd.getSelTitle())));
 		} else if (session_4.isSelected()) {
-			sd.setSelSession(4);
-			System.out.println(sd.getSelSession());
+			sd.setSelTime("19:30 - "+ movieTime(19,30,md.movieRunningTime(sd.getSelTitle())));
 		} else if (session_5.isSelected()) {
-			sd.setSelSession(5);
-			System.out.println(sd.getSelSession());
+			sd.setSelTime("22:00 - "+ movieTime(22,0,md.movieRunningTime(sd.getSelTitle())));
 		} else {
 			cs.alertMsg("상영회차 선택", "상영회차가 선택되지 않았습니다", "상영회차를 선택해주세요");		
 			return;

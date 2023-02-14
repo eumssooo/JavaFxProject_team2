@@ -16,6 +16,7 @@ import eum.movie.dao.MovieDAOImpl;
 
 public class SelectMovieServiceImpl2 implements SelectMovieService2{
 
+
 	private static CommonService cs;
 	private static MovieDAO md;
 	Parent root;
@@ -26,6 +27,7 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 		cs = new CommonServiceImpl();
 		md = new MovieDAOImpl();
 	}
+	
 	// 상영 시간 계산
 	public String movieTime (int a, int b, int c) {
 		int movieH = (a * 60 + b +c ) /60;
@@ -33,7 +35,7 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 		String movieTime = (movieH + ":" + movieM);
 		return movieTime;
 	}
-
+	
 	@Override
 	public void nextPage2(Parent selectMovie, selData sd) {
 		// TODO Auto-generated method stub
@@ -41,24 +43,22 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 		
 		ComboBox<String> cmbMovie = (ComboBox<String>) selectMovie.lookup("#cmbMovie");
 		
-		cmbMovie.getSelectionModel().selectedItemProperty().addListener
-		( (v, oldValue, newValue) -> System.out.println(newValue));
-
+		
 		// 콤보박스에서 선택된 값 가져오기
 				
 		if(cmbMovie.getValue() != null) {// null이 아니면 다음 페이지 접속 가능	
 			if(cmbMovie.getValue().equals("타이타닉")) {
 				sd.setSelTitle(cmbMovie.getValue());
-				System.out.println(md.movieRunningTime(sd.getSelTitle()));				
+				sd.setSelRoom(1);
 			} else if(cmbMovie.getValue().equals("더 퍼스트 슬램덩크")) {
-				sd.setSelTitle(cmbMovie.getValue());
-				
+				sd.setSelTitle(cmbMovie.getValue());		
+				sd.setSelRoom(2);
 			} else if(cmbMovie.getValue().equals("아바타 물의 길")) {
 				sd.setSelTitle(cmbMovie.getValue());
-				System.out.println(md.movieRunningTime(sd.getSelTitle()));
+				sd.setSelRoom(3);
 			} else if(cmbMovie.getValue().equals("바빌론")) {
 				sd.setSelTitle(cmbMovie.getValue());
-				System.out.println(md.movieRunningTime(sd.getSelTitle()));
+				sd.setSelRoom(4);
 			}
 
 				// 상영회차 선택 페이지(다음 페이지) 로드
@@ -84,7 +84,6 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 				 // 상영 시간 표시
 				Label time_1 = (Label) selectSession.lookup("#time_1"); 
 				time_1.setText("9:00 - " + movieTime(9,0,md.movieRunningTime(sd.getSelTitle())));
-				System.out.println(md.movieRunningTime(sd.getSelTitle()));
 				Label time_2 = (Label) selectSession.lookup("#time_2");
 				time_2.setText("12:30 - "+ movieTime(12,30,md.movieRunningTime(sd.getSelTitle())));
 				Label time_3 = (Label) selectSession.lookup("#time_3");
@@ -93,7 +92,6 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 				time_4.setText("19:30 - "+ movieTime(19,30,md.movieRunningTime(sd.getSelTitle())));
 				Label time_5 = (Label) selectSession.lookup("#time_5");
 				time_5.setText("22:00 - "+ movieTime(22,0,md.movieRunningTime(sd.getSelTitle())));
-				
 				
 				
 				

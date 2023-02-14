@@ -29,6 +29,14 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 		cs = new CommonServiceImpl();
 		md = new MovieDAOImpl();
 	}
+	
+	// 상영 시간 계산
+		public String movieTime (int a, int b, int c) {
+			int movieH = (a * 60 + b +c ) /60;
+			int movieM = (a * 60 + b +c ) %60;	
+			String movieTime = (movieH + ":" + movieM);
+			return movieTime;
+		}
 
 	@Override
 	public void nextPage4(Parent selectPerson, selData sd) {
@@ -110,7 +118,7 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 			chkDate.setText(sd.getSelDate());
 			// 상영관, 상영 시간
 			Label chkRoom = (Label) chkInfo.lookup("#chkRoom"); 
-			chkRoom.setText("" + sd.getSelSession()); // 회차에 연결된 상영관 값 연결
+			chkRoom.setText(sd.getSelRoom() + "관 " + sd.getSelTime()); // 상영 시간
 			// 잔여 좌석
 			// Label chkSeat = (Label) chkInfo.lookup("#chkSeat"); 
 			// chkSeat.setText("잔여 좌석");
@@ -127,13 +135,6 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 			// 총 금액
 			Label cost = (Label) chkInfo.lookup("#cost"); 
 			cost.setText((sd.getSelAdultNum()*ticketCostAdult + sd.getSelChildrenNum()*ticketCostChildren) + "원");
-			
-			//값 잘 넘어오는지 확인용
-			System.out.println(sd.getSelDate());
-			System.out.println(sd.getSelTitle());
-			System.out.println(sd.getSelSession());
-			System.out.println(sd.getSelAdultNum());
-			System.out.println(sd.getSelChildrenNum());
 
 		}
 	}
@@ -161,6 +162,16 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 
 		SelectMovie_3_Session.setTitle("상영 회차 선택");
 		SelectMovie_3_Session.show();
+		
+		Label time_1 = (Label) selectSession.lookup("#time_1"); 
+		time_1.setText("9:00 - " + movieTime(9,0,md.movieRunningTime(sd.getSelTitle())));
+		Label time_2 = (Label) selectSession.lookup("#time_2");
+		time_2.setText("12:30 - "+ movieTime(12,30,md.movieRunningTime(sd.getSelTitle())));
+		Label time_3 = (Label) selectSession.lookup("#time_3");
+		time_3.setText("16:00 - "+ movieTime(16,0,md.movieRunningTime(sd.getSelTitle())));
+		Label time_4 = (Label) selectSession.lookup("#time_4");
+		time_4.setText("19:30 - "+ movieTime(19,30,md.movieRunningTime(sd.getSelTitle())));
+		Label time_5 = (Label) selectSession.lookup("#time_5");
+		time_5.setText("22:00 - "+ movieTime(22,0,md.movieRunningTime(sd.getSelTitle())));
 	}
-
 }
