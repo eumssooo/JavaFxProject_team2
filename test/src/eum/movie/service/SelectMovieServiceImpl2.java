@@ -16,10 +16,9 @@ import eum.movie.dao.MovieDAOImpl;
 
 public class SelectMovieServiceImpl2 implements SelectMovieService2{
 
-
 	private static CommonService cs;
 	private static MovieDAO md;
-	Parent root;
+	Parent selectDate;
 	Parent selectSession;
 	Movie m = new Movie();
 	
@@ -114,9 +113,9 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 				getClass().getResource("../../SelectMovie_1_Date.fxml"));
 
 		try {
-			root = loader.load();
+			selectDate = loader.load();
 
-			SelectMovie_1_Date.setScene(new Scene(root));
+			SelectMovie_1_Date.setScene(new Scene(selectDate));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -124,7 +123,7 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 		SelectMovieController ctrl = loader.getController();
 
 
-		ctrl.setRoot(root);
+		ctrl.setSelectDate(selectDate);
 
 		SelectMovie_1_Date.setTitle("상영 날짜 선택");
 		SelectMovie_1_Date.show();
@@ -132,7 +131,7 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 		sd.setSelDate(null);
 		
 		// 상영날짜 선택 콤보박스 내용 입력 (로그인 이후에 넣기)
-				ComboBox<String> cmbDate = (ComboBox<String>) root.lookup("#cmbDate");
+				ComboBox<String> cmbDate = (ComboBox<String>) selectDate.lookup("#cmbDate");
 				cmbDate.getItems().addAll("2월 15일","2월 16일","2월 17일","2월 18일","2월 19일");
 				
 	}
