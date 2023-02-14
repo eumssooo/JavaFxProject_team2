@@ -6,6 +6,7 @@ private String selTitle;
 private int selSession;
 private int selAdultNum;
 private int selChildrenNum;
+private String selTime;
 
 public String getSelDate() {
 	return selDate;
@@ -37,7 +38,10 @@ public int getSelChildrenNum() {
 public void setSelChildrenNum(int selChildrenNum) {
 	this.selChildrenNum = selChildrenNum;
 }
-
-
+public String getSelTime() {
+	return selTime;
+}
+public void setSelTime(String selTime) {
+	this.selTime = selTime;
 }
 
