@@ -1,10 +1,15 @@
-package project;
+package test_1.Service;
 
 
 import java.util.ArrayList;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import test_1.Common.CommonService;
+import test_1.Common.CommonServiceImpl;
+import test_1.DAO.SeatDAO;
+import test_1.DAO.SeatDAOImpl;
+import test_1.View.Seat;
 
 
 public class SeatServiceImpl implements SeatService {

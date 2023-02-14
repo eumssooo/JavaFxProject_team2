@@ -1,10 +1,14 @@
-package project;
+package test_1.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import test_1.Common.CommonService;
+import test_1.Common.CommonServiceImpl;
+import test_1.View.Seat;
 
 public class SeatDAOImpl implements SeatDAO {
 	private static Connection con;
