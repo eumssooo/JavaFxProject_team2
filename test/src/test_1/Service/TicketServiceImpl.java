@@ -35,29 +35,37 @@ public class TicketServiceImpl implements TicketService{
 	@Override
 	public void printTicket(Parent root, Ticket ticket) {
 		// TODO Auto-generated method stub
-		
-		Label confirmTitle = (Label)root.lookup("#confirmTitle");
 		tickets = td.selectTicket(ticket.getUserId());	//ticket.getUserId()
+		Label confirmTitle = (Label)root.lookup("#confirmTitle");
 		confirmTitle.setText(ticket.getUserName() + " 님의 예매 내역"); //ticket.getUserName()
+		String cancel = "#cancelTicket";
+		Button[] cancels = new Button[10];
 		
-		Button cancelTicket = (Button)root.lookup("#cancelTicket");
+		for(int i = 0; i<tickets.size(); i++) {
+			cancel += i;
+			System.out.println(cancel);
+			cancels[i] = (Button)root.lookup(cancel);
+			cancels[i].setVisible(true);
+			cancel = "#cancelTicket";
+		}
+		
 		
 		TableView<Ticket> tableView = new TableView<Ticket>();
 		tableView = (TableView)root.lookup("#confirmTable");
 		
-		TableColumn<Ticket, String> userName = new TableColumn<>("userName");
+		TableColumn<Ticket, String> userName = new TableColumn<>("이름");
 		userName.setCellValueFactory(new PropertyValueFactory<>("userName"));
-		TableColumn<Ticket, String> movieName = new TableColumn<>("movieName");
+		TableColumn<Ticket, String> movieName = new TableColumn<>("제목");
 		movieName.setCellValueFactory(new PropertyValueFactory<>("movieName"));
-		TableColumn<Ticket, String> roomNum = new TableColumn<>("roomNum");
+		TableColumn<Ticket, String> roomNum = new TableColumn<>("관");
 		roomNum.setCellValueFactory(new PropertyValueFactory<>("roomNum"));
-		TableColumn<Ticket, String> day = new TableColumn<>("day");
+		TableColumn<Ticket, String> day = new TableColumn<>("상영날짜");
 		day.setCellValueFactory(new PropertyValueFactory<>("day"));
-		TableColumn<Ticket, String> seatNum = new TableColumn<>("seatNum");
+		TableColumn<Ticket, String> seatNum = new TableColumn<>("좌석");
 		seatNum.setCellValueFactory(new PropertyValueFactory<>("seatNum"));
-		TableColumn<Ticket, Integer> cost = new TableColumn<>("cost");
+		TableColumn<Ticket, Integer> cost = new TableColumn<>("비용");
 		cost.setCellValueFactory(new PropertyValueFactory<>("cost"));
-		TableColumn<Ticket, Integer> reserveDate = new TableColumn<>("reserveDate");
+		TableColumn<Ticket, Integer> reserveDate = new TableColumn<>("예매날짜");
 		reserveDate.setCellValueFactory(new PropertyValueFactory<>("reserveDate"));
 		
 		tableView.getColumns().addAll(userName, movieName,roomNum,day,seatNum,cost,reserveDate);
@@ -66,6 +74,15 @@ public class TicketServiceImpl implements TicketService{
 		ObservableList<Ticket> data = 
 				FXCollections.observableArrayList(ticketList);
 		tableView.setItems(data);
+//		
+//		ObservableList<TableRowDataModel> myList = FXCollections.observableArrayList(
+//	            new TableRowDataModel(new SimpleStringProperty("Jin Seong"), new SimpleStringProperty("DaeJeon"), new SimpleStringProperty("male"), new SimpleIntegerProperty(3)),
+//	            new TableRowDataModel(new SimpleStringProperty("Jang Ho"), new SimpleStringProperty("SiGol"), new SimpleStringProperty("male"), new SimpleIntegerProperty(3)),
+//	            new TableRowDataModel(new SimpleStringProperty("Sung Bin"), new SimpleStringProperty("SuWon"), new SimpleStringProperty("male"), new SimpleIntegerProperty(3)),
+//	            new TableRowDataModel(new SimpleStringProperty("Key Hwang"), new SimpleStringProperty("DaeJeon"), new SimpleStringProperty("male"), new SimpleIntegerProperty(3)),
+//	            new TableRowDataModel(new SimpleStringProperty("Seong Woo"), new SimpleStringProperty("DaeJeon"), new SimpleStringProperty("male"), new SimpleIntegerProperty(3)),
+//	            new TableRowDataModel(new SimpleStringProperty("I kyun"), new SimpleStringProperty("BuSan"), new SimpleStringProperty("male"), new SimpleIntegerProperty(3))
+//	    );
 		
 	}
 

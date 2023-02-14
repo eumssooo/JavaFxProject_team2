@@ -33,6 +33,8 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="29.600012207031227" minHeight="10.0" prefHeight="29.600012207031227" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="31.199987792968727" minHeight="10.0" prefHeight="31.199987792968727" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -40,8 +42,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -64,12 +65,54 @@
       <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="상영일자" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="3" GridPane.rowSpan="2" />
       <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="좌석번호" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="3" GridPane.rowSpan="2" />
       <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="금액" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="3" GridPane.rowSpan="2" />
-      <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="예매일자" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.rowIndex="3" GridPane.rowSpan="2" />
-      <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="예매 취소" textAlignment="CENTER" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="5" GridPane.rowSpan="2">
+      <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="5" GridPane.rowSpan="2">
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="7" GridPane.rowSpan="2">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="예매일자" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.rowIndex="3" GridPane.rowSpan="2" />
+      <Button fx:id="cancelbtn1" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="9" GridPane.rowSpan="2">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </Button>
+      <Button fx:id="cancelbtn2" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="11" GridPane.rowSpan="2">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="13" GridPane.rowSpan="2">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="15" GridPane.rowSpan="2">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="17" GridPane.rowSpan="2">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="19" GridPane.rowSpan="2">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="21" GridPane.rowSpan="2">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="688.0" layoutY="183.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="예매 취소" textAlignment="CENTER" visible="false" />
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="688.0" layoutY="244.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="예매 취소" textAlignment="CENTER" visible="false" />
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
