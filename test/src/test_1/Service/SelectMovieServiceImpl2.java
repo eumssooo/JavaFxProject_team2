@@ -67,20 +67,16 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 			// 1. 청소년이 청불 영화를 선택한 경우 return;
 			// 2. 청소년이 청불이 아닌 관람등급이 높은 영화를 선택한 경우 alert후 진행
 			// 3. 영화 미선택시 에러
-			if (md.getAgeLimit(sd.getSelTitle()) == 19) {
-				if (md.getMemberAge(cust.getId())<=19) {
+			if (md.getMemberAge(cust.getId())<=19) {
+				if (md.getAgeLimit(sd.getSelTitle()) == 19) {
 					cs.alertMsg("관람 등급", "청소년 관람 불가 영화", "청소년 관람 불가 영화입니다.");
 					return;
 				}
-			} else if (cmbMovie.getValue() == null) // null값일시 에러 메세지
-			{
-				cs.alertMsg("영화 선택", "영화가 선택되지 않았습니다", "영화를 선택해주세요");
-				cmbMovie.requestFocus();
-				return;
 			} else {
 				if (md.getMemberAge(cust.getId()) <= md.getAgeLimit(sd.getSelTitle())){
 					cs.alertMsg("관람 등급", md.getAgeLimit(sd.getSelTitle()) + "세 이상 관람가", "관람에 지도가 필요한 영화입니다.");
 				}
+				
 				Stage SelectMovie_3_Session = (Stage) selectMovie.getScene().getWindow();
 				FXMLLoader loader = new FXMLLoader(
 						getClass().getResource("../../SelectMovie_3_Session.fxml"));
@@ -116,11 +112,16 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 				time_4.setText("19:30 - "+ movieTime(19,30,md.getMovieRunningTime(sd.getSelTitle())));
 				Label time_5 = (Label) selectSession.lookup("#time_5");
 				time_5.setText("22:00 - "+ movieTime(22,0,md.getMovieRunningTime(sd.getSelTitle())));
-			} 
+			
+			}
+		} else if (cmbMovie.getValue() == null) // null값일시 에러 메세지
+		{
+			cs.alertMsg("영화 선택", "영화가 선택되지 않았습니다", "영화를 선택해주세요");
+			cmbMovie.requestFocus();
+			return;
 		}
-
 	}
-	
+
 	@Override
 	public void previousPage2(Parent selectMovie, selData sd) {
 		// TODO Auto-generated method stub
