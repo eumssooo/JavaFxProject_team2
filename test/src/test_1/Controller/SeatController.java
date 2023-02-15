@@ -43,28 +43,17 @@ public class SeatController {
 		this.seat = seat;
 	}
 		
-	public void printSeats() {
-	//	ss.printSeat();
-	}
 	public void toMovieProc() {
 		ss.previousPage(seat, sd);
 	}
-
 	
-	public void cancelProc(ActionEvent event) {
-		cs.windowClose(event);
+	public void selectSeat() {
+		// 좌석 선택
+	}
+	
+	
 		
-	}
-	
-	
-	public void cancelSeat() {
-		cs.alertMsg("좌석 선택", "좌석 취소", "선택한 좌석이 취소 되었습니다.");
-		sdao.cancelseat(s);
-	
-	}
-
-		
-	}
+}
 
 
 		

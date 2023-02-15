@@ -8,6 +8,7 @@ public class selData {
 	private int selAdultNum;
 	private int selChildrenNum;
 	private String selTime;
+//	private String selSeat;
 
 	public String getSelDate() {
 		return selDate;
