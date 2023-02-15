@@ -12,8 +12,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import test_1.Service.LoginService;
+import test_1.Service.LoginServiceImpl;
+import test_1.View.Customer;
 
 public class checkoutController {
 	@FXML
@@ -37,7 +42,7 @@ public class checkoutController {
 		alert.setHeaderText("로그아웃 하시겠습니까?");
 		alert.setContentText("상영시간 이후 환불은 어려울 수 있습니다.");
 
-		if(alert.showAndWait().get()==ButtonType.OK) {
+		if(alert.showAndWait().get()==ButtonType.OK) { // 로그인 페이지로 이동
 			stage = (Stage) checkout.getScene().getWindow();
 			
 			FXMLLoader loader = new FXMLLoader(
@@ -62,7 +67,6 @@ public class checkoutController {
 
 	}
 
-	// 한준님이 하실 거~~!~!~!!
 	public void add(ActionEvent event) {
 
 		Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -74,7 +78,7 @@ public class checkoutController {
 			stage = (Stage) checkout.getScene().getWindow();
 			
 			FXMLLoader loader = new FXMLLoader(
-					getClass().getResource("../../SelectMovie_1_Movie.fxml"));
+					getClass().getResource("../../SelectMovie_1_Date.fxml"));
 			Parent selectDate = null;
 			
 			try {
@@ -91,6 +95,13 @@ public class checkoutController {
 			
 			stage.setTitle("상영 날짜 선택");
 			stage.show();
+			
+			Label loginName = (Label) selectDate.lookup("#loginName");
+			loginName.setText(Customer.getId() + " 님");
+			
+			ComboBox<String> cmbDate = (ComboBox<String>) selectDate.lookup("#cmbDate");
+			cmbDate.getItems().addAll("2월 15일","2월 16일","2월 17일","2월 18일","2월 19일");
+
 		}
 //		stage = (Stage) checkout.getScene().getWindow();
 

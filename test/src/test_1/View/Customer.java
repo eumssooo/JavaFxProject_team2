@@ -4,7 +4,7 @@ public class Customer {
 	private String name;
 	private String phone;
 	private int age;
-	private String id;
+	private static String id;
 	private String pw;
 	
 	public String getName() {
@@ -25,7 +25,7 @@ public class Customer {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public String getId() {
+	public static String getId() {
 		return id;
 	}
 	public void setId(String id) {
