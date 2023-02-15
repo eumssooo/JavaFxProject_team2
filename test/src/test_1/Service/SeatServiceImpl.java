@@ -120,10 +120,10 @@ public class SeatServiceImpl implements SeatService {
 	}
 
 	@Override
-	public void NextPage(Parent seat) {
+	public void NextPage(Parent seat, selData sd) {
 		// TODO Auto-generated method stub
 
-		cs.alertMsg("좌석 확인", "선택한 좌석", temp+" 좌석이 선택 되었습니다");
+		cs.alertMsg("좌석 확인", (sd.getSelAdultNum()+sd.getSelChildrenNum())+"개 좌석 선택", temp+" 좌석이 선택 되었습니다");
 
 		// 다음 창으로 넘어가기
 		Stage s = (Stage) seat.getScene().getWindow();

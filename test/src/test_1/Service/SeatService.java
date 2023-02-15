@@ -9,7 +9,7 @@ public interface SeatService {
 	public void joinSeat(Parent root);
 	public boolean SeatServiceChk(String text, String text2);
 	public void previousPage(Parent seat, selData sd);
-	public void NextPage(Parent root);
+	public void NextPage(Parent root, selData sd);
 	public void selectSeat(Parent root, selData sd);
 }
 

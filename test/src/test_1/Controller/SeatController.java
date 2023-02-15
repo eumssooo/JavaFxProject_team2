@@ -55,7 +55,7 @@ public class SeatController {
 	}
 	
 	public void toTicketProc() {
-		ss.NextPage(seat);
+		ss.NextPage(seat, sd);
 	}
 	
 	
