@@ -75,8 +75,6 @@ public class LoginServiceImpl implements LoginService{
 			// 상영날짜 선택 콤보박스 내용 입력 (로그인 이후에 넣기)
 			ComboBox<String> cmbDate = (ComboBox<String>) selectDate.lookup("#cmbDate");
 			cmbDate.getItems().addAll("2월 15일","2월 16일","2월 17일","2월 18일","2월 19일");
-
-
 			
 		} else {
 			cs.errorMsg("로그인", "로그인 결과", "아이디/패스워드가 일치하지 않습니다");
