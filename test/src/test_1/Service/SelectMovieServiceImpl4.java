@@ -32,7 +32,7 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 	// 상영 시간 계산
 		public String movieTime (int a, int b, int c) {
 			int movieH = (a * 60 + b +c ) /60;
-			int movieM = (a * 60 + b +c ) %60;	
+			int movieM = (a * 60 + b +c ) %60;
 			String movieTime = (movieH + ":" + movieM);
 			return movieTime;
 		}
@@ -164,14 +164,14 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 		SelectMovie_3_Session.show();
 		
 		Label time_1 = (Label) selectSession.lookup("#time_1"); 
-		time_1.setText("9:00 - " + movieTime(9,0,md.movieRunningTime(sd.getSelTitle())));
+		time_1.setText("9:00 - " + movieTime(9,0,md.getMovieRunningTime(sd.getSelTitle())));
 		Label time_2 = (Label) selectSession.lookup("#time_2");
-		time_2.setText("12:30 - "+ movieTime(12,30,md.movieRunningTime(sd.getSelTitle())));
+		time_2.setText("12:30 - "+ movieTime(12,30,md.getMovieRunningTime(sd.getSelTitle())));
 		Label time_3 = (Label) selectSession.lookup("#time_3");
-		time_3.setText("16:00 - "+ movieTime(16,0,md.movieRunningTime(sd.getSelTitle())));
+		time_3.setText("16:00 - "+ movieTime(16,0,md.getMovieRunningTime(sd.getSelTitle())));
 		Label time_4 = (Label) selectSession.lookup("#time_4");
-		time_4.setText("19:30 - "+ movieTime(19,30,md.movieRunningTime(sd.getSelTitle())));
+		time_4.setText("19:30 - "+ movieTime(19,30,md.getMovieRunningTime(sd.getSelTitle())));
 		Label time_5 = (Label) selectSession.lookup("#time_5");
-		time_5.setText("22:00 - "+ movieTime(22,0,md.movieRunningTime(sd.getSelTitle())));
+		time_5.setText("22:00 - "+ movieTime(22,0,md.getMovieRunningTime(sd.getSelTitle())));
 	}
 }

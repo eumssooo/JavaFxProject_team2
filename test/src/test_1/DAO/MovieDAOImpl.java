@@ -26,7 +26,29 @@ public class MovieDAOImpl implements MovieDAO {
 	}
 
 	
-	public int movieRunningTime(String title) { // 러닝타임 받아오기
+	public int getAgeLimit(String title) { // 상영 등급 받아오기
+		// TODO Auto-generated method stub
+		String sql = "select agelimit from movie where title = ?";
+		// select runtime from movie where title = '타이타닉';
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,title);
+				
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+			int ageLimit = rs.getInt(1);			
+			return ageLimit;
+			}
+			pstmt.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public int getMovieRunningTime(String title) { // 러닝타임 받아오기
 		// TODO Auto-generated method stub
 		String sql = "select runtime from movie where title = ?";
 		// select runtime from movie where title = '타이타닉';
