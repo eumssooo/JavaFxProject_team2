@@ -45,7 +45,7 @@ public class SelectMovieServiceImpl5 implements SelectMovieService5{
 		}
 
 		SeatController ctrl = loader.getController();
-		ctrl.setSeat(chkInfo);
+		ctrl.setSeat(root);
 		ctrl.setSelData(sd);
 
 		s.setTitle("좌석 선택");
