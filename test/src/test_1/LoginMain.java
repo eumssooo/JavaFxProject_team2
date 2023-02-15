@@ -21,7 +21,7 @@ public class LoginMain extends Application{
 		ctrl.setRoot(root);
 		
 		primaryStage.setScene(new Scene(root));
-		primaryStage.setTitle("영화 예매 창");
+		primaryStage.setTitle("로그인");
 		primaryStage.show();
 	}
 
