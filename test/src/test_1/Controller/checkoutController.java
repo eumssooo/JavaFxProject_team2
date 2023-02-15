@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 public class checkoutController {
 	@FXML
 	private Button logoutButton;
+	
 	@FXML
 	private AnchorPane scenePane;
 	Stage stage;
