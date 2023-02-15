@@ -20,7 +20,7 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 	Parent chkInfo;
 
 	private Customer cust;
-	
+
 	private static CommonService cs;
 	private static  MovieDAO md;
 
@@ -31,19 +31,18 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 		cs = new CommonServiceImpl();
 		md = new MovieDAOImpl();
 	}
-	
+
 	// 상영 시간 계산
-		public String movieTime (int a, int b, int c) {
-			int movieH = (a * 60 + b +c ) /60;
-			int movieM = (a * 60 + b +c ) %60;
-			String movieTime = (movieH + ":" + movieM);
-			return movieTime;
-		}
+	public String movieTime (int a, int b, int c) {
+		int movieH = (a * 60 + b +c ) /60;
+		int movieM = (a * 60 + b +c ) %60;
+		String movieTime = (movieH + ":" + movieM);
+		return movieTime;
+	}
 
 	@Override
 	public void nextPage4(Parent selectPerson, selData sd) {
 		// TODO Auto-generated method stub
-
 
 		// 미성년자가 청소년 관람 불가 영화 선택시 alert 메세지 뜨도록 추가해야함
 		// 인원선택 토글버튼 - 성인
@@ -63,6 +62,8 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 				!children_4.isSelected()) {	
 			cs.alertMsg("관람 인원 선택", "관람 인원이 선택되지 않았습니다", "관람 인원을 선택해주세요");	
 			return;
+		} if (md.getMemberAge(cust.getId()) <= 19){
+			cs.alertMsg("관람 불가 등급", "청소년 관람 불가 영화", "청소년 관람 불가 영화입니다.");
 		} else { // 관람인원 값
 			// 성인
 			if (adult_1.isSelected()) {
@@ -111,11 +112,11 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 
 			SelectMovie_5_chkInfo.setTitle("예매 정보 확인");
 			SelectMovie_5_chkInfo.show();
-			
+
 			// 로그인 된 아이디 표시
 			Label loginName = (Label) chkInfo.lookup("#loginName");
 			loginName.setText(cust.getId() + " 님");
-			
+
 			// 예매 정보 확인 페이지에 들어갈 정보
 			// 영화 제목
 			Label chkTitle = (Label) chkInfo.lookup("#chkTitle"); 
@@ -170,11 +171,11 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 
 		SelectMovie_3_Session.setTitle("상영 회차 선택");
 		SelectMovie_3_Session.show();
-		
+
 		// 로그인 된 아이디 표시
 		Label loginName = (Label) selectSession.lookup("#loginName");
 		loginName.setText(cust.getId() + " 님");
-		
+
 		Label time_1 = (Label) selectSession.lookup("#time_1"); 
 		time_1.setText("9:00 - " + movieTime(9,0,md.getMovieRunningTime(sd.getSelTitle())));
 		Label time_2 = (Label) selectSession.lookup("#time_2");

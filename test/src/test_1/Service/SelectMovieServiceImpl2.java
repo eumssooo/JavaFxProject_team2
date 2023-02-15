@@ -21,14 +21,14 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 	private static MovieDAO md;
 	Parent selectDate;
 	Parent selectSession;
-	
+
 	private Customer cust;
-	
+
 	public SelectMovieServiceImpl2 () {
 		cs = new CommonServiceImpl();
 		md = new MovieDAOImpl();
 	}
-	
+
 	// 상영 시간 계산
 	public String movieTime (int a, int b, int c) {
 		int movieH = (a * 60 + b +c ) /60;
@@ -36,17 +36,17 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 		String movieTime = (movieH + ":" + movieM);
 		return movieTime;
 	}
-	
+
 	@Override
 	public void nextPage2(Parent selectMovie, selData sd) {
 		// TODO Auto-generated method stub
-		
-		
+
+
 		ComboBox<String> cmbMovie = (ComboBox<String>) selectMovie.lookup("#cmbMovie");
-		
-		
+
+
 		// 콤보박스에서 선택된 값 가져오기
-				
+
 		if(cmbMovie.getValue() != null) {// null이 아니면 다음 페이지 접속 가능	
 			if(cmbMovie.getValue().equals("타이타닉")) {
 				sd.setSelTitle(cmbMovie.getValue());
@@ -62,7 +62,18 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 				sd.setSelRoom(4);
 			}
 
-				// 상영회차 선택 페이지(다음 페이지) 로드
+			// 상영회차 선택 페이지(다음 페이지) 로드
+
+			if (md.getMemberAge(cust.getId()) <= 19){
+				cs.alertMsg("관람 불가 등급", "청소년 관람 불가 영화", "청소년 관람 불가 영화입니다.");
+				return;
+			} else if (cmbMovie.getValue() == null) // null값일시 에러 메세지
+			{
+				cs.alertMsg("영화 선택", "영화가 선택되지 않았습니다", "영화를 선택해주세요");
+				cmbMovie.requestFocus();
+				return;
+			} else {
+
 				Stage SelectMovie_3_Session = (Stage) selectMovie.getScene().getWindow();
 				FXMLLoader loader = new FXMLLoader(
 						getClass().getResource("../../SelectMovie_3_Session.fxml"));
@@ -82,12 +93,12 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 
 				SelectMovie_3_Session.setTitle("상영 회차 선택");
 				SelectMovie_3_Session.show();
-				
+
 				// 로그인 된 아이디 표시
 				Label loginName = (Label) selectSession.lookup("#loginName");
 				loginName.setText(cust.getId() + " 님");
-				
-				 // 상영 시간 표시
+
+				// 상영 시간 표시
 				Label time_1 = (Label) selectSession.lookup("#time_1"); 
 				time_1.setText("9:00 - " + movieTime(9,0,md.getMovieRunningTime(sd.getSelTitle())));
 				Label time_2 = (Label) selectSession.lookup("#time_2");
@@ -98,18 +109,11 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 				time_4.setText("19:30 - "+ movieTime(19,30,md.getMovieRunningTime(sd.getSelTitle())));
 				Label time_5 = (Label) selectSession.lookup("#time_5");
 				time_5.setText("22:00 - "+ movieTime(22,0,md.getMovieRunningTime(sd.getSelTitle())));
-				
-				
-				
-			} else if (cmbMovie.getValue() == null) // null값일시 에러 메세지
-			{
-				cs.alertMsg("영화 선택", "영화가 선택되지 않았습니다", "영화를 선택해주세요");
-				cmbMovie.requestFocus();
-				return;
-			}
+			} 
 		}
-	
 
+	}
+	
 	@Override
 	public void previousPage2(Parent selectMovie, selData sd) {
 		// TODO Auto-generated method stub
@@ -136,14 +140,14 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 		SelectMovie_1_Date.show();
 		// 선택된 데이터 지우기
 		sd.setSelDate(null);
-		
+
 		// 로그인 된 아이디 표시
 		Label loginName = (Label) selectDate.lookup("#loginName");
 		loginName.setText(cust.getId() + " 님");
-		
+
 		// 상영날짜 선택 콤보박스 내용 입력 (로그인 이후에 넣기)
-				ComboBox<String> cmbDate = (ComboBox<String>) selectDate.lookup("#cmbDate");
-				cmbDate.getItems().addAll("2월 15일","2월 16일","2월 17일","2월 18일","2월 19일");
-				
+		ComboBox<String> cmbDate = (ComboBox<String>) selectDate.lookup("#cmbDate");
+		cmbDate.getItems().addAll("2월 15일","2월 16일","2월 17일","2월 18일","2월 19일");
+
 	}
 }
