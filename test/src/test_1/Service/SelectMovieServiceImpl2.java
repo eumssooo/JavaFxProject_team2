@@ -71,50 +71,51 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 				if (md.getAgeLimit(sd.getSelTitle()) == 19) {
 					cs.alertMsg("관람 등급", "청소년 관람 불가 영화", "청소년 관람 불가 영화입니다.");
 					return;
+				} else {
+					if (md.getMemberAge(cust.getId()) <= md.getAgeLimit(sd.getSelTitle())){
+						cs.alertMsg("관람 등급", md.getAgeLimit(sd.getSelTitle()) + "세 이상 관람가", "관람에 지도가 필요한 영화입니다.");
+					}
 				}
-			} else {
-				if (md.getMemberAge(cust.getId()) <= md.getAgeLimit(sd.getSelTitle())){
-					cs.alertMsg("관람 등급", md.getAgeLimit(sd.getSelTitle()) + "세 이상 관람가", "관람에 지도가 필요한 영화입니다.");
-				}
-				
-				Stage SelectMovie_3_Session = (Stage) selectMovie.getScene().getWindow();
-				FXMLLoader loader = new FXMLLoader(
-						getClass().getResource("../../SelectMovie_3_Session.fxml"));
+			}				
+			Stage SelectMovie_3_Session = (Stage) selectMovie.getScene().getWindow();
+			FXMLLoader loader = new FXMLLoader(
+					getClass().getResource("../../SelectMovie_3_Session.fxml"));
 
-				try {
-					selectSession = loader.load();
+			try {
+				selectSession = loader.load();
 
-					SelectMovie_3_Session.setScene(new Scene(selectSession));
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-
-				SelectMovieController ctrl = loader.getController();
-
-				ctrl.setSelectSession(selectSession);
-				ctrl.setSelData(sd);
-
-				SelectMovie_3_Session.setTitle("상영 회차 선택");
-				SelectMovie_3_Session.show();
-
-				// 로그인 된 아이디 표시
-				Label loginName = (Label) selectSession.lookup("#loginName");
-				loginName.setText(cust.getId() + " 님");
-
-				// 상영 시간 표시
-				Label time_1 = (Label) selectSession.lookup("#time_1"); 
-				time_1.setText("9:00 - " + movieTime(9,0,md.getMovieRunningTime(sd.getSelTitle())));
-				Label time_2 = (Label) selectSession.lookup("#time_2");
-				time_2.setText("12:30 - "+ movieTime(12,30,md.getMovieRunningTime(sd.getSelTitle())));
-				Label time_3 = (Label) selectSession.lookup("#time_3");
-				time_3.setText("16:00 - "+ movieTime(16,0,md.getMovieRunningTime(sd.getSelTitle())));
-				Label time_4 = (Label) selectSession.lookup("#time_4");
-				time_4.setText("19:30 - "+ movieTime(19,30,md.getMovieRunningTime(sd.getSelTitle())));
-				Label time_5 = (Label) selectSession.lookup("#time_5");
-				time_5.setText("22:00 - "+ movieTime(22,0,md.getMovieRunningTime(sd.getSelTitle())));
-			
+				SelectMovie_3_Session.setScene(new Scene(selectSession));
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-		} else if (cmbMovie.getValue() == null) // null값일시 에러 메세지
+
+			SelectMovieController ctrl = loader.getController();
+
+			ctrl.setSelectSession(selectSession);
+			ctrl.setSelData(sd);
+
+			SelectMovie_3_Session.setTitle("상영 회차 선택");
+			SelectMovie_3_Session.show();
+
+			// 로그인 된 아이디 표시
+			Label loginName = (Label) selectSession.lookup("#loginName");
+			loginName.setText(cust.getId() + " 님");
+
+			// 상영 시간 표시
+			Label time_1 = (Label) selectSession.lookup("#time_1"); 
+			time_1.setText("9:00 - " + movieTime(9,0,md.getMovieRunningTime(sd.getSelTitle())));
+			Label time_2 = (Label) selectSession.lookup("#time_2");
+			time_2.setText("12:30 - "+ movieTime(12,30,md.getMovieRunningTime(sd.getSelTitle())));
+			Label time_3 = (Label) selectSession.lookup("#time_3");
+			time_3.setText("16:00 - "+ movieTime(16,0,md.getMovieRunningTime(sd.getSelTitle())));
+			Label time_4 = (Label) selectSession.lookup("#time_4");
+			time_4.setText("19:30 - "+ movieTime(19,30,md.getMovieRunningTime(sd.getSelTitle())));
+			Label time_5 = (Label) selectSession.lookup("#time_5");
+			time_5.setText("22:00 - "+ movieTime(22,0,md.getMovieRunningTime(sd.getSelTitle())));
+
+		}
+
+		if (cmbMovie.getValue() == null) // null값일시 에러 메세지
 		{
 			cs.alertMsg("영화 선택", "영화가 선택되지 않았습니다", "영화를 선택해주세요");
 			cmbMovie.requestFocus();
