@@ -35,6 +35,7 @@ public class JoinServiceImpl implements JoinService{
 		// TODO Auto-generated constructor stub
 		cs = new CommonServiceImpl();
 		ds = new LoginDAOImpl();
+		cs.conn();
 	}
 	
 	
@@ -124,7 +125,7 @@ public class JoinServiceImpl implements JoinService{
 			Stage s = (Stage) membership.getScene().getWindow();
 			s.close();
 		} else {
-
+			System.out.println("1");
 		}
 	}
 

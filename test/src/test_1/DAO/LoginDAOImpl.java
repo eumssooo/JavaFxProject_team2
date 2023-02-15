@@ -47,6 +47,7 @@ public class LoginDAOImpl implements LoginDAO{
 			String sql = "insert into customer values(?,?,?,?,?)";
 			
 			try {
+				
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, c.getId());
 				pstmt.setString(2, c.getPw());

@@ -2,9 +2,11 @@ package test_1.Service;
 
 import java.io.IOException;
 
+import test_1.Controller.SelectMovieController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -41,21 +43,29 @@ public class LoginServiceImpl implements LoginService{
 			
 			// 로그인 창 닫기
 			Stage s = (Stage) root.getScene().getWindow();
-			s.close();
 			
-			//
-			//
-			//
-			//
-			//
-			//
-			//
-			//
-			//
-			//
-			//
-			//
-			//
+			FXMLLoader loader = new FXMLLoader(
+					getClass().getResource("../../SelectMovie_1_Date.fxml")); //경로 수정
+			
+			Parent selectDate = null;
+			try {
+				selectDate = loader.load();
+				s.setScene(new Scene(selectDate));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			SelectMovieController ctrl = loader.getController();
+			ctrl.setSelectDate(selectDate);
+					
+			
+			s.setTitle("상영 날짜 선택");
+			s.show();
+			
+			// 상영날짜 선택 콤보박스 내용 입력 (로그인 이후에 넣기)
+			ComboBox<String> cmbDate = (ComboBox<String>) selectDate.lookup("#cmbDate");
+			cmbDate.getItems().addAll("2월 15일","2월 16일","2월 17일","2월 18일","2월 19일");
 			// 로그인 성공 시 영화 예매 페이지로 넘어가도록 추후 작업 필요
 			
 		} else {

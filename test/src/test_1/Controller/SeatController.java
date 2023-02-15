@@ -1,14 +1,21 @@
-package project;
+package test_1.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import test_1.Common.CommonServiceImpl;
+import test_1.DAO.SeatDAO;
+import test_1.DAO.SeatDAOImpl;
+import test_1.Service.SeatService;
+import test_1.Service.SeatServiceImpl;
+import test_1.View.Seat;
+import test_1.View.selData;
 
 public class SeatController {
 	private static Parent root;
 	private static Seat s;
-	private static CommonService cs;
+	private static CommonServiceImpl cs;
 	private static SeatDAO sd;
 	private static SeatService ss;
 	
@@ -25,10 +32,9 @@ public class SeatController {
 		// TODO Auto-generated method stub
 		this.root = root;
 	}
-	
-	
+		
 	public void printSeats() {
-		ss.printSeat();
+	//	ss.printSeat();
 	}
 
 	
@@ -39,7 +45,7 @@ public class SeatController {
 	
 	
 	public void cancelSeat() {
-		cs.alertMsg("자석 취소", "자석 취소", "자석이 취소 되었습니다.");
+		cs.alertMsg("좌석 선택", "좌석 취소", "선택한 좌석이 취소 되었습니다.");
 		sd.cancelseat(s);
 	
 	}
