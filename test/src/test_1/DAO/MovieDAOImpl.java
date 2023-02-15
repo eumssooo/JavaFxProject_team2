@@ -29,7 +29,6 @@ public class MovieDAOImpl implements MovieDAO {
 	public int getAgeLimit(String title) { // 상영 등급 받아오기
 		// TODO Auto-generated method stub
 		String sql = "select agelimit from movie where title = ?";
-		// select runtime from movie where title = '타이타닉';
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1,title);
@@ -47,6 +46,29 @@ public class MovieDAOImpl implements MovieDAO {
 		}
 		return 0;
 	}
+	
+	@Override
+	public int getMemberAge(String id) { // 회원 나이 받아오기
+		// TODO Auto-generated method stub
+		String sql = "select age from customer where id = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,id);
+				
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+			int age = rs.getInt(1);			
+			return age;
+			}
+			pstmt.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
 	
 	public int getMovieRunningTime(String title) { // 러닝타임 받아오기
 		// TODO Auto-generated method stub
@@ -70,6 +92,9 @@ public class MovieDAOImpl implements MovieDAO {
 		return 0;
 		// 회원 나이, 상영 등급 받아오기 추가 필요
 	}
+
+
+
 }
 
 
