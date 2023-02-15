@@ -8,7 +8,8 @@ public class selData {
 	private int selAdultNum;
 	private int selChildrenNum;
 	private String selTime;
-//	private String selSeat;
+	private int cost;
+	private String selSeatNum;
 
 	public String getSelDate() {
 		return selDate;
@@ -45,6 +46,18 @@ public class selData {
 	}
 	public void setSelRoom(int selRoom) {
 		this.selRoom = selRoom;
+	}
+	public int getCost() {
+		return cost;
+	}
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+	public String getSelSeatNum() {
+		return selSeatNum;
+	}
+	public void setSelSeatNum(String selSeatNum) {
+		this.selSeatNum = selSeatNum;
 	}
 
 

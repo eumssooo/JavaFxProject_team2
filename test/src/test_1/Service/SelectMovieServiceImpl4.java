@@ -133,8 +133,9 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 				chkPersonNum.setText("성인 " + sd.getSelAdultNum() + "명");
 			}
 			// 총 금액
-			Label cost = (Label) chkInfo.lookup("#cost"); 
-			cost.setText((sd.getSelAdultNum()*ticketCostAdult + sd.getSelChildrenNum()*ticketCostChildren) + "원");
+			Label cost = (Label) chkInfo.lookup("#cost");
+			sd.setCost((sd.getSelAdultNum()*ticketCostAdult + sd.getSelChildrenNum()*ticketCostChildren));
+			cost.setText(sd.getCost() + "원");
 
 		}
 	}
