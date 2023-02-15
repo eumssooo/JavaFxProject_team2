@@ -3,6 +3,7 @@ package test_1.Service;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -33,6 +34,7 @@ public class SeatServiceImpl implements SeatService {
 	private ArrayList<Seat>seats;
 	private SeatDAO sdao;
 	private CommonService cs;
+	private String temp;
 
 	// 이전 페이지 정보에 필요
 	int ticketCostAdult = 14000;
@@ -121,8 +123,8 @@ public class SeatServiceImpl implements SeatService {
 	public void NextPage(Parent seat) {
 		// TODO Auto-generated method stub
 
-		cs.alertMsg("좌석 확인", "선택한 좌석", "~~~~띄워야함");
-		
+		cs.alertMsg("좌석 확인", "선택한 좌석", temp+" 좌석이 선택 되었습니다");
+
 		// 다음 창으로 넘어가기
 		Stage s = (Stage) seat.getScene().getWindow();
 
@@ -145,33 +147,32 @@ public class SeatServiceImpl implements SeatService {
 		s.show();
 	}
 
-		@Override
-		public void selectSeat(Parent root, selData sd) {
-			// TODO Auto-generated method stub
-			String sel = "#chk";
-			CheckBox[] selarray = new CheckBox[16];
-			String temp = "";
-			
-			for(int i = 0; i<selarray.length; i++) {
-				sel += i+1;
-				System.out.println(sel);
-				selarray[i] = (CheckBox)root.lookup(sel);
-				sel = "#chk";
-			}
-			for(int i = 0; i < selarray.length; i++) {
-				if(selarray[i].isSelected()) {
-					temp += selarray[i].getText() + "/";
-					// 잔여 좌석수 추가
-					
-					// selSeatNum은 나중에
-					// 나중에 StringTokenizer 로 나눠쓰면 됌.
-				}
-			}
-			temp = temp.substring(0, temp.length() - 1);
-			sd.setSelSeatNum(temp);
-			System.out.println(sd.getSelSeatNum());
-		}
+	@Override
+	public void selectSeat(Parent root, selData sd) {
+		// TODO Auto-generated method stub
+		String sel = "#chk";
+		CheckBox[] selarray = new CheckBox[16];
+		temp = "";
 
+		for(int i = 0; i<selarray.length; i++) {
+			sel += i+1;
+			System.out.println(sel);
+			selarray[i] = (CheckBox)root.lookup(sel);
+			sel = "#chk";
+		}
+		for(int i = 0; i < selarray.length; i++) {
+			if(selarray[i].isSelected()) {
+				temp += selarray[i].getText() + "/";
+				// 잔여 좌석수 추가
+
+				// selSeatNum은 나중에
+				// 나중에 StringTokenizer 로 나눠쓰면 됌.
+			}
+		}
+		temp = temp.substring(0, temp.length() - 1);
+		sd.setSelSeatNum(temp);
+		System.out.println(sd.getSelSeatNum());
+	}
 
 }
 
