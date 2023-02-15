@@ -17,7 +17,7 @@ public class SeatMain extends Application {
 		Parent root = loader.load();
 		
 		SeatController ctrl = loader.getController();
-		ctrl.setRoot(root);
+		ctrl.setSeat(root);
 		System.out.println("test");
 	
 		primaryStage.setScene(new Scene(root));
