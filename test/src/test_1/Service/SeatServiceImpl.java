@@ -150,7 +150,6 @@ public class SeatServiceImpl implements SeatService {
 			// TODO Auto-generated method stub
 			String sel = "#chk";
 			CheckBox[] selarray = new CheckBox[16];
-			int cnt = 0;
 			String temp = "";
 			
 			for(int i = 0; i<selarray.length; i++) {
@@ -161,7 +160,6 @@ public class SeatServiceImpl implements SeatService {
 			}
 			for(int i = 0; i < selarray.length; i++) {
 				if(selarray[i].isSelected()) {
-					cnt++;
 					temp += selarray[i].getText() + "/";
 					// 잔여 좌석수 추가
 					

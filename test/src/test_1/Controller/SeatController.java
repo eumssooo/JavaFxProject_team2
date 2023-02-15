@@ -27,6 +27,7 @@ public class SeatController {
 	private SeatDAO sdao;
 	private SeatService ss;
 	private selData sd;
+	private int cnt = 0;
 	
 	public SeatController() {
 		cs = new CommonServiceImpl();
@@ -43,17 +44,17 @@ public class SeatController {
 		this.seat = seat;
 	}
 	
-//	public void selectSeat() {
-//		// 좌석 선택
-//		ss.selectSeat(seat, sd);
-//	}
+	public void selectSeat() {
+		// 좌석 선택
+		ss.selectSeat(seat, sd);
+		// 인원 수 초과하면 빠꾸 - 2023/02/15
+	}
 		
 	public void toMovieProc() {
 		ss.previousPage(seat, sd);
 	}
 	
 	public void toTicketProc() {
-		ss.selectSeat(seat, sd);
 		ss.NextPage(seat);
 	}
 	
