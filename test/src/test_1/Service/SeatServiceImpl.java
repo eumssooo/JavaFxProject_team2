@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import test_1.Common.CommonService;
@@ -138,6 +140,35 @@ public class SeatServiceImpl implements SeatService {
 			
 			s.setTitle("티켓 확인");
 			s.show();
+		}
+
+		@Override
+		public void selectSeat(Parent root, selData sd) {
+			// TODO Auto-generated method stub
+			String sel = "#chk";
+			CheckBox[] selarray = new CheckBox[16];
+			int cnt = 0;
+			String temp = "";
+			
+			for(int i = 0; i<selarray.length; i++) {
+				sel += i+1;
+				System.out.println(sel);
+				selarray[i] = (CheckBox)root.lookup(sel);
+				sel = "#chk";
+			}
+			for(int i = 0; i < selarray.length; i++) {
+				if(selarray[i].isSelected()) {
+					cnt++;
+					temp += selarray[i].getText() + "/";
+					// 잔여 좌석수 추가
+					
+					// selSeatNum은 나중에
+					// 나중에 StringTokenizer 로 나눠쓰면 됌.
+				}
+			}
+			temp = temp.substring(0, temp.length() - 1);
+			sd.setSelSeatNum(temp);
+			System.out.println(sd.getSelSeatNum());
 		}
 
 

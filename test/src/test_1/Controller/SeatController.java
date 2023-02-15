@@ -43,15 +43,17 @@ public class SeatController {
 		this.seat = seat;
 	}
 	
-	public void selectSeat() {
-		// 좌석 선택
-	}
+//	public void selectSeat() {
+//		// 좌석 선택
+//		ss.selectSeat(seat, sd);
+//	}
 		
 	public void toMovieProc() {
 		ss.previousPage(seat, sd);
 	}
 	
 	public void toTicketProc() {
+		ss.selectSeat(seat, sd);
 		ss.NextPage(seat);
 	}
 	

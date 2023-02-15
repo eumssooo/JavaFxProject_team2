@@ -10,6 +10,7 @@ public class selData {
 	private String selTime;
 	private int cost;
 	private String selSeatNum;
+	private int selSeatCnt;
 
 	public String getSelDate() {
 		return selDate;
@@ -58,6 +59,12 @@ public class selData {
 	}
 	public void setSelSeatNum(String selSeatNum) {
 		this.selSeatNum = selSeatNum;
+	}
+	public int getSelSeatCnt() {
+		return selSeatCnt;
+	}
+	public void setSelSeatCnt(int selSeatCnt) {
+		this.selSeatCnt = selSeatCnt;
 	}
 
 
