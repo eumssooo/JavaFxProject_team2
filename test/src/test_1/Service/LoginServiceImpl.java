@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import test_1.Common.CommonService;
 import test_1.Common.CommonServiceImpl;
 import test_1.Controller.LoginController;
+import test_1.Controller.SelectMovieController;
 import test_1.DAO.LoginDAO;
 import test_1.DAO.LoginDAOImpl;
 
@@ -42,6 +43,7 @@ public class LoginServiceImpl implements LoginService{
 			cs.errorMsg("로그인", "로그인 결과", "로그인에 성공하였습니다");
 			
 			// 로그인 창 닫기
+<<<<<<< HEAD
 			Stage s = (Stage) root.getScene().getWindow();
 			
 			FXMLLoader loader = new FXMLLoader(
@@ -66,7 +68,44 @@ public class LoginServiceImpl implements LoginService{
 			// 상영날짜 선택 콤보박스 내용 입력 (로그인 이후에 넣기)
 			ComboBox<String> cmbDate = (ComboBox<String>) selectDate.lookup("#cmbDate");
 			cmbDate.getItems().addAll("2월 15일","2월 16일","2월 17일","2월 18일","2월 19일");
+=======
+//			Stage s = (Stage) root.getScene().getWindow();
+//			s.close();
+
+			//
+			//
+			//
+			//
+			//
+			//
+>>>>>>> branch 'master' of https://github.com/eumssooo/JavaFxProject_team2.git
 			// 로그인 성공 시 영화 예매 페이지로 넘어가도록 추후 작업 필요
+			
+			Stage select = (Stage) root.getScene().getWindow();
+			
+			FXMLLoader loader = new FXMLLoader(
+					getClass().getResource("../../SelectMovie_1_Date.fxml")); //경로 수정
+			
+			Parent selectDate = null;
+			try {
+				selectDate = loader.load();
+				select.setScene(new Scene(selectDate));
+				
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			SelectMovieController ctrl = loader.getController();
+			ctrl.setSelectDate(selectDate);
+			
+			select.setTitle("상영 날짜 선택");
+			select.show();
+			
+			// 상영날짜 선택 콤보박스 내용 입력 (로그인 이후에 넣기)
+			ComboBox<String> cmbDate = (ComboBox<String>) selectDate.lookup("#cmbDate");
+			cmbDate.getItems().addAll("2월 15일","2월 16일","2월 17일","2월 18일","2월 19일");
 			
 		} else {
 			cs.errorMsg("로그인", "로그인 결과", "아이디/패스워드가 일치하지 않습니다");

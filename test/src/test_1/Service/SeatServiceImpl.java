@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+<<<<<<< HEAD
 import javafx.stage.Stage;
 import test_1.Common.CommonService;
 import test_1.Common.CommonServiceImpl;
@@ -15,6 +16,13 @@ import test_1.DAO.SeatDAO;
 import test_1.DAO.SeatDAOImpl;
 import test_1.View.Seat;
 import test_1.View.selData;
+=======
+import test_1.Common.CommonService;
+import test_1.Common.CommonServiceImpl;
+import test_1.DAO.SeatDAO;
+import test_1.DAO.SeatDAOImpl;
+import test_1.View.Seat;
+>>>>>>> branch 'master' of https://github.com/eumssooo/JavaFxProject_team2.git
 
 
 public class SeatServiceImpl implements SeatService {
