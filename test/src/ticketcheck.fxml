@@ -60,7 +60,7 @@
       </Label>
       <Separator prefWidth="200.0" GridPane.columnSpan="10" GridPane.rowIndex="2" />
       <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnSpan="7" GridPane.rowIndex="5" GridPane.rowSpan="2" />
-      <Button fx:id="ticketcheck" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ticketchek" prefHeight="68.0" prefWidth="74.0" text="티켓확인" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="8" GridPane.rowSpan="5">
+      <Button fx:id="ticketcheck" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ticketcheck" prefHeight="68.0" prefWidth="74.0" text="티켓확인" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="8" GridPane.rowSpan="5">
          <font>
             <Font size="36.0" />
          </font>
