@@ -3,6 +3,7 @@ package test_1.Controller;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -17,6 +18,8 @@ public class checkoutController {
 	@FXML
 	private AnchorPane scenePane;
 	Stage stage;
+	
+	Parent checkout;
 
 	public void logout(ActionEvent event) {
 
@@ -61,5 +64,10 @@ public class checkoutController {
 		}
 		stage = (Stage) scenePane.getScene().getWindow();
 
+	}
+
+	public void setCheckout(Parent checkout) {
+		// TODO Auto-generated method stub
+		this.checkout = checkout;
 	}
 }

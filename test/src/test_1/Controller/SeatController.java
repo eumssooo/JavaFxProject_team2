@@ -21,45 +21,43 @@ import test_1.View.Seat;
 
 
 public class SeatController {
-	private static Parent seat;
-	private static Seat s;
-	private static CommonServiceImpl cs;
-	private static SeatDAO sd;
-	private static SeatService ss;
-	
-	@FXML
-    private Label lblTest;
+	private Parent seat;
+	private Seat s;
+	private CommonServiceImpl cs;
+	private SeatDAO sdao;
+	private SeatService ss;
+	private selData sd;
 	
 	public SeatController() {
 		cs = new CommonServiceImpl();
-		sd = new SeatDAOImpl();
+		sdao = new SeatDAOImpl();
 		ss = new SeatServiceImpl();
+	}
+	
+	public void setSelData(selData sd) {
+		this.sd= sd;
 	}
 
 	public void setSeat(Parent seat) {
 		// TODO Auto-generated method stub
 		this.seat = seat;
 	}
+	
+	public void selectSeat() {
+		// 좌석 선택
+	}
 		
-	public void printSeats() {
-	//	ss.printSeat();
+	public void toMovieProc() {
+		ss.previousPage(seat, sd);
 	}
-
 	
-	public void cancelProc(ActionEvent event) {
-		cs.windowClose(event);
+	public void toTicketProc() {
+		ss.NextPage(seat);
+	}
+	
+	
 		
-	}
-	
-	
-	public void cancelSeat() {
-		cs.alertMsg("좌석 선택", "좌석 취소", "선택한 좌석이 취소 되었습니다.");
-		sd.cancelseat(s);
-	
-	}
-
-		
-	}
+}
 
 
 		
