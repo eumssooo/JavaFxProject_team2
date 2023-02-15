@@ -119,6 +119,12 @@ public class SeatServiceImpl implements SeatService {
 	public void NextPage(Parent seat) {
 		// TODO Auto-generated method stub
 
+		cs.alertMsg(null, null, null);
+		
+		
+		
+		
+		// 다음 창으로 넘어가기
 		Stage s = (Stage) seat.getScene().getWindow();
 
 		FXMLLoader loader = new FXMLLoader(
