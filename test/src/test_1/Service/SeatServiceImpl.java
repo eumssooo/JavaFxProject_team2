@@ -31,7 +31,6 @@ public class SeatServiceImpl implements SeatService {
 		private CommonService cs;
 		
 		// 이전 페이지 정보에 필요
-		Parent chkInfo;
 		int ticketCostAdult = 14000;
 		int ticketCostChildren = 11000;
 		
@@ -59,8 +58,35 @@ public class SeatServiceImpl implements SeatService {
 			SelectMovieController ctrl = loader.getController();
 
 			ctrl.setCheckInfo(toMovie);
-			s.setTitle("관람 인원 선택");
+			s.setTitle("예매 정보 확인");
 			s.show();
+			
+			// 예매 정보 확인 페이지에 들어갈 정보
+			// 영화 제목
+			Label chkTitle = (Label) toMovie.lookup("#chkTitle"); 
+			chkTitle.setText(sd.getSelTitle());
+			// 상영 날짜
+			Label chkDate = (Label) toMovie.lookup("#chkDate"); 
+			chkDate.setText(sd.getSelDate());
+			// 상영관, 상영 시간
+			Label chkRoom = (Label) toMovie.lookup("#chkRoom"); 
+			chkRoom.setText(sd.getSelRoom() + "관 " + sd.getSelTime()); // 상영 시간
+			// 잔여 좌석
+			// Label chkSeat = (Label) chkInfo.lookup("#chkSeat"); 
+			// chkSeat.setText("잔여 좌석");
+			// 관람 인원
+			Label chkPersonNum = (Label) toMovie.lookup("#chkPersonNum"); 
+			// 선택 인원 표시
+			if(sd.getSelAdultNum() != 0 && sd.getSelChildrenNum() != 0) {
+				chkPersonNum.setText("성인 " + sd.getSelAdultNum() + "명 청소년" + sd.getSelChildrenNum() +"명");
+			}else if(sd.getSelChildrenNum() != 0) {
+				chkPersonNum.setText("청소년 " + sd.getSelChildrenNum() + "명");
+			}else if(sd.getSelAdultNum() != 0) {
+				chkPersonNum.setText("성인 " + sd.getSelAdultNum() + "명");
+			}
+			// 총 금액
+			Label cost = (Label) toMovie.lookup("#cost"); 
+			cost.setText((sd.getSelAdultNum()*ticketCostAdult + sd.getSelChildrenNum()*ticketCostChildren) + "원");
 		}
 
 

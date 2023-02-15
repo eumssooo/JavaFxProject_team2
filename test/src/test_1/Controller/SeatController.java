@@ -34,7 +34,7 @@ public class SeatController {
 		ss = new SeatServiceImpl();
 	}
 	
-	public void setSelData (selData sd) {
+	public void setSelData(selData sd) {
 		this.sd= sd;
 	}
 
