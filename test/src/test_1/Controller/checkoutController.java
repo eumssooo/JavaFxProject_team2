@@ -15,11 +15,16 @@ public class checkoutController {
 	@FXML
 	private Button logoutButton;
 	
-	@FXML
-	private AnchorPane scenePane;
+//	@FXML
+//	private AnchorPane scenePane;
 	Stage stage;
 	
 	Parent checkout;
+
+	public void setCheckout(Parent checkout) {
+		// TODO Auto-generated method stub
+		this.checkout = checkout;
+	}
 
 	public void logout(ActionEvent event) {
 
@@ -29,11 +34,11 @@ public class checkoutController {
 		alert.setContentText("상영시간 이후 환불은 어려울 수 있습니다.");
 
 		if(alert.showAndWait().get()==ButtonType.OK) {
-			stage = (Stage) scenePane.getScene().getWindow();
+			stage = (Stage) checkout.getScene().getWindow();
 			System.out.println("로그아웃되셨습니다.");
 			stage.close();
 		}
-		stage = (Stage) scenePane.getScene().getWindow();
+		stage = (Stage) checkout.getScene().getWindow();
 
 		System.out.println("로그아웃 하셨습니다.");
 	}
@@ -46,9 +51,9 @@ public class checkoutController {
 		alert.setContentText("페이지로 이동합니다.");
 
 		if(alert.showAndWait().get()==ButtonType.OK) { //페이지로 이동//
-			stage = (Stage) scenePane.getScene().getWindow();
+			stage = (Stage) checkout.getScene().getWindow();
 		}
-		stage = (Stage) scenePane.getScene().getWindow();
+		stage = (Stage) checkout.getScene().getWindow();
 
 	}
 
@@ -60,14 +65,10 @@ public class checkoutController {
 		alert.setContentText("상영시간 이후 환불은 어려울 수 있습니다.");
 
 		if(alert.showAndWait().get()==ButtonType.OK) {//페이지 이동//
-			stage = (Stage) scenePane.getScene().getWindow();
+			stage = (Stage) checkout.getScene().getWindow();
 		}
-		stage = (Stage) scenePane.getScene().getWindow();
+		stage = (Stage) checkout.getScene().getWindow();
 
 	}
 
-	public void setCheckout(Parent checkout) {
-		// TODO Auto-generated method stub
-		this.checkout = checkout;
-	}
 }
