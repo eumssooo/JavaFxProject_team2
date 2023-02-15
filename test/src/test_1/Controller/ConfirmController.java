@@ -1,10 +1,15 @@
 package test_1.Controller;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import test_1.View.*;
 import test_1.Service.*;
 import test_1.Common.*;
@@ -38,9 +43,27 @@ public class ConfirmController {
 	// 돌아가기 ( 전 화면으로 가도록 수정해야 함)
 	public void cancelProc(ActionEvent event) {
 		cs.windowClose(event);
-		//		Stage complete(결제완료 화면) = (Stage) root.getScene().getWindow();
-		//		FXMLLoader loader = new FXMLLoader(
-		//		getClass().getResource("../../complete(결제완료화면).fxml"));
+		
+		Stage s = (Stage) root.getScene().getWindow();
+		
+		FXMLLoader loader = new FXMLLoader(
+				getClass().getResource("../../ticketcheck.fxml"));
+		Parent checkout = null;
+		
+		try {
+			checkout = loader.load();
+			
+			s.setScene(new Scene(checkout));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		checkoutController ctrl = loader.getController();
+		ctrl.setCheckout(checkout);
+		
+		s.setTitle("티켓 확인");
+		s.show();
 	}
 	
 	// 나머지는 다른 controller에서
