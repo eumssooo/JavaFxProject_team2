@@ -1,6 +1,7 @@
 package test_1.Service;
 
 import javafx.scene.Parent;
+import test_1.View.Customer;
 
 public interface LoginService {
 	public void loginProc(Parent root);

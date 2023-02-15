@@ -9,8 +9,11 @@ import test_1.Service.LoginService;
 import test_1.Service.LoginServiceImpl;
 import test_1.Service.SearchService;
 import test_1.Service.SearchServiceImpl;
+import test_1.View.Customer;
 
 public class LoginController {
+	
+	public static Customer cust;
 
 	Parent root; // 로그인(login.fxml)
 	Parent join; // 회원가입(join.fxml)
@@ -47,6 +50,10 @@ public class LoginController {
 	// 티켓박스의 로그인 버튼 클릭 시 실행
 	public void loginProc() {
 		ls.loginProc(root);
+	}
+	
+	public void setCustomer (Customer cust) {
+		this.cust= cust;
 	}
 
 	// 티켓박스의 회원가입 버튼 클릭 시 실행
