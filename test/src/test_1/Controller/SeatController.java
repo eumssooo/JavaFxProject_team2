@@ -42,13 +42,17 @@ public class SeatController {
 		// TODO Auto-generated method stub
 		this.seat = seat;
 	}
+	
+	public void selectSeat() {
+		// 좌석 선택
+	}
 		
 	public void toMovieProc() {
 		ss.previousPage(seat, sd);
 	}
 	
-	public void selectSeat() {
-		// 좌석 선택
+	public void toTicketProc() {
+		ss.NextPage(seat);
 	}
 	
 	

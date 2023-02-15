@@ -1,6 +1,7 @@
 package test_1.Service;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,7 @@ import javafx.stage.Stage;
 import test_1.Common.CommonService;
 import test_1.Common.CommonServiceImpl;
 import test_1.Controller.SelectMovieController;
+import test_1.Controller.checkoutController;
 import test_1.DAO.SeatDAO;
 import test_1.DAO.SeatDAOImpl;
 import test_1.View.Seat;
@@ -111,6 +113,31 @@ public class SeatServiceImpl implements SeatService {
 		public boolean SeatServiceChk(String text, String text2) {
 			// TODO Auto-generated method stub
 			return false;
+		}
+
+		@Override
+		public void NextPage(Parent root) {
+			// TODO Auto-generated method stub
+			
+			Stage s = (Stage) root.getScene().getWindow();
+			
+			FXMLLoader loader = new FXMLLoader(
+					getClass().getResource("../../ticketcheck.fxml")); //경로 수정
+			
+			Parent checkout = null;
+			try {
+				checkout = loader.load();
+				s.setScene(new Scene(checkout));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			checkoutController ctrl = loader.getController();
+			ctrl.setCheckout(checkout);
+			
+			s.setTitle("티켓 확인");
+			s.show();
 		}
 
 
