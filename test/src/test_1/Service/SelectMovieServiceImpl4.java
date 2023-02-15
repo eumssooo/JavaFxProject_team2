@@ -186,4 +186,66 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 		Label time_5 = (Label) selectSession.lookup("#time_5");
 		time_5.setText("22:00 - "+ movieTime(22,0,md.getMovieRunningTime(sd.getSelTitle())));
 	}
+
+
+	@Override
+	public void colorChange(Parent selectPerson) {
+		// TODO Auto-generated method stub
+
+		// 인원선택 토글버튼 - 성인
+		ToggleButton adult_1 = (ToggleButton) selectPerson.lookup("#adult_1");
+		ToggleButton adult_2 = (ToggleButton) selectPerson.lookup("#adult_2");
+		ToggleButton adult_3 = (ToggleButton) selectPerson.lookup("#adult_3");
+		ToggleButton adult_4 = (ToggleButton) selectPerson.lookup("#adult_4");
+		// 인원선택 토글버튼 - 청소년
+		ToggleButton children_1 = (ToggleButton) selectPerson.lookup("#children_1");
+		ToggleButton children_2 = (ToggleButton) selectPerson.lookup("#children_2");
+		ToggleButton children_3 = (ToggleButton) selectPerson.lookup("#children_3");
+		ToggleButton children_4 = (ToggleButton) selectPerson.lookup("#children_4");
+			
+		if (adult_1.isSelected()) {
+			adult_1.setStyle("-fx-background-color:black");
+			adult_2.setStyle("-fx-background-color:#e22510");
+			adult_3.setStyle("-fx-background-color:#e22510");
+			adult_4.setStyle("-fx-background-color:#e22510");
+		} else if (adult_2.isSelected()) {
+			adult_2.setStyle("-fx-background-color:black");
+			adult_1.setStyle("-fx-background-color:#e22510");
+			adult_3.setStyle("-fx-background-color:#e22510");
+			adult_4.setStyle("-fx-background-color:#e22510");
+		} else if (adult_3.isSelected()) {
+			adult_3.setStyle("-fx-background-color:black");
+			adult_1.setStyle("-fx-background-color:#e22510");
+			adult_2.setStyle("-fx-background-color:#e22510");
+			adult_4.setStyle("-fx-background-color:#e22510");
+		} else if (adult_4.isSelected()) {
+			adult_4.setStyle("-fx-background-color:black");
+			adult_1.setStyle("-fx-background-color:#e22510");
+			adult_2.setStyle("-fx-background-color:#e22510");
+			adult_3.setStyle("-fx-background-color:#e22510");
+		}
+		
+		if (children_1.isSelected()) {
+			children_1.setStyle("-fx-background-color:black");
+			children_2.setStyle("-fx-background-color:#e22510");
+			children_3.setStyle("-fx-background-color:#e22510");
+			children_4.setStyle("-fx-background-color:#e22510");
+		} else if (children_2.isSelected()) {
+			children_2.setStyle("-fx-background-color:black");
+			children_1.setStyle("-fx-background-color:#e22510");
+			children_3.setStyle("-fx-background-color:#e22510");
+			children_4.setStyle("-fx-background-color:#e22510");
+		} else if (children_3.isSelected()) {
+			children_3.setStyle("-fx-background-color:black");
+			children_1.setStyle("-fx-background-color:#e22510");
+			children_2.setStyle("-fx-background-color:#e22510");
+			children_4.setStyle("-fx-background-color:#e22510");
+		} else if (children_4.isSelected()) {
+			children_4.setStyle("-fx-background-color:black");
+			children_1.setStyle("-fx-background-color:#e22510");
+			children_2.setStyle("-fx-background-color:#e22510");
+			children_3.setStyle("-fx-background-color:#e22510");
+		}
+		
+	}
 }

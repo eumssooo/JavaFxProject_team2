@@ -1,5 +1,6 @@
 package test_1.Controller;
 
+import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import test_1.Service.SelectMovieService1;
 import test_1.Service.SelectMovieService2;
@@ -111,7 +112,13 @@ public class SelectMovieController {
 		sms5.checkMovieInfo(chkInfo,sd);
 	}
 
-
+	public void colorAction3(ActionEvent event) {
+		sms3.colorChange(selectSession);
+	}
+	
+	public void colorAction4(ActionEvent event) {
+		sms4.colorChange(selectPerson);
+	}
 
 }
 

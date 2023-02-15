@@ -137,4 +137,44 @@ public class SelectMovieServiceImpl3 implements SelectMovieService3 {
 		(new Image(getClass().getResource("/image/"+newValue+".jpg").toExternalForm())));
 
 	}
+	
+	public void colorChange(Parent selectSession) {
+		ToggleButton session_1 = (ToggleButton) selectSession.lookup("#session_1");
+		ToggleButton session_2 = (ToggleButton) selectSession.lookup("#session_2");
+		ToggleButton session_3 = (ToggleButton) selectSession.lookup("#session_3");
+		ToggleButton session_4 = (ToggleButton) selectSession.lookup("#session_4");
+		ToggleButton session_5 = (ToggleButton) selectSession.lookup("#session_5");	
+		
+		if (session_1.isSelected()) {
+			session_1.setStyle("-fx-background-color:black");
+			session_2.setStyle("-fx-background-color:#e22510");
+			session_3.setStyle("-fx-background-color:#e22510");
+			session_4.setStyle("-fx-background-color:#e22510");
+			session_5.setStyle("-fx-background-color:#e22510");
+		} else if (session_2.isSelected()) {
+			session_2.setStyle("-fx-background-color:black");
+			session_1.setStyle("-fx-background-color:#e22510");
+			session_3.setStyle("-fx-background-color:#e22510");
+			session_4.setStyle("-fx-background-color:#e22510");
+			session_5.setStyle("-fx-background-color:#e22510");
+		} else if (session_3.isSelected()) {
+			session_3.setStyle("-fx-background-color:black");
+			session_2.setStyle("-fx-background-color:#e22510");
+			session_1.setStyle("-fx-background-color:#e22510");
+			session_4.setStyle("-fx-background-color:#e22510");
+			session_5.setStyle("-fx-background-color:#e22510");
+		} else if (session_4.isSelected()) {
+			session_4.setStyle("-fx-background-color:black");
+			session_2.setStyle("-fx-background-color:#e22510");
+			session_3.setStyle("-fx-background-color:#e22510");
+			session_1.setStyle("-fx-background-color:#e22510");
+			session_5.setStyle("-fx-background-color:#e22510");
+		} else if (session_5.isSelected()) {
+			session_5.setStyle("-fx-background-color:black");
+			session_2.setStyle("-fx-background-color:#e22510");
+			session_3.setStyle("-fx-background-color:#e22510");
+			session_4.setStyle("-fx-background-color:#e22510");
+			session_1.setStyle("-fx-background-color:#e22510");
+		} 
+	}
 }
