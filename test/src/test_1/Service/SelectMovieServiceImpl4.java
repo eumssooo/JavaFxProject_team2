@@ -12,12 +12,15 @@ import test_1.Common.CommonServiceImpl;
 import test_1.Controller.SelectMovieController;
 import test_1.DAO.MovieDAO;
 import test_1.DAO.MovieDAOImpl;
+import test_1.View.Customer;
 import test_1.View.selData;
 
 public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 	Parent selectSession;
 	Parent chkInfo;
 
+	private Customer cust;
+	
 	private static CommonService cs;
 	private static  MovieDAO md;
 
@@ -109,6 +112,10 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 			SelectMovie_5_chkInfo.setTitle("예매 정보 확인");
 			SelectMovie_5_chkInfo.show();
 			
+			// 로그인 된 아이디 표시
+			Label loginName = (Label) chkInfo.lookup("#loginName");
+			loginName.setText(cust.getId() + " 님");
+			
 			// 예매 정보 확인 페이지에 들어갈 정보
 			// 영화 제목
 			Label chkTitle = (Label) chkInfo.lookup("#chkTitle"); 
@@ -163,6 +170,10 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 
 		SelectMovie_3_Session.setTitle("상영 회차 선택");
 		SelectMovie_3_Session.show();
+		
+		// 로그인 된 아이디 표시
+		Label loginName = (Label) selectSession.lookup("#loginName");
+		loginName.setText(cust.getId() + " 님");
 		
 		Label time_1 = (Label) selectSession.lookup("#time_1"); 
 		time_1.setText("9:00 - " + movieTime(9,0,md.getMovieRunningTime(sd.getSelTitle())));

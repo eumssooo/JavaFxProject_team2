@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -13,6 +14,7 @@ import test_1.Common.CommonServiceImpl;
 import test_1.Controller.SelectMovieController;
 import test_1.DAO.MovieDAO;
 import test_1.DAO.MovieDAOImpl;
+import test_1.View.Customer;
 import test_1.View.selData;
 
 
@@ -23,6 +25,7 @@ public class SelectMovieServiceImpl1 implements SelectMovieService1{
 	private static  MovieDAO md;
 	Parent selectMovie;
 	private selData sd;
+	private Customer cust;
 
 	public SelectMovieServiceImpl1 () {
 		cs = new CommonServiceImpl();
@@ -78,6 +81,10 @@ public class SelectMovieServiceImpl1 implements SelectMovieService1{
 
 			SelectMovie_2_Movie.setTitle("영화 선택");
 			SelectMovie_2_Movie.show();
+			
+			// 로그인 된 아이디 표시
+			Label loginName = (Label) selectMovie.lookup("#loginName");
+			loginName.setText(cust.getId() + " 님");
 
 			// 영화 선택 콤보박스
 			ComboBox<String> cmbMovie = (ComboBox<String>) selectMovie.lookup("#cmbMovie");

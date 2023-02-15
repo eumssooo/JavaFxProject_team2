@@ -12,6 +12,7 @@ import test_1.Common.CommonServiceImpl;
 import test_1.Controller.SelectMovieController;
 import test_1.DAO.MovieDAO;
 import test_1.DAO.MovieDAOImpl;
+import test_1.View.Customer;
 import test_1.View.selData;
 
 public class SelectMovieServiceImpl2 implements SelectMovieService2{
@@ -20,6 +21,8 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 	private static MovieDAO md;
 	Parent selectDate;
 	Parent selectSession;
+	
+	private Customer cust;
 	
 	public SelectMovieServiceImpl2 () {
 		cs = new CommonServiceImpl();
@@ -79,6 +82,11 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 
 				SelectMovie_3_Session.setTitle("상영 회차 선택");
 				SelectMovie_3_Session.show();
+				
+				// 로그인 된 아이디 표시
+				Label loginName = (Label) selectSession.lookup("#loginName");
+				loginName.setText(cust.getId() + " 님");
+				
 				 // 상영 시간 표시
 				Label time_1 = (Label) selectSession.lookup("#time_1"); 
 				time_1.setText("9:00 - " + movieTime(9,0,md.getMovieRunningTime(sd.getSelTitle())));
@@ -128,6 +136,10 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 		SelectMovie_1_Date.show();
 		// 선택된 데이터 지우기
 		sd.setSelDate(null);
+		
+		// 로그인 된 아이디 표시
+		Label loginName = (Label) selectDate.lookup("#loginName");
+		loginName.setText(cust.getId() + " 님");
 		
 		// 상영날짜 선택 콤보박스 내용 입력 (로그인 이후에 넣기)
 				ComboBox<String> cmbDate = (ComboBox<String>) selectDate.lookup("#cmbDate");
