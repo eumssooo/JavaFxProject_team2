@@ -112,13 +112,13 @@ public class SelectMovieController {
 		sms5.checkMovieInfo(chkInfo,sd);
 	}
 
-	public void colorAction3(ActionEvent event) {
-		sms3.colorChange(selectSession);
-	}
-	
-	public void colorAction4(ActionEvent event) {
-		sms4.colorChange(selectPerson);
-	}
+//	public void colorAction3(ActionEvent event) {
+//		sms3.colorChange(selectSession);
+//	}
+//	
+//	public void colorAction4(ActionEvent event) {
+//		sms4.colorChange(selectPerson);
+//	}
 
 }
 
