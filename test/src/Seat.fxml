@@ -37,7 +37,7 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="test_1.Controller.SeatControl
             <Font size="18.0" />
          </font>
       </Label>
-      <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="146.0" text="이전 페이지" GridPane.rowIndex="5" />
+      <Button onAction="#toMovieProc" mnemonicParsing="false" prefHeight="22.0" prefWidth="146.0" text="이전 페이지" GridPane.rowIndex="5" />
       <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="147.0" text="결제 확인" GridPane.columnIndex="4" GridPane.rowIndex="5" />
       <CheckBox alignment="CENTER" mnemonicParsing="false" prefHeight="28.0" prefWidth="23.0" scaleX="1.5" scaleY="1.5" text="A1" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>

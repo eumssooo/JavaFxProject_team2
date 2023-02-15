@@ -8,6 +8,7 @@ public interface SeatService {
 	public void printSeat(Parent root);
 	public void joinSeat(Parent root);
 	public boolean SeatServiceChk(String text, String text2);
+	public void previousPage(Parent seat, selData sd);
 	
 }
 
