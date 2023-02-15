@@ -39,13 +39,30 @@ public class checkoutController {
 
 		if(alert.showAndWait().get()==ButtonType.OK) {
 			stage = (Stage) checkout.getScene().getWindow();
-			System.out.println("로그아웃되셨습니다.");
-			stage.close();
+			
+			FXMLLoader loader = new FXMLLoader(
+					getClass().getResource("../../login.fxml"));
+			Parent root = null;
+			
+			try {
+				root = loader.load();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			LoginController ctrl = loader.getController();
+			ctrl.setRoot(root);
+			
+			stage.setScene(new Scene(root));
+			stage.setTitle("로그인");
+			stage.show();
 		}
 //		stage = (Stage) checkout.getScene().getWindow();
 
 	}
 
+	// 한준님이 하실 거~~!~!~!!
 	public void add(ActionEvent event) {
 
 		Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -62,6 +79,8 @@ public class checkoutController {
 			
 			try {
 				selectDate = loader.load();
+				
+				stage.setScene(new Scene(selectDate));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -70,7 +89,6 @@ public class checkoutController {
 			SelectMovieController ctrl = loader.getController();
 			ctrl.setSelectDate(selectDate);
 			
-			stage.setScene(new Scene(selectDate));
 			stage.setTitle("상영 날짜 선택");
 			stage.show();
 		}
