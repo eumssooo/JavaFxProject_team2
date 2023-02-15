@@ -104,7 +104,7 @@
       </CheckBox>
       <CheckBox fx:id="chk14" alignment="CENTER" mnemonicParsing="false" prefHeight="28.0" prefWidth="39.0" scaleX="1.5" scaleY="1.5" text="D2" GridPane.columnIndex="2" GridPane.rowIndex="4">
          <GridPane.margin>
-            <Insets left="50.0" />W
+            <Insets left="50.0" />
          </GridPane.margin>
       </CheckBox>
       <CheckBox fx:id="chk15" alignment="CENTER" mnemonicParsing="false" prefHeight="28.0" prefWidth="42.0" scaleX="1.5" scaleY="1.5" text="D3" GridPane.columnIndex="3" GridPane.rowIndex="4">

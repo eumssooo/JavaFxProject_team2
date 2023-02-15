@@ -121,10 +121,7 @@ public class SeatServiceImpl implements SeatService {
 	public void NextPage(Parent seat) {
 		// TODO Auto-generated method stub
 
-		cs.alertMsg(null, null, null);
-		
-		
-		
+		cs.alertMsg("좌석 확인", "선택한 좌석", "~~~~띄워야함");
 		
 		// 다음 창으로 넘어가기
 		Stage s = (Stage) seat.getScene().getWindow();
