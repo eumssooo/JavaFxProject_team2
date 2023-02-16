@@ -1,6 +1,11 @@
 package test_1.Service;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -154,9 +159,21 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 		Label loginName = (Label) selectDate.lookup("#loginName");
 		loginName.setText(cust.getId() + " 님");
 
-		// 상영날짜 선택 콤보박스 내용 입력 (로그인 이후에 넣기)
+		// 상영날짜 선택 콤보박스 내용 입력 
 		ComboBox<String> cmbDate = (ComboBox<String>) selectDate.lookup("#cmbDate");
-		cmbDate.getItems().addAll("2월 15일","2월 16일","2월 17일","2월 18일","2월 19일");
+		// 현재 날짜부터 5일 선택 가능
+		Calendar cal = new GregorianCalendar();	
+		SimpleDateFormat formatter = new SimpleDateFormat("MM월 dd일");
+		Date date = new Date();
+		date = cal.getTime();
+		System.out.println(formatter.format(date));
+		cmbDate.getItems().add(formatter.format(date));
+		for (int i= 0;i<4;i++) {
+			cal.add(Calendar.DATE,1);
+			date = cal.getTime();
+			System.out.println(formatter.format(date));
+			cmbDate.getItems().add(formatter.format(date));
+		}
 
 	}
 }

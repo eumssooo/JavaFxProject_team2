@@ -1,6 +1,8 @@
 package test_1.Service;
 
 
+import java.time.LocalDate;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -33,37 +35,26 @@ public class SelectMovieServiceImpl1 implements SelectMovieService1{
 		sd = new selData();
 	}
 
+	
 
 	@Override
 	public void nextPage1(Parent selectDate) {
 		// TODO Auto-generated method stub
+		
+		LocalDate now = LocalDate.now();
+		System.out.println(now);
 
 
 		ComboBox<String> cmbDate = (ComboBox<String>) selectDate.lookup("#cmbDate"); // 날짜 선택 콤보 박스
-		if(cmbDate.getValue() != null) {	// 콤보박스 선택시 (데이터 변경 필요)
-			if(cmbDate.getValue().equals("2월 15일")) {
+		if(cmbDate.getValue() != null) {
+			// 콤보박스 선택시 선택하 날짜 저장
 				sd.setSelDate(cmbDate.getValue());
 				System.out.println(sd.getSelDate());
-			} else if(cmbDate.getValue().equals("2월 16일")) {
-				sd.setSelDate(cmbDate.getValue());
-				System.out.println(sd.getSelDate());
-			} else if(cmbDate.getValue().equals("2월 17일")) {
-				sd.setSelDate(cmbDate.getValue());
-				System.out.println(sd.getSelDate());
-			} else if(cmbDate.getValue().equals("2월 18일")) {
-				sd.setSelDate(cmbDate.getValue());
-				System.out.println(sd.getSelDate());
-			} else if(cmbDate.getValue().equals("2월 19일")) {
-				sd.setSelDate(cmbDate.getValue());
-				System.out.println(sd.getSelDate());
-			}
-
+			
 			// 영화 선택 페이지 (다음 페이지) 로드
 			Stage SelectMovie_2_Movie = (Stage) selectDate.getScene().getWindow();
 			FXMLLoader loader = new FXMLLoader(
 					getClass().getResource("../../SelectMovie_2_Movie.fxml"));
-
-
 
 			try {
 				selectMovie = loader.load();
@@ -92,7 +83,8 @@ public class SelectMovieServiceImpl1 implements SelectMovieService1{
 
 			// 영화 포스터
 			ImageView imgMovie = (ImageView) selectMovie.lookup("#imgMovie");
-			// 콤보박스 클릭시 데이터 확인
+			
+			// 콤보박스 클릭시 해당 포스터 노출
 			cmbMovie.getSelectionModel().selectedItemProperty().addListener
 			( (v, oldValue, newValue) ->
 					imgMovie.setImage
