@@ -115,7 +115,6 @@ public class checkoutController {
 			for (int i= 0;i<4;i++) {
 				cal.add(Calendar.DATE,1);
 				date = cal.getTime();
-				System.out.println(formatter.format(date));
 				cmbDate.getItems().add(formatter.format(date));
 			}
 
