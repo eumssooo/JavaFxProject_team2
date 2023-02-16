@@ -196,7 +196,7 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 	}
 
 
-//	@Override
+
 //	public void colorChange(Parent selectPerson) {
 //		// TODO Auto-generated method stub
 //
@@ -231,8 +231,14 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 //			adult_1.setStyle("-fx-background-color:#e22510");
 //			adult_2.setStyle("-fx-background-color:#e22510");
 //			adult_3.setStyle("-fx-background-color:#e22510");
+//		} else if (!adult_1.isSelected() && !adult_2.isSelected() &&
+//				!adult_3.isSelected() && !adult_4.isSelected()) {
+//			adult_1.setStyle("-fx-background-color:#e22510");
+//			adult_3.setStyle("-fx-background-color:#e22510");
+//			adult_2.setStyle("-fx-background-color:#e22510");
+//			adult_4.setStyle("-fx-background-color:#e22510");
 //		}
-//		
+//			
 //		if (children_1.isSelected()) {
 //			children_1.setStyle("-fx-background-color:black");
 //			children_2.setStyle("-fx-background-color:#e22510");
