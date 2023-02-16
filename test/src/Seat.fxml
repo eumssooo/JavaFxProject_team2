@@ -52,7 +52,7 @@
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Button fx:id="conB" mnemonicParsing="false" onAction="#toTicketProc" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #e22510;" text="결제 확인" textFill="WHITE" GridPane.columnIndex="5" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="TOP">
+      <Button fx:id="conB" mnemonicParsing="false" onAction="#toTicketProc" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #e22510;" text="예매 완료" textFill="WHITE" GridPane.columnIndex="5" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="TOP">
          <font>
             <Font size="14.0" />
          </font></Button>
