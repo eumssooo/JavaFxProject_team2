@@ -4,7 +4,7 @@ public class Ticket {
 	private String userName;
 	private String userId;
 	private String seatNum;
-	private String roomNum;
+	private int roomNum;
 	private String movieName;
 	private String day;
 	private String reserveDate;
@@ -13,7 +13,7 @@ public class Ticket {
 	
 	public Ticket() {}	// 기본 이니셜라이저
 	public Ticket(String userName, String userId, String seatNum,
-			String roomNum, String movieName, String day, String reserveDate,
+			int roomNum, String movieName, String day, String reserveDate,
 			int cost, int person) {
 		this.userName = userName;
 		this.userId = userId;
@@ -26,6 +26,19 @@ public class Ticket {
 		this.person = person;
 	}
 	
+	public void print_Ticket() {
+		System.out.println("--TICKET 출력--");
+		System.out.println(userName);
+		System.out.println(userId);
+		System.out.println(seatNum);
+		System.out.println(roomNum);
+		System.out.println(movieName);
+		System.out.println(day);
+		System.out.println(reserveDate);
+		System.out.println(cost);
+		System.out.println(person);
+	}
+	
 	public String getUserName() {
 		return userName;
 	}
@@ -35,8 +48,8 @@ public class Ticket {
 	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUserId() {
+		this.userId = Customer.getId();
 	}
 	public String getSeatNum() {
 		return seatNum;
@@ -44,10 +57,10 @@ public class Ticket {
 	public void setSeatNum(String seatNum) {
 		this.seatNum = seatNum;
 	}
-	public String getRoomNum() {
+	public int getRoomNum() {
 		return roomNum;
 	}
-	public void setRoomNum(String roomNum) {
+	public void setRoomNum(int roomNum) {
 		this.roomNum = roomNum;
 	}
 	public String getMovieName() {

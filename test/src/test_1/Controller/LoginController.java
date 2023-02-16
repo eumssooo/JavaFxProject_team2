@@ -10,6 +10,7 @@ import test_1.Service.LoginServiceImpl;
 import test_1.Service.SearchService;
 import test_1.Service.SearchServiceImpl;
 import test_1.View.Customer;
+import test_1.View.selData;
 
 public class LoginController {
 	
@@ -23,6 +24,7 @@ public class LoginController {
 	JoinService js;
 	CommonService cs;
 	SearchService ss;
+	public static selData sd;
 
 	public LoginController() {
 		// TODO Auto-generated constructor stub
@@ -49,7 +51,7 @@ public class LoginController {
 	
 	// 티켓박스의 로그인 버튼 클릭 시 실행
 	public void loginProc() {
-		ls.loginProc(root);
+		ls.loginProc(root, sd);
 	}
 	
 	public void setCustomer (Customer cust) {

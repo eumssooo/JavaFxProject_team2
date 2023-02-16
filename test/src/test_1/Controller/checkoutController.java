@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import test_1.Service.LoginService;
 import test_1.Service.LoginServiceImpl;
 import test_1.View.Customer;
+import test_1.View.selData;
 
 public class checkoutController {
 	@FXML
@@ -31,7 +32,7 @@ public class checkoutController {
 	//	@FXML
 	//	private AnchorPane scenePane;
 	Stage stage;
-
+	selData sd;
 	Parent checkout;
 
 	public void setCheckout(Parent checkout) {
@@ -147,6 +148,7 @@ public class checkoutController {
 
 			ConfirmController ctrl = loader.getController();
 			ctrl.setRoot(root);
+			ctrl.setSelData(sd);
 
 			stage.setScene(new Scene(root));
 			stage.setTitle("티켓 확인");
@@ -154,6 +156,11 @@ public class checkoutController {
 		}
 		//		stage = (Stage) checkout.getScene().getWindow();
 
+	}
+
+	public void setSelData(selData sd) {
+		// TODO Auto-generated method stub
+		this.sd = sd;
 	}
 
 }

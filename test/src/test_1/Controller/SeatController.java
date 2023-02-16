@@ -26,7 +26,7 @@ public class SeatController {
 	private CommonServiceImpl cs;
 	private SeatDAO sdao;
 	private SeatService ss;
-	private selData sd;
+	selData sd;
 	private int cnt = 0;
 	
 	public SeatController() {

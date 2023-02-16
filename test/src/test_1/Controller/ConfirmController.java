@@ -16,13 +16,12 @@ import test_1.Common.*;
 import test_1.DAO.*;
 
 public class ConfirmController {
-	private static Parent root;
-	private static Ticket t;
-	private static CommonService cs;
-	private static TicketDAO td;
-	private static TicketService ts;
-	@FXML
-    private Label lblTest;
+	private Parent root;
+	private Ticket t;
+	private CommonService cs;
+	private TicketDAO td;
+	private TicketService ts;
+	selData sd;
 	
 	public ConfirmController() {
 		cs = new CommonServiceImpl();
@@ -34,10 +33,14 @@ public class ConfirmController {
 		// TODO Auto-generated method stub
 		this.root = root;
 	}
+	public void setSelData(selData sd) {
+		this.sd = sd;
+	}
 	
 	// 예매 내역 UI 출력
 	public void printTickets() {
-		ts.printTicket(root ,t);
+		sd.print_selData();
+		ts.printTicket(root ,sd);
 	}
 
 	// 돌아가기 ( 전 화면으로 가도록 수정해야 함)
@@ -61,6 +64,7 @@ public class ConfirmController {
 		
 		checkoutController ctrl = loader.getController();
 		ctrl.setCheckout(checkout);
+		ctrl.setSelData(sd);
 		
 		s.setTitle("티켓 확인");
 		s.show();

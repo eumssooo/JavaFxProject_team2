@@ -1,7 +1,11 @@
 package test_1.View;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class selData {
+	private String userName;
+	private String userId;
 	private String selDate;
 	private String selTitle;
 	private int selRoom;
@@ -10,7 +14,22 @@ public class selData {
 	private String selTime;
 	private int cost;
 	private String selSeatNum;
-	private int selSeatCnt;
+	private String reserveDate;
+	
+	public void print_selData() {
+		System.out.println("--SELDATA 출력--");
+		System.out.println(userName);
+		System.out.println(userId);
+		System.out.println(selDate);
+		System.out.println(selTitle);
+		System.out.println(selRoom);
+		System.out.println(selAdultNum);
+		System.out.println(selChildrenNum);
+		System.out.println(selTime);
+		System.out.println(cost);
+		System.out.println(selSeatNum);
+		System.out.println(reserveDate);
+	}
 
 	public String getSelDate() {
 		return selDate;
@@ -60,13 +79,27 @@ public class selData {
 	public void setSelSeatNum(String selSeatNum) {
 		this.selSeatNum = selSeatNum;
 	}
-	public int getSelSeatCnt() {
-		return selSeatCnt;
+	public String getReserveDate() {
+		return reserveDate;
 	}
-	public void setSelSeatCnt(int selSeatCnt) {
-		this.selSeatCnt = selSeatCnt;
+	public void setReserveDate() {
+		SimpleDateFormat f = new SimpleDateFormat("yyyy년 MM월dd일 HH시mm분ss초");
+		Calendar now = Calendar.getInstance();
+		String reserveDate = f.format(now.getTime());
+		
+		this.reserveDate = reserveDate;
 	}
-
-
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 }
 

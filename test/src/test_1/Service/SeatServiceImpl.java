@@ -19,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import test_1.Common.CommonService;
 import test_1.Common.CommonServiceImpl;
+import test_1.Controller.ConfirmController;
 import test_1.Controller.SelectMovieController;
 import test_1.Controller.checkoutController;
 import test_1.DAO.SeatDAO;
@@ -35,12 +36,12 @@ import test_1.View.Seat;
 
 public class SeatServiceImpl implements SeatService {
 	private Parent toMovie;
-	private Seat s;
-	private ArrayList<Seat>seats;
 	private SeatDAO sdao;
+	private TicketService ts;
 	private CommonService cs;
 	private String temp;
 	private int cnt = 0;
+	private selData sd;
 
 	// 이전 페이지 정보에 필요
 	int ticketCostAdult = 14000;
@@ -49,6 +50,8 @@ public class SeatServiceImpl implements SeatService {
 	public SeatServiceImpl(){
 		sdao = new SeatDAOImpl();
 		cs = new CommonServiceImpl();
+		ts = new TicketServiceImpl();
+		sd = new selData();
 	}
 	
 	@Override
@@ -112,6 +115,10 @@ public class SeatServiceImpl implements SeatService {
 	@Override
 	public void NextPage(Parent seat, selData sd) {
 		// TODO Auto-generated method stub
+		if(selSeatCnt(sd) < sd.getSelAdultNum() + sd.getSelChildrenNum()) {
+			cs.alertMsg("인원 부족", "인원 부족", "인원이 부족합니다.");
+			return;
+		}
 		
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("좌석 확인");
@@ -121,11 +128,15 @@ public class SeatServiceImpl implements SeatService {
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == ButtonType.OK){ // ok버튼을 눌렀을 때
 			// 다음 창으로 넘어가기
+			sd.setReserveDate();
+			ts.insertTicketFromSd(sd);
+			System.out.println("sd -> ticket");
+			
 			Stage s = (Stage) seat.getScene().getWindow();
 
 			FXMLLoader loader = new FXMLLoader(
 					getClass().getResource("../../ticketcheck.fxml")); //경로 수정
-
+			
 			Parent checkout = null;
 			try {
 				checkout = loader.load();
@@ -137,6 +148,7 @@ public class SeatServiceImpl implements SeatService {
 
 			checkoutController ctrl = loader.getController();
 			ctrl.setCheckout(checkout);
+			ctrl.setSelData(sd);
 
 			s.setTitle("티켓 확인");
 			s.show();

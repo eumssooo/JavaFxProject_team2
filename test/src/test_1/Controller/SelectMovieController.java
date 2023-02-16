@@ -22,7 +22,7 @@ public class SelectMovieController {
 	private Parent selectSession;
 	private Parent selectPerson;
 	private Parent chkInfo;
-	public static selData sd;
+	selData sd;
 
 
 
