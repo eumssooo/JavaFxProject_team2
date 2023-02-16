@@ -138,10 +138,10 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 			chkDate.setText(sd.getSelDate());
 			// 상영관, 상영 시간
 			Label chkRoom = (Label) chkInfo.lookup("#chkRoom"); 
-			chkRoom.setText(sd.getSelRoom() + "관 " + sd.getSelTime()); // 상영 시간
+			chkRoom.setText(sd.getSelRoom() + "관 "); // 상영 시간
 			// 잔여 좌석
-			// Label chkSeat = (Label) chkInfo.lookup("#chkSeat"); 
-			// chkSeat.setText("잔여 좌석");
+			Label chkTime = (Label) chkInfo.lookup("#chkTime"); 
+			chkTime.setText(sd.getSelTime());
 			// 관람 인원
 			Label chkPersonNum = (Label) chkInfo.lookup("#chkPersonNum"); 
 			// 선택 인원 표시

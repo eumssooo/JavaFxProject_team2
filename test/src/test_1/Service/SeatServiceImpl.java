@@ -53,12 +53,12 @@ public class SeatServiceImpl implements SeatService {
 		ts = new TicketServiceImpl();
 		sd = new selData();
 	}
-	
+
 	@Override
 	public int selSeatCnt(selData sd){
 		String[] token = sd.getSelSeatNum().split("/");
 		int tokCnt = 0;
-		
+
 		return tokCnt = token.length;
 	}
 
@@ -91,12 +91,12 @@ public class SeatServiceImpl implements SeatService {
 		// 상영 날짜
 		Label chkDate = (Label) toMovie.lookup("#chkDate"); 
 		chkDate.setText(sd.getSelDate());
-		// 상영관, 상영 시간
+		// 상영관
 		Label chkRoom = (Label) toMovie.lookup("#chkRoom"); 
-		chkRoom.setText(sd.getSelRoom() + "관 " + sd.getSelTime()); // 상영 시간
-		// 잔여 좌석
-		// Label chkSeat = (Label) chkInfo.lookup("#chkSeat"); 
-		// chkSeat.setText("잔여 좌석");
+		chkRoom.setText(sd.getSelRoom() + "관 ");
+		// 상영 시간
+		Label chkTime = (Label) toMovie.lookup("#chkTime"); 
+		chkTime.setText(sd.getSelTime());
 		// 관람 인원
 		Label chkPersonNum = (Label) toMovie.lookup("#chkPersonNum"); 
 		// 선택 인원 표시
@@ -119,7 +119,7 @@ public class SeatServiceImpl implements SeatService {
 			cs.alertMsg("인원 부족", "인원 부족", "인원이 부족합니다.");
 			return;
 		}
-		
+
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("좌석 확인");
 		alert.setHeaderText(selSeatCnt(sd) +"개 좌석 선택");
@@ -131,12 +131,12 @@ public class SeatServiceImpl implements SeatService {
 			sd.setReserveDate();
 			ts.insertTicketFromSd(sd);
 			System.out.println("sd -> ticket");
-			
+
 			Stage s = (Stage) seat.getScene().getWindow();
 
 			FXMLLoader loader = new FXMLLoader(
 					getClass().getResource("../../ticketcheck.fxml")); //경로 수정
-			
+
 			Parent checkout = null;
 			try {
 				checkout = loader.load();
@@ -153,10 +153,10 @@ public class SeatServiceImpl implements SeatService {
 			s.setTitle("티켓 확인");
 			s.show();
 		} else {// 취소버튼을 눌렀을 때
-		    // ... user chose CANCEL or closed the dialog
+			// ... user chose CANCEL or closed the dialog
 			return;
 		}
-		
+
 
 	}
 
@@ -165,7 +165,7 @@ public class SeatServiceImpl implements SeatService {
 		// TODO Auto-generated method stub
 		CheckBox[] selarray = new CheckBox[16];
 		selarray = searchSeat(root, sd);
-		
+
 		for(int i = 0; i < selarray.length; i++) {
 			if(selarray[i].isSelected()) {
 				if(cnt >= sd.getSelAdultNum() + sd.getSelChildrenNum()) {
@@ -203,7 +203,7 @@ public class SeatServiceImpl implements SeatService {
 			selarray[i] = (CheckBox)root.lookup(sel);
 			sel = "#chk";
 		}
-		
+
 		return selarray;
 	}
 
