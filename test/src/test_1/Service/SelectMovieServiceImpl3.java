@@ -50,7 +50,7 @@ public class SelectMovieServiceImpl3 implements SelectMovieService3 {
 	@Override
 	public void nextPage3(Parent selectSession, selData sd) {
 		// TODO Auto-generated method stub
-
+		
 		// 상영 회차 선택 토글버튼
 		ToggleButton session_1 = (ToggleButton) selectSession.lookup("#session_1");
 		ToggleButton session_2 = (ToggleButton) selectSession.lookup("#session_2");
