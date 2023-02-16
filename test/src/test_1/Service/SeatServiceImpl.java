@@ -81,6 +81,7 @@ public class SeatServiceImpl implements SeatService {
 		SelectMovieController ctrl = loader.getController();
 
 		ctrl.setCheckInfo(toMovie);
+		ctrl.setSelData(sd);
 		s.setTitle("예매 정보 확인");
 		s.show();
 
@@ -152,9 +153,9 @@ public class SeatServiceImpl implements SeatService {
 
 			s.setTitle("티켓 확인");
 			s.show();
-		} else {// 취소버튼을 눌렀을 때
-			// ... user chose CANCEL or closed the dialog
-			return;
+//		} else {// 취소버튼을 눌렀을 때
+//			// ... user chose CANCEL or closed the dialog
+//			return;
 		}
 
 
@@ -168,6 +169,8 @@ public class SeatServiceImpl implements SeatService {
 
 		for(int i = 0; i < selarray.length; i++) {
 			if(selarray[i].isSelected()) {
+				System.out.println("sd.getSelAdultNum()" + sd.getSelAdultNum());
+				System.out.println("sd.getSelChildrenNum() : "+sd.getSelChildrenNum());
 				if(cnt >= sd.getSelAdultNum() + sd.getSelChildrenNum()) {
 					cs.alertMsg("인원 초과", "인원 초과", "인원 초과에욥!!!");
 					selarray[i].requestFocus();
