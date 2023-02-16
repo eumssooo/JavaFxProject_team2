@@ -24,6 +24,26 @@ public class MovieDAOImpl implements MovieDAO {
 		cs = new CommonServiceImpl();
 		con = cs.conn();
 	}
+	
+	public String getImageSrc (String title) { // 이미지위치
+		String sql = "select imageSrc from movie where title = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,title);
+				
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+			String imgSrc = rs.getString(1);			
+			return imgSrc;
+			}
+			pstmt.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	
 	public int getAgeLimit(String title) { // 상영 등급 받아오기

@@ -96,7 +96,8 @@ public class SelectMovieServiceImpl1 implements SelectMovieService1{
 			cmbMovie.getSelectionModel().selectedItemProperty().addListener
 			( (v, oldValue, newValue) ->
 					imgMovie.setImage
-					(new Image(getClass().getResource("/image/"+newValue+".jpg").toExternalForm())));
+					(new Image(getClass().getResource(md.getImageSrc(newValue)).toExternalForm())));
+			
 			
 		}else if (cmbDate.getValue() == null)  // 콤보박스 미선택시 alert 메세지
 		{
