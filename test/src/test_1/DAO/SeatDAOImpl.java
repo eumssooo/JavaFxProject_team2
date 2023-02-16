@@ -145,5 +145,34 @@ public class SeatDAOImpl implements SeatDAO {
 		}
 	}
 
+	@Override
+	public String seatCheck(selData sd) {
+		// TODO Auto-generated method stub
+		String sql = "select seatNum from seat where roomNum =? and day=?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, String.valueOf(sd.getSelRoom()));
+			pstmt.setString(2, sd.getSelDate());
+			
+			rs = pstmt.executeQuery();
+			
+			rs.next();
+			
+			String result = rs.getString(1);
+			
+			if(result != null) {
+				return result;
+			}
+			pstmt.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
+		return null;
+	}
+
 
 }

@@ -11,4 +11,5 @@ public interface SeatDAO {
 	public void cancelseat(Seat s);					
 						
 	public void nextPageSeat(selData sd);
+	public String seatCheck(selData sd);
 }

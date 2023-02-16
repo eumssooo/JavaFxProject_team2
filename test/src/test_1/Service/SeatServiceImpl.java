@@ -151,7 +151,7 @@ public class SeatServiceImpl implements SeatService {
 			}
 			
 			System.out.println("sd -> ticket");
-
+	
 
 			
 			// db에 상영관&좌석 정보 저장
