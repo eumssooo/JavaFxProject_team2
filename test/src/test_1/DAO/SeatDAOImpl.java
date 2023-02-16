@@ -9,11 +9,13 @@ import java.util.ArrayList;
 import test_1.Common.CommonService;
 import test_1.Common.CommonServiceImpl;
 import test_1.View.Seat;
+import test_1.View.selData;
 
 public class SeatDAOImpl implements SeatDAO {
 	private static Connection con;
 	private static PreparedStatement pstmt;
 	private static ResultSet rs;
+	selData sd;
 	
 	private static CommonService cs;
 	
@@ -101,4 +103,47 @@ public class SeatDAOImpl implements SeatDAO {
 	}
 
 	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@Override
+	public void nextPageSeat(selData sd) {
+		// TODO Auto-generated method stub
+		String sql = "insert into seat values(?,?,?,?)";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, String.valueOf(sd.getSelRoom()));
+			pstmt.setString(2, sd.getSelSeatNum()); // 좌석 따로 나눠서 저장해야하남?
+			pstmt.setString(3, sd.getSelDate());
+			pstmt.setString(4, sd.getSelTitle());
+			
+			
+			
+//		    roomNum     varchar(30) not null, // 상영관
+//		    seatNum     varchar(30) not null, // 좌석
+//		    day         varchar(30) not null, // 날짜 
+//		    reserved    varchar(30) not null, // 영화제목인가????
+			
+			int result = pstmt.executeUpdate();
+			
+			if(result == 1) {
+				System.out.println("예매 좌석 저장");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+
 }

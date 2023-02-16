@@ -131,6 +131,9 @@ public class SeatServiceImpl implements SeatService {
 		if (result.get() == ButtonType.OK){ // ok버튼을 눌렀을 때
 			// 다음 창으로 넘어가기
 			sd.setReserveDate();
+			System.out.println("seat에서 다음창으로 넘어가기 클릭");
+			System.out.println(sd.getUserId());
+			System.out.println(sd.getUserName());
 			ts.insertTicketFromSd(sd);
 			
 			for(int i = 0; i < selarray.length; i++) {
@@ -142,6 +145,12 @@ public class SeatServiceImpl implements SeatService {
 			
 			System.out.println("sd -> ticket");
 
+
+			
+			// db에 상영관&좌석 정보 저장
+			// 오라클에서 room 테이블에 상영관 미리 저장해놔야함(참조키)
+			sdao.nextPageSeat(sd);
+			
 			Stage s = (Stage) seat.getScene().getWindow();
 
 			FXMLLoader loader = new FXMLLoader(
@@ -177,8 +186,6 @@ public class SeatServiceImpl implements SeatService {
 
 		for(int i = 0; i < selarray.length; i++) {
 			if(selarray[i].isSelected()) {
-				System.out.println("sd.getSelAdultNum()" + sd.getSelAdultNum());
-				System.out.println("sd.getSelChildrenNum() : "+sd.getSelChildrenNum());
 				if(cnt >= sd.getSelAdultNum() + sd.getSelChildrenNum()) {
 					cs.alertMsg("인원 초과", "인원 초과", "인원 초과에욥!!!");
 					selarray[i].requestFocus();
