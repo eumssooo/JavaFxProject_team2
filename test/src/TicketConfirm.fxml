@@ -65,46 +65,46 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="cancelTicket1" mnemonicParsing="false" onAction="#printTickets" style="-fx-background-color: #e22510;" text="조회" textFill="WHITE" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+      <Button fx:id="search" mnemonicParsing="false" onAction="#printTickets" style="-fx-background-color: #e22510;" text="조회" textFill="WHITE" GridPane.columnIndex="6" GridPane.rowIndex="1" />
       <TableView fx:id="confirmTable" prefHeight="200.0" prefWidth="657.0" style="-fx-background-color: white; -fx-border-color: #e22510;" GridPane.columnSpan="7" GridPane.rowIndex="3" GridPane.rowSpan="20">
        
       </TableView>
-      <Button fx:id="cancelTicket2" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelTicket" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="6" GridPane.rowSpan="2">
+      <Button fx:id="cancelTicket1" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelTicket" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="6" GridPane.rowSpan="2">
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="cancelTicket3" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelTicket" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="8" GridPane.rowSpan="2">
+      <Button fx:id="cancelTicket2" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelTicket" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="8" GridPane.rowSpan="2">
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="cancelTicket4" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelTicket" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="10" GridPane.rowSpan="2">
+      <Button fx:id="cancelTicket3" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelTicket" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="10" GridPane.rowSpan="2">
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="cancelTicket5" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelTicket" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="12" GridPane.rowSpan="2">
+      <Button fx:id="cancelTicket4" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelTicket" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="12" GridPane.rowSpan="2">
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="cancelTicket6" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelTicket" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="14" GridPane.rowSpan="2">
+      <Button fx:id="cancelTicket5" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelTicket" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="14" GridPane.rowSpan="2">
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="cancelTicket7" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelTicket" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="16" GridPane.rowSpan="2">
+      <Button fx:id="cancelTicket6" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelTicket" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="16" GridPane.rowSpan="2">
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="cancelTicket8" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelTicket" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="18" GridPane.rowSpan="2">
+      <Button fx:id="cancelTicket7" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelTicket" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="18" GridPane.rowSpan="2">
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="cancelTicket9" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelTicket" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="20" GridPane.rowSpan="2">
+      <Button fx:id="cancelTicket8" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelTicket" text="예매 취소" textAlignment="CENTER" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="20" GridPane.rowSpan="2">
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>

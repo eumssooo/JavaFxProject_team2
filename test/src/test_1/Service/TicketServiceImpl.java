@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
@@ -22,7 +23,6 @@ import test_1.DAO.*;
 public class TicketServiceImpl implements TicketService{
 	//	private Ticket ticket;
 	public static ArrayList<Ticket> tickets = new ArrayList<Ticket>();;
-	public static Button[] cancels = new Button[20];
 	private TicketDAO td;
 	private CommonService cs;
 	private selData sd;
@@ -42,6 +42,7 @@ public class TicketServiceImpl implements TicketService{
 		Label confirmTitle = (Label)root.lookup("#confirmTitle");
 		confirmTitle.setText(sd.getUserName() + " 님의 예매 내역"); //ticket.getUserName()
 		String cancel = "#cancelTicket";
+		Button[] cancels = new Button[20];
 		
 		for(int i = 0; i<tickets.size(); i++) {
 			cancel += i;
@@ -50,22 +51,22 @@ public class TicketServiceImpl implements TicketService{
 			cancels[i].setVisible(true);
 			cancel = "#cancelTicket";
 		}
-
+		
 		TableView tableView = (TableView)root.lookup("#confirmTable");
 		if(tableView.getColumns().isEmpty()) {
-			TableColumn<Ticket, String> userName = new TableColumn<>("userName");
+			TableColumn<Ticket, String> userName = new TableColumn<>("이름");
 			userName.setCellValueFactory(new PropertyValueFactory<>("userName"));
-			TableColumn<Ticket, String> movieName = new TableColumn<>("movieName");
+			TableColumn<Ticket, String> movieName = new TableColumn<>("제목");
 			movieName.setCellValueFactory(new PropertyValueFactory<>("movieName"));
-			TableColumn<Ticket, Integer> roomNum = new TableColumn<>("roomNum");
+			TableColumn<Ticket, Integer> roomNum = new TableColumn<>("관");
 			roomNum.setCellValueFactory(new PropertyValueFactory<>("roomNum"));
-			TableColumn<Ticket, String> day = new TableColumn<>("day");
+			TableColumn<Ticket, String> day = new TableColumn<>("상영일자");
 			day.setCellValueFactory(new PropertyValueFactory<>("day"));
-			TableColumn<Ticket, String> seatNum = new TableColumn<>("seatNum");
+			TableColumn<Ticket, String> seatNum = new TableColumn<>("좌석");
 			seatNum.setCellValueFactory(new PropertyValueFactory<>("seatNum"));
-			TableColumn<Ticket, Integer> cost = new TableColumn<>("cost");
+			TableColumn<Ticket, Integer> cost = new TableColumn<>("금액");
 			cost.setCellValueFactory(new PropertyValueFactory<>("cost"));
-			TableColumn<Ticket, Integer> reserveDate = new TableColumn<>("reserveDate");
+			TableColumn<Ticket, Integer> reserveDate = new TableColumn<>("예약일자");
 			reserveDate.setCellValueFactory(new PropertyValueFactory<>("reserveDate"));
 
 			tableView.getColumns().addAll(userName,movieName,roomNum,day,seatNum,cost,reserveDate);
@@ -74,7 +75,9 @@ public class TicketServiceImpl implements TicketService{
 			ObservableList<Ticket> data = 
 					FXCollections.observableArrayList(tickets);
 			tableView.setItems(data);
+			tableView.setFixedCellSize(60);
 		}
+		
 	}
 
 	@Override
