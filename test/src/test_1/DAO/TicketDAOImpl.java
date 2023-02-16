@@ -124,4 +124,26 @@ public class TicketDAOImpl implements TicketDAO{
 		}
 	}
 
+	@Override
+	public String getDAO(String id) {
+		// TODO Auto-generated method stub
+		String sql = "select name from customer where id = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,id);
+				
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+			String name = rs.getString(1);			
+			return name;
+			}
+			pstmt.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }
