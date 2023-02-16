@@ -132,7 +132,7 @@ public class SeatDAOImpl implements SeatDAO {
 //		    roomNum     varchar(30) not null, // 상영관
 //		    seatNum     varchar(30) not null, // 좌석
 //		    day         varchar(30) not null, // 날짜 
-//		    reserved    varchar(30) not null, // 영화제목인가????
+//		    reserved    varchar(30) not null, // 영화제목인가???? 시간인가???
 			
 			int result = pstmt.executeUpdate();
 			
@@ -143,6 +143,35 @@ public class SeatDAOImpl implements SeatDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public String seatCheck(selData sd) {
+		// TODO Auto-generated method stub
+		String sql = "select seatNum from seat where roomNum =? and day=?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, String.valueOf(sd.getSelRoom()));
+			pstmt.setString(2, sd.getSelDate());
+			
+			rs = pstmt.executeQuery();
+			
+			rs.next();
+			
+			String result = rs.getString(1);
+			
+			if(result != null) {
+				return result;
+			}
+			pstmt.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
+		return null;
 	}
 
 

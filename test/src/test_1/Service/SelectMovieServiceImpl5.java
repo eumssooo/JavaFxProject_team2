@@ -3,6 +3,7 @@ package test_1.Service;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import test_1.Common.CommonService;
@@ -11,6 +12,8 @@ import test_1.Controller.SeatController;
 import test_1.Controller.SelectMovieController;
 import test_1.DAO.MovieDAO;
 import test_1.DAO.MovieDAOImpl;
+import test_1.DAO.SeatDAO;
+import test_1.DAO.SeatDAOImpl;
 import test_1.View.Customer;
 import test_1.View.selData;
 
@@ -24,10 +27,13 @@ public class SelectMovieServiceImpl5 implements SelectMovieService5{
 
 	private static CommonService cs;
 	private static  MovieDAO md;
+	
+	SeatDAO seatD;
 
 	public SelectMovieServiceImpl5 () {
 		cs = new CommonServiceImpl();
 		md = new MovieDAOImpl();
+		seatD = new SeatDAOImpl();
 	}
 
 
@@ -53,6 +59,33 @@ public class SelectMovieServiceImpl5 implements SelectMovieService5{
 
 		s.setTitle("좌석 선택");
 		s.show();
+		
+		
+		String sel = "#chk";
+		CheckBox[] selarray = new CheckBox[16];
+		String temp = "";
+
+		for(int i = 0; i<selarray.length; i++) {
+			sel += i+1;
+			selarray[i] = (CheckBox)root.lookup(sel);
+			sel = "#chk";
+		}
+		
+		if(seatD.seatCheck(sd)==null) {
+			System.out.println("판매 좌석 없음");
+		} else {
+			String[] seat = seatD.seatCheck(sd).split("/");
+
+			for(int j=0;j<seat.length;j++) {
+				for(int i=0;i<selarray.length;i++) {
+					if(seat[j].equals(selarray[i].getText())) {
+						selarray[i].setDisable(true);
+					}
+				}
+			}
+
+		}
+		
 				
 	}
 
