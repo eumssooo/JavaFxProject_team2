@@ -79,15 +79,17 @@ public class TicketDAOImpl implements TicketDAO{
 	}
 
 	@Override
-	public void cancelSeat(Ticket t) {
-		String sql = "delete from seat where roomNum = ? "
-				+ "and day = ? and seatNum = ? and reserved = ? ";
+	public void cancelSeat(selData sd) {
+		String sql = "delete from seat where roomNum = ? and seatNum = ? and day = ? and reserved = ? ";
 
+		
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, t.getDay());
-			pstmt.setInt(3, t.getRoomNum());
-			pstmt.setString(4, t.getSeatNum());
+			pstmt.setString(1, String.valueOf(sd.getSelRoom()));
+			pstmt.setString(2, sd.getSelSeatNum());
+			pstmt.setString(3, sd.getSelDate());
+			pstmt.setString(4, sd.getSelTitle());
+			
 			pstmt.executeUpdate();
 			System.out.println("좌석 예약 취소 작업");
 

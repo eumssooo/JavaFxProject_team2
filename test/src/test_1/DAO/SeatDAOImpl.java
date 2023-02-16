@@ -132,7 +132,7 @@ public class SeatDAOImpl implements SeatDAO {
 //		    roomNum     varchar(30) not null, // 상영관
 //		    seatNum     varchar(30) not null, // 좌석
 //		    day         varchar(30) not null, // 날짜 
-//		    reserved    varchar(30) not null, // 영화제목인가????
+//		    reserved    varchar(30) not null, // 영화제목인가???? 시간인가???
 			
 			int result = pstmt.executeUpdate();
 			

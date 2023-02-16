@@ -140,9 +140,7 @@ public class SeatServiceImpl implements SeatService {
 			// 추가함
 			sd.setUserName(td.getDAO(Customer.getId()));
 			sd.setUserId(Customer.getId());
-			System.out.println("seat에서 다음창으로 넘어가기 클릭");
-			System.out.println(sd.getUserId());
-			System.out.println(sd.getUserName());
+
 			ts.insertTicketFromSd(sd);
 			
 			for(int i = 0; i < selarray.length; i++) {
@@ -159,6 +157,7 @@ public class SeatServiceImpl implements SeatService {
 			// db에 상영관&좌석 정보 저장
 			// 오라클에서 room 테이블에 상영관 미리 저장해놔야함(참조키)
 			sdao.nextPageSeat(sd);
+			td.enrollTicket(sd);
 			
 			Stage s = (Stage) seat.getScene().getWindow();
 
