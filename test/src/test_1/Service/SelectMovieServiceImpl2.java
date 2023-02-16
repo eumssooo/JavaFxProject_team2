@@ -37,9 +37,15 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 	// 상영 시간 계산
 	public String movieTime (int a, int b, int c) {
 		int movieH = (a * 60 + b +c ) /60;
-		int movieM = (a * 60 + b +c ) %60;	
-		String movieTime = (movieH + ":" + movieM);
-		return movieTime;
+		int movieM = (a * 60 + b +c ) %60;
+		if (movieM < 10) {
+			String movieTime = (movieH + ":0" + movieM);
+			System.out.println(movieTime);
+			return movieTime;
+		}
+			String movieTime = (movieH + ":" + movieM);
+			System.out.println(movieTime);
+			return movieTime;
 	}
 
 	@Override
