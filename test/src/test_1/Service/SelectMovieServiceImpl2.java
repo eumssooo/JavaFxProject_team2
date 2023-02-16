@@ -166,13 +166,11 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 		SimpleDateFormat formatter = new SimpleDateFormat("MM월 dd일");
 		Date date = new Date();
 		date = cal.getTime();
-		System.out.println(formatter.format(date));
-		cmbDate.getItems().add(formatter.format(date));
 		for (int i= 0;i<4;i++) {
-			cal.add(Calendar.DATE,1);
+			cal.add(Calendar.DATE,i);
 			date = cal.getTime();
-			System.out.println(formatter.format(date));
 			cmbDate.getItems().add(formatter.format(date));
+			cal.add(Calendar.DATE, -i);
 		}
 
 	}
