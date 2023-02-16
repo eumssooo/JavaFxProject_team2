@@ -73,7 +73,6 @@ public class TicketServiceImpl implements TicketService{
 					FXCollections.observableArrayList(tickets);
 			tableView.setItems(data);
 		}
-		
 	}
 
 	@Override
@@ -91,11 +90,9 @@ public class TicketServiceImpl implements TicketService{
 	@Override
 	public void cancelTickets() {
 		// TODO Auto-generated method stub
-		for(int i = 0; i<tickets.size(); i++) {
-			if(cancels[i].isPressed()) {
-				tickets.remove(i);
-			}
-		}
+		tickets.remove(0);
+		//index값을 뭐로 가져오냐
+		
 	}
 
 
