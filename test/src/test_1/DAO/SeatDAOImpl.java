@@ -148,7 +148,7 @@ public class SeatDAOImpl implements SeatDAO {
 	public String seatCheck(selData sd) {
 		// TODO Auto-generated method stub
 		String sql = "select seatNum from seat where roomNum =? and day=?";
-		String result= null;
+		String result= "";
 		try {
 			pstmt = con.prepareStatement(sql);
 			
@@ -156,11 +156,12 @@ public class SeatDAOImpl implements SeatDAO {
 			pstmt.setString(2, sd.getSelDate());
 			
 			rs = pstmt.executeQuery();
-	
-			while(rs.next()) {
-				result = rs.getString(1);  // 모든 행 다 불러와야 함
-			}
 			
+			while(rs.next()) {
+				result += rs.getString("seatNum")+"/";  // 모든 행 다 불러와야 함
+//				System.out.println("DAO: "+result);
+			}
+			rs.close();
 			pstmt.close();
 		} catch (Exception e) {
 			// TODO: handle exception

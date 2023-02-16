@@ -75,9 +75,11 @@ public class SelectMovieServiceImpl5 implements SelectMovieService5{
 			System.out.println("판매 좌석 없음");
 		} else {
 			String[] seat = seatD.seatCheck(sd).split("/");
-			for(String sys : seat) {
-				System.out.println(sys);
-			}
+			
+//			System.out.println("나누기 전: "+seatD.seatCheck(sd));
+//			for(String sys : seat) {
+//				System.out.println(sys);
+//			}
 			
 			for(int j=0;j<seat.length;j++) {
 				for(int i=0;i<selarray.length;i++) {
