@@ -74,7 +74,7 @@ public class ConfirmController {
 	public void cancelTicket() {
 		// 정말로 티켓을 취소하시겠습니까?
 		td.cancelSeat(sd);
-		td.cancelTicket(t);
+		td.cancelTicket(t); // t에 저장된거 없음
 		
 //		ts.cancelTickets();
 //		cs.alertMsg("티켓 취소", "티켓 취소", "티켓이 취소 되었습니다.");

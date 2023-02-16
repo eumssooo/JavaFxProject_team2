@@ -62,11 +62,11 @@ public class TicketDAOImpl implements TicketDAO{
 				+ "and day = ?";
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(2, t.getUserId());
-			pstmt.setString(3, t.getSeatNum());
-			pstmt.setInt(4, t.getRoomNum());
-			pstmt.setString(5, t.getMovieName());
-			pstmt.setString(6, t.getDay());;
+			pstmt.setString(1, t.getUserId());
+			pstmt.setString(2, t.getSeatNum());
+			pstmt.setInt(3, t.getRoomNum());
+			pstmt.setString(4, t.getMovieName());
+			pstmt.setString(5, t.getDay());;
 			pstmt.executeUpdate();
 			System.out.println("티켓 예약 취소 작업");
 			
