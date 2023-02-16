@@ -36,8 +36,14 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 	public String movieTime (int a, int b, int c) {
 		int movieH = (a * 60 + b +c ) /60;
 		int movieM = (a * 60 + b +c ) %60;
-		String movieTime = (movieH + ":" + movieM);
-		return movieTime;
+		if (movieM < 10) {
+			String movieTime = (movieH + ":0" + movieM);
+			System.out.println(movieTime);
+			return movieTime;
+		}
+			String movieTime = (movieH + ":" + movieM);
+			System.out.println(movieTime);
+			return movieTime;
 	}
 
 	@Override
@@ -62,7 +68,7 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 				!children_4.isSelected()) {	
 			cs.alertMsg("관람 인원 선택", "관람 인원이 선택되지 않았습니다", "관람 인원을 선택해주세요");	
 			return;
-		} else { 
+		} else {  // 청소년 관람 불가 영화에서 청소년 좌석을 선택한 경우 메세지
 			if (md.getAgeLimit(sd.getSelTitle()) == 19){
 				if (children_1.isSelected() || children_2.isSelected() || 
 						children_3.isSelected() || children_4.isSelected()) {
@@ -117,7 +123,7 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 			ctrl.setCheckInfo(chkInfo);
 			ctrl.setSelData(sd);
 
-			SelectMovie_5_chkInfo.setTitle("예매 정보 확인");
+			SelectMovie_5_chkInfo.setTitle("선택 정보 확인");
 			SelectMovie_5_chkInfo.show();
 
 			// 로그인 된 아이디 표시
@@ -195,65 +201,39 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 		time_5.setText("22:00 - "+ movieTime(22,0,md.getMovieRunningTime(sd.getSelTitle())));
 	}
 
+	@Override
+	public void click(Parent selectPerson) {
+		// TODO Auto-generated method stub
+	
+		ToggleButton[] tbA = new ToggleButton[4];
+		ToggleButton[] tbC = new ToggleButton[4];
+		
+		for(int i=0;i<tbA.length;i++) {
+			String idA = "#adult_";
+			String idC = "#children_";
+			idA += i+1;
+			idC += i+1;
+			tbA[i] = (ToggleButton) selectPerson.lookup(idA);
+			tbC[i] = (ToggleButton) selectPerson.lookup(idC);
+		}
+		
+		while(true) {
+			for(int i=0;i<tbA.length;i++) {
+				if(tbA[i].isSelected()) {
+					tbA[i].setStyle("-fx-background-color:black");
+				}
+				if(!(tbA[i].isSelected())) {
+					tbA[i].setStyle("-fx-background-color:#e22510");
+				}
+				if(tbC[i].isSelected()) {
+					tbC[i].setStyle("-fx-background-color:black");
+				}
+				if(!(tbC[i].isSelected())) {
+					tbC[i].setStyle("-fx-background-color:#e22510");
+				}
+			}
+			return;
+		}
+	}
 
-//	@Override
-//	public void colorChange(Parent selectPerson) {
-//		// TODO Auto-generated method stub
-//
-//		// 인원선택 토글버튼 - 성인
-//		ToggleButton adult_1 = (ToggleButton) selectPerson.lookup("#adult_1");
-//		ToggleButton adult_2 = (ToggleButton) selectPerson.lookup("#adult_2");
-//		ToggleButton adult_3 = (ToggleButton) selectPerson.lookup("#adult_3");
-//		ToggleButton adult_4 = (ToggleButton) selectPerson.lookup("#adult_4");
-//		// 인원선택 토글버튼 - 청소년
-//		ToggleButton children_1 = (ToggleButton) selectPerson.lookup("#children_1");
-//		ToggleButton children_2 = (ToggleButton) selectPerson.lookup("#children_2");
-//		ToggleButton children_3 = (ToggleButton) selectPerson.lookup("#children_3");
-//		ToggleButton children_4 = (ToggleButton) selectPerson.lookup("#children_4");
-//			
-//		if (adult_1.isSelected()) {
-//			adult_1.setStyle("-fx-background-color:black");
-//			adult_2.setStyle("-fx-background-color:#e22510");
-//			adult_3.setStyle("-fx-background-color:#e22510");
-//			adult_4.setStyle("-fx-background-color:#e22510");
-//		} else if (adult_2.isSelected()) {
-//			adult_2.setStyle("-fx-background-color:black");
-//			adult_1.setStyle("-fx-background-color:#e22510");
-//			adult_3.setStyle("-fx-background-color:#e22510");
-//			adult_4.setStyle("-fx-background-color:#e22510");
-//		} else if (adult_3.isSelected()) {
-//			adult_3.setStyle("-fx-background-color:black");
-//			adult_1.setStyle("-fx-background-color:#e22510");
-//			adult_2.setStyle("-fx-background-color:#e22510");
-//			adult_4.setStyle("-fx-background-color:#e22510");
-//		} else if (adult_4.isSelected()) {
-//			adult_4.setStyle("-fx-background-color:black");
-//			adult_1.setStyle("-fx-background-color:#e22510");
-//			adult_2.setStyle("-fx-background-color:#e22510");
-//			adult_3.setStyle("-fx-background-color:#e22510");
-//		}
-//		
-//		if (children_1.isSelected()) {
-//			children_1.setStyle("-fx-background-color:black");
-//			children_2.setStyle("-fx-background-color:#e22510");
-//			children_3.setStyle("-fx-background-color:#e22510");
-//			children_4.setStyle("-fx-background-color:#e22510");
-//		} else if (children_2.isSelected()) {
-//			children_2.setStyle("-fx-background-color:black");
-//			children_1.setStyle("-fx-background-color:#e22510");
-//			children_3.setStyle("-fx-background-color:#e22510");
-//			children_4.setStyle("-fx-background-color:#e22510");
-//		} else if (children_3.isSelected()) {
-//			children_3.setStyle("-fx-background-color:black");
-//			children_1.setStyle("-fx-background-color:#e22510");
-//			children_2.setStyle("-fx-background-color:#e22510");
-//			children_4.setStyle("-fx-background-color:#e22510");
-//		} else if (children_4.isSelected()) {
-//			children_4.setStyle("-fx-background-color:black");
-//			children_1.setStyle("-fx-background-color:#e22510");
-//			children_2.setStyle("-fx-background-color:#e22510");
-//			children_3.setStyle("-fx-background-color:#e22510");
-//		}
-//		
-//	}
 }

@@ -10,7 +10,10 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test_1.Controller.SelectMovieController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" 
+minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" 
+style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" 
+xmlns:fx="http://javafx.com/fxml/1" fx:controller="test_1.Controller.SelectMovieController">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
@@ -55,7 +58,7 @@
             <Insets right="10.0" />
          </GridPane.margin>
       </Label>
-      <ToggleButton fx:id="adult_1" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-base: #e22510;" text="1" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <ToggleButton onAction="#click4" fx:id="adult_1" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #e22510;" text="1" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets left="28.0" />
          </GridPane.margin>
@@ -66,7 +69,7 @@
             <Font name="HYHeadLine-Medium" size="20.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="adult_2" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-base: #e22510;" text="2" textFill="WHITE" toggleGroup="$adult_Num" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <ToggleButton onAction="#click4" fx:id="adult_2" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #e22510;" text="2" textFill="WHITE" toggleGroup="$adult_Num" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets left="96.0" />
          </GridPane.margin>
@@ -74,7 +77,7 @@
             <Font name="HYHeadLine-Medium" size="20.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="adult_3" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-base: #e22510;" text="3" textFill="WHITE" toggleGroup="$adult_Num" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <ToggleButton onAction="#click4" fx:id="adult_3" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #e22510;" text="3" textFill="WHITE" toggleGroup="$adult_Num" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets right="96.0" />
          </GridPane.margin>
@@ -82,7 +85,7 @@
             <Font name="HYHeadLine-Medium" size="20.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="adult_4" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-base: #e22510;" text="4" textFill="WHITE" toggleGroup="$adult_Num" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <ToggleButton onAction="#click4" fx:id="adult_4" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #e22510;" text="4" textFill="WHITE" toggleGroup="$adult_Num" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets right="28.0" />
          </GridPane.margin>
@@ -90,7 +93,7 @@
             <Font name="HYHeadLine-Medium" size="20.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="children_1" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-base: #e22510;" text="1" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+      <ToggleButton onAction="#click4" fx:id="children_1" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #e22510;" text="1" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets left="28.0" />
          </GridPane.margin>
@@ -101,7 +104,7 @@
             <Font name="HYHeadLine-Medium" size="20.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="children_2" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-base: #e22510;" text="2" textFill="WHITE" toggleGroup="$children_Num" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+      <ToggleButton onAction="#click4" fx:id="children_2" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #e22510;" text="2" textFill="WHITE" toggleGroup="$children_Num" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets left="96.0" />
          </GridPane.margin>
@@ -109,7 +112,7 @@
             <Font name="HYHeadLine-Medium" size="20.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="children_3" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-base: #e22510;" text="3" textFill="WHITE" toggleGroup="$children_Num" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+      <ToggleButton onAction="#click4" fx:id="children_3" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #e22510;" text="3" textFill="WHITE" toggleGroup="$children_Num" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets right="96.0" />
          </GridPane.margin>
@@ -117,7 +120,7 @@
             <Font name="HYHeadLine-Medium" size="20.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="children_4" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-base: #e22510;" text="4" textFill="WHITE" toggleGroup="$children_Num" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+      <ToggleButton onAction="#click4" fx:id="children_4" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #e22510;" text="4" textFill="WHITE" toggleGroup="$children_Num" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets right="28.0" />
          </GridPane.margin>
