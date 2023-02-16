@@ -1,11 +1,11 @@
 package test_1.View;
 
 public class Customer {
-	private String name;
-	private String phone;
-	private int age;
-	private static String id;
-	private String pw;
+	private String name; // 고객 이름
+	private String phone; // 전화번호
+	private int age; // 나이
+	private static String id; // 아이디
+	private String pw; // 비밀번호
 	
 	public String getName() {
 		return name;
