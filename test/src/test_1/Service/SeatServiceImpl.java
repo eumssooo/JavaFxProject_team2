@@ -4,6 +4,7 @@ package test_1.Service;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -35,6 +36,7 @@ public class SeatServiceImpl implements SeatService {
 	private SeatDAO sdao;
 	private CommonService cs;
 	private String temp;
+	private int cnt = 0;
 
 	// 이전 페이지 정보에 필요
 	int ticketCostAdult = 14000;
@@ -43,6 +45,12 @@ public class SeatServiceImpl implements SeatService {
 	public SeatServiceImpl(){
 		sdao = new SeatDAOImpl();
 		cs = new CommonServiceImpl();
+	}
+	public int selSeatCnt(selData sd){
+		String[] token = sd.getSelSeatNum().split("/");
+		int tokCnt = 0;
+		
+		return tokCnt = token.length;
 	}
 
 	// 이전페이지로(선택정보 확인) 이동
@@ -95,35 +103,12 @@ public class SeatServiceImpl implements SeatService {
 		cost.setText((sd.getSelAdultNum()*ticketCostAdult + sd.getSelChildrenNum()*ticketCostChildren) + "원");
 	}
 
-
-	@Override
-	public void printSeat(Parent root) {
-		// TODO Auto-generated method stub
-		// 선택된 좌석 갯수
-		Label title = (Label)root.lookup("#confirmTitle");			
-		title.setText("님의 예매 내역");
-	}
-
-
-
-	@Override
-	public void joinSeat(Parent root) {
-		// TODO Auto-generated method stub
-
-	}
-
-
-	@Override
-	public boolean SeatServiceChk(String text, String text2) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 	@Override
 	public void NextPage(Parent seat, selData sd) {
 		// TODO Auto-generated method stub
-
-		cs.alertMsg("좌석 확인", (sd.getSelAdultNum()+sd.getSelChildrenNum())+"개 좌석 선택", temp+" 좌석이 선택 되었습니다");
+		
+		
+		cs.alertMsg("좌석 확인", selSeatCnt(sd) +"개 좌석 선택", temp+" 좌석이 선택 되었습니다");
 
 		// 다음 창으로 넘어가기
 		Stage s = (Stage) seat.getScene().getWindow();
@@ -150,18 +135,20 @@ public class SeatServiceImpl implements SeatService {
 	@Override
 	public void selectSeat(Parent root, selData sd) {
 		// TODO Auto-generated method stub
-		String sel = "#chk";
 		CheckBox[] selarray = new CheckBox[16];
-		temp = "";
-
-		for(int i = 0; i<selarray.length; i++) {
-			sel += i+1;
-			System.out.println(sel);
-			selarray[i] = (CheckBox)root.lookup(sel);
-			sel = "#chk";
-		}
+		selarray = searchSeat(root, sd);
+		
 		for(int i = 0; i < selarray.length; i++) {
 			if(selarray[i].isSelected()) {
+				if(cnt >= sd.getSelAdultNum() + sd.getSelChildrenNum()) {
+					cs.alertMsg("인원 초과", "인원 초과", "인원 초과에욥!!!");
+					selarray[i].requestFocus();
+					// 마지막으로 선택된 체크박스를 가져와야 함
+					selarray[i].setSelected(false);
+					cnt--;
+					continue;
+				}
+				cnt++;
 				temp += selarray[i].getText() + "/";
 				// 잔여 좌석수 추가
 
@@ -171,7 +158,25 @@ public class SeatServiceImpl implements SeatService {
 		}
 		temp = temp.substring(0, temp.length() - 1);
 		sd.setSelSeatNum(temp);
+		cnt=0;
+		temp = "";
 		System.out.println(sd.getSelSeatNum());
+	}
+
+	@Override
+	public CheckBox[] searchSeat(Parent root, selData sd) {
+		// TODO Auto-generated method stub
+		String sel = "#chk";
+		CheckBox[] selarray = new CheckBox[16];
+		temp = "";
+
+		for(int i = 0; i<selarray.length; i++) {
+			sel += i+1;
+			selarray[i] = (CheckBox)root.lookup(sel);
+			sel = "#chk";
+		}
+		
+		return selarray;
 	}
 
 }
