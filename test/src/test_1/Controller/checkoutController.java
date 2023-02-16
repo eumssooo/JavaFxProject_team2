@@ -97,6 +97,7 @@ public class checkoutController {
 
 			SelectMovieController ctrl = loader.getController();
 			ctrl.setSelectDate(selectDate);
+			ctrl.setSelData(sd);
 
 			stage.setTitle("상영 날짜 선택");
 			stage.show();

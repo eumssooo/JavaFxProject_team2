@@ -42,7 +42,8 @@ public class SeatServiceImpl implements SeatService {
 	private String temp;
 	private int cnt = 0;
 	private selData sd;
-
+	public static CheckBox[] selarray = new CheckBox[16];
+	
 	// 이전 페이지 정보에 필요
 	int ticketCostAdult = 14000;
 	int ticketCostChildren = 11000;
@@ -130,6 +131,14 @@ public class SeatServiceImpl implements SeatService {
 			// 다음 창으로 넘어가기
 			sd.setReserveDate();
 			ts.insertTicketFromSd(sd);
+			
+			for(int i = 0; i < selarray.length; i++) {
+				if(sd.getSelSeatNum().contains(selarray[i].getText())) {
+					System.out.println(selarray[i].getText());
+					selarray[i].setDisable(true);
+				}
+			}
+			
 			System.out.println("sd -> ticket");
 			
 			Stage s = (Stage) seat.getScene().getWindow();
@@ -163,7 +172,6 @@ public class SeatServiceImpl implements SeatService {
 	@Override
 	public void selectSeat(Parent root, selData sd) {
 		// TODO Auto-generated method stub
-		CheckBox[] selarray = new CheckBox[16];
 		selarray = searchSeat(root, sd);
 		
 		for(int i = 0; i < selarray.length; i++) {
@@ -184,7 +192,9 @@ public class SeatServiceImpl implements SeatService {
 				// 나중에 StringTokenizer 로 나눠쓰면 됌.
 			}
 		}
-		temp = temp.substring(0, temp.length() - 1);
+		if(temp.length() > 0) {
+			temp = temp.substring(0, temp.length() - 1);
+		}
 		sd.setSelSeatNum(temp);
 		cnt=0;
 		temp = "";

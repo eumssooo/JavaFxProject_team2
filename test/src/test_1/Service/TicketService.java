@@ -8,4 +8,5 @@ public interface TicketService{
 	// 티켓 목록 출력
 	public void printTicket(Parent root, selData sd);
 	public void insertTicketFromSd(selData sd);
+	public void cancelTickets();
 }

@@ -3,6 +3,7 @@ package test_1.Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import test_1.Common.CommonServiceImpl;
 import test_1.DAO.SeatDAO;

@@ -22,6 +22,7 @@ import test_1.DAO.*;
 public class TicketServiceImpl implements TicketService{
 	//	private Ticket ticket;
 	public static ArrayList<Ticket> tickets = new ArrayList<Ticket>();;
+	public static Button[] cancels = new Button[20];
 	private TicketDAO td;
 	private CommonService cs;
 	private selData sd;
@@ -39,8 +40,7 @@ public class TicketServiceImpl implements TicketService{
 		Label confirmTitle = (Label)root.lookup("#confirmTitle");
 		confirmTitle.setText("???" + " 님의 예매 내역"); //ticket.getUserName()
 		String cancel = "#cancelTicket";
-		Button[] cancels = new Button[10];
-
+		
 		for(int i = 0; i<tickets.size(); i++) {
 			cancel += i;
 			System.out.println(cancel);
@@ -48,7 +48,6 @@ public class TicketServiceImpl implements TicketService{
 			cancels[i].setVisible(true);
 			cancel = "#cancelTicket";
 		}
-
 
 		TableView tableView = (TableView)root.lookup("#confirmTable");
 		if(tableView.getColumns().isEmpty()) {
@@ -69,11 +68,12 @@ public class TicketServiceImpl implements TicketService{
 
 			tableView.getColumns().addAll(userName,movieName,roomNum,day,seatNum,cost,reserveDate);
 
-			//		List<Ticket> ticketList = td.selectTicket(ticket.getUserId());	// ticket.getUserId()
+			//List<Ticket> ticketList = td.selectTicket(ticket.getUserId());	// ticket.getUserId()
 			ObservableList<Ticket> data = 
 					FXCollections.observableArrayList(tickets);
 			tableView.setItems(data);
 		}
+		
 	}
 
 	@Override
@@ -86,6 +86,16 @@ public class TicketServiceImpl implements TicketService{
 		// sd.getUserName(), sd.getUserId()
 		t.print_Ticket();
 		tickets.add(t);
+	}
+
+	@Override
+	public void cancelTickets() {
+		// TODO Auto-generated method stub
+		for(int i = 0; i<tickets.size(); i++) {
+			if(cancels[i].isPressed()) {
+				tickets.remove(i);
+			}
+		}
 	}
 
 
