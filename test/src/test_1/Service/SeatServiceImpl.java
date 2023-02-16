@@ -4,12 +4,16 @@ package test_1.Service;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.StringTokenizer;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -109,29 +113,39 @@ public class SeatServiceImpl implements SeatService {
 	public void NextPage(Parent seat, selData sd) {
 		// TODO Auto-generated method stub
 		
-		
-		cs.alertMsg("좌석 확인", selSeatCnt(sd) +"개 좌석 선택", temp+" 좌석이 선택 되었습니다");
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("좌석 확인");
+		alert.setHeaderText(selSeatCnt(sd) +"개 좌석 선택");
+		alert.setContentText(sd.getSelSeatNum() + " 좌석이 선택 되었습니다.\n예매하시겠습니까?");
 
-		// 다음 창으로 넘어가기
-		Stage s = (Stage) seat.getScene().getWindow();
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == ButtonType.OK){ // ok버튼을 눌렀을 때
+			// 다음 창으로 넘어가기
+			Stage s = (Stage) seat.getScene().getWindow();
 
-		FXMLLoader loader = new FXMLLoader(
-				getClass().getResource("../../ticketcheck.fxml")); //경로 수정
+			FXMLLoader loader = new FXMLLoader(
+					getClass().getResource("../../ticketcheck.fxml")); //경로 수정
 
-		Parent checkout = null;
-		try {
-			checkout = loader.load();
-			s.setScene(new Scene(checkout));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Parent checkout = null;
+			try {
+				checkout = loader.load();
+				s.setScene(new Scene(checkout));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			checkoutController ctrl = loader.getController();
+			ctrl.setCheckout(checkout);
+
+			s.setTitle("티켓 확인");
+			s.show();
+		} else {// 취소버튼을 눌렀을 때
+		    // ... user chose CANCEL or closed the dialog
+			return;
 		}
+		
 
-		checkoutController ctrl = loader.getController();
-		ctrl.setCheckout(checkout);
-
-		s.setTitle("티켓 확인");
-		s.show();
 	}
 
 	@Override

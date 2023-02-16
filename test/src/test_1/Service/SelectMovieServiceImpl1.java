@@ -35,7 +35,6 @@ public class SelectMovieServiceImpl1 implements SelectMovieService1{
 		sd = new selData();
 	}
 
-	
 
 	@Override
 	public void nextPage1(Parent selectDate) {
