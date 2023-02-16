@@ -62,7 +62,7 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 				!children_4.isSelected()) {	
 			cs.alertMsg("관람 인원 선택", "관람 인원이 선택되지 않았습니다", "관람 인원을 선택해주세요");	
 			return;
-		} else { 
+		} else {  // 청소년 관람 불가 영화에서 청소년 좌석을 선택한 경우 메세지
 			if (md.getAgeLimit(sd.getSelTitle()) == 19){
 				if (children_1.isSelected() || children_2.isSelected() || 
 						children_3.isSelected() || children_4.isSelected()) {
@@ -117,7 +117,7 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 			ctrl.setCheckInfo(chkInfo);
 			ctrl.setSelData(sd);
 
-			SelectMovie_5_chkInfo.setTitle("예매 정보 확인");
+			SelectMovie_5_chkInfo.setTitle("선택 정보 확인");
 			SelectMovie_5_chkInfo.show();
 
 			// 로그인 된 아이디 표시

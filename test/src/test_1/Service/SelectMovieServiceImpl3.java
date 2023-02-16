@@ -86,7 +86,7 @@ public class SelectMovieServiceImpl3 implements SelectMovieService3 {
 		ctrl.setSelectPerson(selectPerson);
 		ctrl.setSelData(sd);
 
-		SelectMovie_4_Person.setTitle("상영 회차 선택");
+		SelectMovie_4_Person.setTitle("관람 인원 선택");
 		SelectMovie_4_Person.show();
 		
 		// 로그인 된 아이디 표시
