@@ -46,6 +46,8 @@ public class SeatServiceImpl implements SeatService {
 		sdao = new SeatDAOImpl();
 		cs = new CommonServiceImpl();
 	}
+	
+	@Override
 	public int selSeatCnt(selData sd){
 		String[] token = sd.getSelSeatNum().split("/");
 		int tokCnt = 0;
