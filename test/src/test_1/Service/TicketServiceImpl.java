@@ -37,7 +37,7 @@ public class TicketServiceImpl implements TicketService{
 	@Override
 	public void printTicket(Parent root, selData sd) {
 		// TODO Auto-generated method stub
-		sd.setUserName(td.getDAO(Customer.getId()));
+//		sd.setUserName(td.getDAO(Customer.getId()));
 		
 		Label confirmTitle = (Label)root.lookup("#confirmTitle");
 		confirmTitle.setText(sd.getUserName() + " 님의 예매 내역"); //ticket.getUserName()

@@ -24,6 +24,9 @@ import test_1.Controller.SelectMovieController;
 import test_1.Controller.checkoutController;
 import test_1.DAO.SeatDAO;
 import test_1.DAO.SeatDAOImpl;
+import test_1.DAO.TicketDAO;
+import test_1.DAO.TicketDAOImpl;
+import test_1.View.Customer;
 import test_1.View.Seat;
 import test_1.View.selData;
 import test_1.Common.CommonService;
@@ -43,6 +46,7 @@ public class SeatServiceImpl implements SeatService {
 	private int cnt = 0;
 	private selData sd;
 	public static CheckBox[] selarray = new CheckBox[16];
+	private TicketDAO td;
 	
 	// 이전 페이지 정보에 필요
 	int ticketCostAdult = 14000;
@@ -53,6 +57,7 @@ public class SeatServiceImpl implements SeatService {
 		cs = new CommonServiceImpl();
 		ts = new TicketServiceImpl();
 		sd = new selData();
+		td = new TicketDAOImpl();
 	}
 
 	@Override
@@ -131,6 +136,10 @@ public class SeatServiceImpl implements SeatService {
 		if (result.get() == ButtonType.OK){ // ok버튼을 눌렀을 때
 			// 다음 창으로 넘어가기
 			sd.setReserveDate();
+			
+			// 추가함
+			sd.setUserName(td.getDAO(Customer.getId()));
+			sd.setUserId(Customer.getId());
 			System.out.println("seat에서 다음창으로 넘어가기 클릭");
 			System.out.println(sd.getUserId());
 			System.out.println(sd.getUserName());
