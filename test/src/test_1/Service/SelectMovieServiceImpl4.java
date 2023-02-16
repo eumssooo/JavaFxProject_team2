@@ -50,7 +50,6 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 	public void nextPage4(Parent selectPerson, selData sd) {
 		// TODO Auto-generated method stub
 
-		// 미성년자가 청소년 관람 불가 영화 선택시 alert 메세지 뜨도록 추가해야함
 		// 인원선택 토글버튼 - 성인
 		ToggleButton adult_1 = (ToggleButton) selectPerson.lookup("#adult_1");
 		ToggleButton adult_2 = (ToggleButton) selectPerson.lookup("#adult_2");
@@ -139,10 +138,10 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 			chkDate.setText(sd.getSelDate());
 			// 상영관, 상영 시간
 			Label chkRoom = (Label) chkInfo.lookup("#chkRoom"); 
-			chkRoom.setText(sd.getSelRoom() + "관 " + sd.getSelTime()); // 상영 시간
+			chkRoom.setText(sd.getSelRoom() + "관 "); // 상영 시간
 			// 잔여 좌석
-			// Label chkSeat = (Label) chkInfo.lookup("#chkSeat"); 
-			// chkSeat.setText("잔여 좌석");
+			Label chkTime = (Label) chkInfo.lookup("#chkTime"); 
+			chkTime.setText(sd.getSelTime());
 			// 관람 인원
 			Label chkPersonNum = (Label) chkInfo.lookup("#chkPersonNum"); 
 			// 선택 인원 표시
@@ -188,6 +187,10 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 		// 로그인 된 아이디 표시
 		Label loginName = (Label) selectSession.lookup("#loginName");
 		loginName.setText(cust.getId() + " 님");
+		
+		// 상영관 표시
+		Label roomNum = (Label) selectSession.lookup("#roomNum");
+		roomNum.setText(sd.getSelRoom() + "관");
 
 		Label time_1 = (Label) selectSession.lookup("#time_1"); 
 		time_1.setText("9:00 - " + movieTime(9,0,md.getMovieRunningTime(sd.getSelTitle())));

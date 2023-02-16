@@ -111,6 +111,10 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 			// 로그인 된 아이디 표시
 			Label loginName = (Label) selectSession.lookup("#loginName");
 			loginName.setText(cust.getId() + " 님");
+			
+			// 상영관 표시
+			Label roomNum = (Label) selectSession.lookup("#roomNum");
+			roomNum.setText(sd.getSelRoom() + "관");
 
 			// 상영 시간 표시
 			Label time_1 = (Label) selectSession.lookup("#time_1"); 
