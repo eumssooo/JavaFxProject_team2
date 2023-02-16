@@ -82,6 +82,10 @@ public class SelectMovieController {
 	public void nextPage3 () {
 		sms3.nextPage3(selectSession,sd);
 	}
+	
+	public void click3() {
+		sms3.click(selectSession);
+	}
 
 	// 4페이지
 	public void setSelectPerson(Parent selectPerson) {
@@ -95,6 +99,10 @@ public class SelectMovieController {
 
 	public void nextPage4 () {
 		sms4.nextPage4(selectPerson,sd);
+	}
+	
+	public void click4() {
+		sms4.click(selectPerson);
 	}
 
 	// 5페이지
