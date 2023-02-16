@@ -20,12 +20,12 @@ import test_1.Common.CommonServiceImpl;
 import test_1.DAO.*;
 
 public class TicketServiceImpl implements TicketService{
-//	private Ticket ticket;
+	//	private Ticket ticket;
 	public static ArrayList<Ticket> tickets = new ArrayList<Ticket>();;
 	private TicketDAO td;
 	private CommonService cs;
 	private selData sd;
-	
+
 	public TicketServiceImpl(){
 		td = new TicketDAOImpl();
 		cs = new CommonServiceImpl();
@@ -40,7 +40,7 @@ public class TicketServiceImpl implements TicketService{
 		confirmTitle.setText("???" + " 님의 예매 내역"); //ticket.getUserName()
 		String cancel = "#cancelTicket";
 		Button[] cancels = new Button[10];
-		
+
 		for(int i = 0; i<tickets.size(); i++) {
 			cancel += i;
 			System.out.println(cancel);
@@ -48,38 +48,38 @@ public class TicketServiceImpl implements TicketService{
 			cancels[i].setVisible(true);
 			cancel = "#cancelTicket";
 		}
-		
-		
-		TableView<Ticket> tableView = new TableView<Ticket>();
-		tableView = (TableView)root.lookup("#confirmTable");
-		
-		TableColumn<Ticket, String> userName = new TableColumn<>("userName");
-		userName.setCellValueFactory(new PropertyValueFactory<>("userName"));
-		TableColumn<Ticket, String> movieName = new TableColumn<>("movieName");
-		movieName.setCellValueFactory(new PropertyValueFactory<>("movieName"));
-		TableColumn<Ticket, Integer> roomNum = new TableColumn<>("roomNum");
-		roomNum.setCellValueFactory(new PropertyValueFactory<>("roomNum"));
-		TableColumn<Ticket, String> day = new TableColumn<>("day");
-		day.setCellValueFactory(new PropertyValueFactory<>("day"));
-		TableColumn<Ticket, String> seatNum = new TableColumn<>("seatNum");
-		seatNum.setCellValueFactory(new PropertyValueFactory<>("seatNum"));
-		TableColumn<Ticket, Integer> cost = new TableColumn<>("cost");
-		cost.setCellValueFactory(new PropertyValueFactory<>("cost"));
-		TableColumn<Ticket, Integer> reserveDate = new TableColumn<>("reserveDate");
-		reserveDate.setCellValueFactory(new PropertyValueFactory<>("reserveDate"));
-		
-		tableView.getColumns().addAll(userName,movieName,roomNum,day,seatNum,cost,reserveDate);
-		
-//		List<Ticket> ticketList = td.selectTicket(ticket.getUserId());	// ticket.getUserId()
-		ObservableList<Ticket> data = 
-				FXCollections.observableArrayList(tickets);
-		tableView.setItems(data);
+
+
+		TableView tableView = (TableView)root.lookup("#confirmTable");
+		if(tableView.getColumns().isEmpty()) {
+			TableColumn<Ticket, String> userName = new TableColumn<>("userName");
+			userName.setCellValueFactory(new PropertyValueFactory<>("userName"));
+			TableColumn<Ticket, String> movieName = new TableColumn<>("movieName");
+			movieName.setCellValueFactory(new PropertyValueFactory<>("movieName"));
+			TableColumn<Ticket, Integer> roomNum = new TableColumn<>("roomNum");
+			roomNum.setCellValueFactory(new PropertyValueFactory<>("roomNum"));
+			TableColumn<Ticket, String> day = new TableColumn<>("day");
+			day.setCellValueFactory(new PropertyValueFactory<>("day"));
+			TableColumn<Ticket, String> seatNum = new TableColumn<>("seatNum");
+			seatNum.setCellValueFactory(new PropertyValueFactory<>("seatNum"));
+			TableColumn<Ticket, Integer> cost = new TableColumn<>("cost");
+			cost.setCellValueFactory(new PropertyValueFactory<>("cost"));
+			TableColumn<Ticket, Integer> reserveDate = new TableColumn<>("reserveDate");
+			reserveDate.setCellValueFactory(new PropertyValueFactory<>("reserveDate"));
+
+			tableView.getColumns().addAll(userName,movieName,roomNum,day,seatNum,cost,reserveDate);
+
+			//		List<Ticket> ticketList = td.selectTicket(ticket.getUserId());	// ticket.getUserId()
+			ObservableList<Ticket> data = 
+					FXCollections.observableArrayList(tickets);
+			tableView.setItems(data);
+		}
 	}
 
 	@Override
 	public void insertTicketFromSd(selData sd) {
 		// TODO Auto-generated method stub
-		
+
 		Ticket t = new Ticket(sd.getUserName(), sd.getUserId(), sd.getSelSeatNum(),
 				sd.getSelRoom(), sd.getSelTitle(), sd.getSelDate(), sd.getReserveDate(),
 				sd.getCost(), sd.getSelAdultNum() + sd.getSelChildrenNum());
@@ -87,7 +87,7 @@ public class TicketServiceImpl implements TicketService{
 		t.print_Ticket();
 		tickets.add(t);
 	}
-	
-	
+
+
 
 }
