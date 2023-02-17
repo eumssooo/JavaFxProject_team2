@@ -41,6 +41,7 @@ public class ConfirmController {
 	public void printTickets() {
 		sd.print_selData();
 		ts.printTicket(root ,sd);
+		ts.insertTicketFromSd(sd);
 	}
 
 	// 돌아가기 ( 전 화면으로 가도록 수정해야 함)
@@ -83,11 +84,12 @@ public class ConfirmController {
 		t.setRoomNum(sd.getSelRoom());
 		t.setMovieName(sd.getSelTitle());
 		t.setDay(sd.getSelDate());
+		t.setTime(sd.getSelTime());
 		
 		 // t를 받아오자
-		cs.alertMsg("티켓 취소", "티켓 취소", "티켓이 취소 되었습니다.");
+//		cs.alertMsg("티켓 취소", "티켓 취소", "티켓이 취소 되었습니다.");
 		
-		td.cancelTicket(ts.cancelTickets());
+		td.cancelTicket(t);
 		td.cancelSeat(sd);
 	}
 }

@@ -58,14 +58,12 @@ public class TicketDAOImpl implements TicketDAO{
 	
 	@Override
 	public void cancelTicket(Ticket t) {
-		String sql = "delete from ticket "+ "where userId = ? "
-				+ "and seatNum = ? and roomNum = ? and movieName = ? "
-				+ "and day = ?"+ "and time=?";
+		String sql = "delete from ticket "+ "where userId = ? and seatNum = ? and roomNum = ? and movieName = ? and day = ? and time=?";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, t.getUserId());
 			pstmt.setString(2, t.getSeatNum());
-			pstmt.setInt(3, t.getRoomNum());
+			pstmt.setString(3, String.valueOf(t.getRoomNum()));
 			pstmt.setString(4, t.getMovieName());
 			pstmt.setString(5, t.getDay());;
 			pstmt.setString(6, t.getTime());

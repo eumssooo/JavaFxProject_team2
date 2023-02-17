@@ -28,6 +28,7 @@ public class TicketServiceImpl implements TicketService{
 	private CommonService cs;
 	private selData sd;
 	Button cancelbtn = new Button();
+	Ticket t = new Ticket();
 
 	public TicketServiceImpl(){
 		td = new TicketDAOImpl();
@@ -79,18 +80,21 @@ public class TicketServiceImpl implements TicketService{
 	public void insertTicketFromSd(selData sd) {
 		// TODO Auto-generated method stub
 
-		Ticket t = new Ticket(sd.getUserName(), sd.getUserId(), sd.getSelSeatNum(),
+		t = new Ticket(sd.getUserName(), sd.getUserId(), sd.getSelSeatNum(),
 				sd.getSelRoom(), sd.getSelTitle(), sd.getSelDate(), sd.getSelTime(), sd.getReserveDate(),
 				sd.getCost(), sd.getSelAdultNum() + sd.getSelChildrenNum());
 		// sd.getUserName(), sd.getUserId()
 		t.print_Ticket();
-		tickets.add(t);
+		
+		tickets.addAll(td.selectTicket(sd.getUserId()));
 		
 	}
 
 	@Override
 	public Ticket cancelTickets() {
 		// TODO Auto-generated method stub
+		System.out.println("tickets 값 넣어졌는지"+tickets);
+		System.out.println("tickets 값 넣어졌는지"+tickets.size());
 		
 		int n = tableView.getSelectionModel().getSelectedIndex();
 		
