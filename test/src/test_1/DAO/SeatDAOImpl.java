@@ -129,7 +129,7 @@ public class SeatDAOImpl implements SeatDAO {
 				pstmt.setString(1, String.valueOf(sd.getSelRoom()));
 				pstmt.setString(2, sd.getSelSeatNum()); // 좌석 따로 나눠서 저장해야하남?
 				pstmt.setString(3, sd.getSelDate());
-				pstmt.setString(4, sd.getSelTitle());
+				pstmt.setString(4, sd.getSelTime());
 				
 
 				int result = pstmt.executeUpdate();
@@ -147,13 +147,14 @@ public class SeatDAOImpl implements SeatDAO {
 	@Override
 	public String seatCheck(selData sd) {
 		// TODO Auto-generated method stub
-		String sql = "select seatNum from seat where roomNum =? and day=?";
+		String sql = "select seatNum from seat where roomNum =? and day=? and reserved=?";
 		String result= "";
 		try {
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, String.valueOf(sd.getSelRoom()));
 			pstmt.setString(2, sd.getSelDate());
+			pstmt.setString(2, sd.getSelTime());
 			
 			rs = pstmt.executeQuery();
 			
