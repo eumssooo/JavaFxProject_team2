@@ -22,11 +22,12 @@ import test_1.DAO.*;
 
 public class TicketServiceImpl implements TicketService{
 	//	private Ticket ticket;
-	public static ArrayList<Ticket> tickets = new ArrayList<Ticket>();;
+	public static ArrayList<Ticket> tickets = new ArrayList<Ticket>();
+	public static TableView tableView = new TableView();
 	private TicketDAO td;
 	private CommonService cs;
 	private selData sd;
-	Button[] cancels = new Button[20];
+	Button cancelbtn = new Button();
 
 	public TicketServiceImpl(){
 		td = new TicketDAOImpl();
@@ -42,18 +43,10 @@ public class TicketServiceImpl implements TicketService{
 		
 		Label confirmTitle = (Label)root.lookup("#confirmTitle");
 		confirmTitle.setText(sd.getUserName() + " 님의 예매 내역"); //ticket.getUserName()
-		String cancel = "#cancelTicket";
+		cancelbtn = (Button)root.lookup("#cancelTicket");
+		cancelbtn.setVisible(true);
 		
-		
-		for(int i = 0; i<tickets.size(); i++) {
-			cancel += i;
-			System.out.println(cancel);
-			cancels[i] = (Button)root.lookup(cancel);
-			cancels[i].setVisible(true);
-			cancel = "#cancelTicket";
-		}
-		
-		TableView tableView = (TableView)root.lookup("#confirmTable");
+		tableView = (TableView)root.lookup("#confirmTable");
 		if(tableView.getColumns().isEmpty()) {
 			TableColumn<Ticket, String> userName = new TableColumn<>("이름");
 			userName.setCellValueFactory(new PropertyValueFactory<>("userName"));
@@ -73,11 +66,12 @@ public class TicketServiceImpl implements TicketService{
 			tableView.getColumns().addAll(userName,movieName,roomNum,day,seatNum,cost,reserveDate);
 
 			//List<Ticket> ticketList = td.selectTicket(ticket.getUserId());	// ticket.getUserId()
-			ObservableList<Ticket> data = 
-					FXCollections.observableArrayList(tickets);
-			tableView.setItems(data);
-			tableView.setFixedCellSize(60);
+			
 		}
+		ObservableList<Ticket> data = 
+				FXCollections.observableArrayList(tickets);
+		tableView.setItems(data);
+		tableView.setFixedCellSize(60);
 		
 	}
 
@@ -96,12 +90,18 @@ public class TicketServiceImpl implements TicketService{
 	@Override
 	public void cancelTickets() {
 		// TODO Auto-generated method stub
-	      for(int i = 0; i < tickets.size(); i++) {
-	          if(cancels[i].isPressed())
-	          tickets.remove(i);
-	       }
-		//index값을 뭐로 가져오냐
 		
+		int n = tableView.getSelectionModel().getSelectedIndex();
+		
+	    if(cancelbtn.isPressed()) {
+	    	tickets.remove(n);
+	    	
+	    }
+	    
+	    for(int i = 0; i<tickets.size(); i++) {
+	    	System.out.println((i+1) + "번 행-------------------------");
+	    	tickets.get(i).print_Ticket();
+	    }
 	}
 
 
