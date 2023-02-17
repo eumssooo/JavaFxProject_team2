@@ -54,13 +54,15 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 
 
 		ComboBox<String> cmbMovie = (ComboBox<String>) selectMovie.lookup("#cmbMovie");
-
+		System.out.println("combo1"+cmbMovie.getValue());//잘뜸
 
 		// 콤보박스에서 선택된 값 가져오기
 
 		if(cmbMovie.getValue() != null) {// null이 아니면 다음 페이지 접속 가능	
+			System.out.println("combo2"+cmbMovie.getValue()); // 잘뜸
 			if(cmbMovie.getValue().equals("타이타닉")) {
-				sd.setSelTitle(cmbMovie.getValue());
+				System.out.println("title설정"+sd.getSelTitle()); //오류
+				sd.setSelTitle(cmbMovie.getValue()); //오류
 				sd.setSelRoom(1);
 			} else if(cmbMovie.getValue().equals("더 퍼스트 슬램덩크")) {
 				sd.setSelTitle(cmbMovie.getValue());		
@@ -130,7 +132,7 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 
 		}
 
-		if (cmbMovie.getValue() == null) // null값일시 에러 메세지
+		else if (cmbMovie.getValue() == null) // null값일시 에러 메세지
 		{
 			cs.alertMsg("영화 선택", "영화가 선택되지 않았습니다", "영화를 선택해주세요");
 			cmbMovie.requestFocus();

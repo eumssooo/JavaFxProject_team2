@@ -1,6 +1,7 @@
 package test_1.Controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -77,8 +78,6 @@ public class ConfirmController {
 
 //		td.cancelTicket(t); // t에 저장된거 없음
 		
-		System.out.println(sd.getUserId());
-		
 		// t에 sd값을 넣어서 저장해줘서 삭제도 지금 선택한 좌석만 삭제됨
 		t.setUserId(sd.getUserId());
 		t.setSeatNum(sd.getSelSeatNum());
@@ -87,10 +86,9 @@ public class ConfirmController {
 		t.setDay(sd.getSelDate());
 		t.setTime(sd.getSelTime());
 		
-		 // t를 받아오자
-//		cs.alertMsg("티켓 취소", "티켓 취소", "티켓이 취소 되었습니다.");
-		
 		td.cancelTicket(t);
 		td.cancelSeat(sd);
+		
+
 	}
 }

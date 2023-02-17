@@ -29,6 +29,7 @@ public class TicketServiceImpl implements TicketService{
 	private selData sd;
 	Button cancelbtn = new Button();
 	Ticket t = new Ticket();
+	List<Ticket> ticketList;
 
 	public TicketServiceImpl(){
 		td = new TicketDAOImpl();
@@ -66,7 +67,7 @@ public class TicketServiceImpl implements TicketService{
 
 			tableView.getColumns().addAll(userName,movieName,roomNum,day,seatNum,cost,reserveDate);
 
-			List<Ticket> ticketList = td.selectTicket(Customer.getId());	// ticket.getUserId()
+			ticketList = td.selectTicket(Customer.getId());	// ticket.getUserId()
 			
 			ObservableList<Ticket> data = 
 					FXCollections.observableArrayList(ticketList);

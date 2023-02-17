@@ -15,6 +15,7 @@ public class TicketDAOImpl implements TicketDAO{
 	private static ResultSet rs;
 	
 	private static CommonService cs;
+	
 
 	public TicketDAOImpl() {
 		// TODO Auto-generated constructor stub
@@ -47,6 +48,7 @@ public class TicketDAOImpl implements TicketDAO{
 				
 				ticketList.add(t);
 				System.out.println("티켓 확인 작업");
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -74,7 +76,7 @@ public class TicketDAOImpl implements TicketDAO{
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			cs.alertMsg("티켓 예약 취소 성공", "티켓 예약 취소 성공", "티켓 예약 취소에 성공하셨습니다.");
+			cs.alertMsg("티켓 예약 취소 실패", "티켓 예약 취소 실패", "티켓 예약 취소에 실패하셨습니다.");
 		}
 	}
 
