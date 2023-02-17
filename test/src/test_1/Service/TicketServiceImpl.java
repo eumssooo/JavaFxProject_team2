@@ -80,7 +80,7 @@ public class TicketServiceImpl implements TicketService{
 		// TODO Auto-generated method stub
 
 		Ticket t = new Ticket(sd.getUserName(), sd.getUserId(), sd.getSelSeatNum(),
-				sd.getSelRoom(), sd.getSelTitle(), sd.getSelDate(), sd.getReserveDate(),
+				sd.getSelRoom(), sd.getSelTitle(), sd.getSelDate(), sd.getSelTime(), sd.getReserveDate(),
 				sd.getCost(), sd.getSelAdultNum() + sd.getSelChildrenNum());
 		// sd.getUserName(), sd.getUserId()
 		t.print_Ticket();
