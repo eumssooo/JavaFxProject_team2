@@ -141,7 +141,7 @@ public class SeatServiceImpl implements SeatService {
 			sd.setUserName(td.getDAO(Customer.getId()));
 			sd.setUserId(Customer.getId());
 
-			td.enrollTicket(sd);
+//			td.enrollTicket(sd);
 			
 			for(int i = 0; i < selarray.length; i++) {
 				if(sd.getSelSeatNum().contains(selarray[i].getText())) {

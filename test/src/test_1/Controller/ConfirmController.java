@@ -88,6 +88,6 @@ public class ConfirmController {
 		cs.alertMsg("티켓 취소", "티켓 취소", "티켓이 취소 되었습니다.");
 		
 		td.cancelTicket(ts.cancelTickets());
-//		td.cancelSeat(sd);
+		td.cancelSeat(sd);
 	}
 }
