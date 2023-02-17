@@ -180,6 +180,7 @@ public class SelectMovieServiceImpl4 implements SelectMovieService4 {
 
 
 		ctrl.setSelectSession(selectSession);
+		ctrl.setSelData(sd);
 
 		SelectMovie_3_Session.setTitle("상영 회차 선택");
 		SelectMovie_3_Session.show();

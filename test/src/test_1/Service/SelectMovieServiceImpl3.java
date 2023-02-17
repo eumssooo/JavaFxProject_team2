@@ -119,6 +119,7 @@ public class SelectMovieServiceImpl3 implements SelectMovieService3 {
 		SelectMovieController ctrl = loader.getController();
 
 		ctrl.setSelectMovie(selectMovie);
+		ctrl.setSelData(sd);
 
 		SelectMovie_2_Movie.setTitle("영화 선택");
 		SelectMovie_2_Movie.show();

@@ -30,7 +30,7 @@ public class LoginServiceImpl implements LoginService{
 
 	CommonService cs;
 	LoginDAO ds;
-	private selData sd;
+	private static selData sd;
 	private Customer cust;
 
 	

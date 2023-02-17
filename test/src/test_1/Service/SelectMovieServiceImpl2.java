@@ -54,15 +54,13 @@ public class SelectMovieServiceImpl2 implements SelectMovieService2{
 
 
 		ComboBox<String> cmbMovie = (ComboBox<String>) selectMovie.lookup("#cmbMovie");
-		System.out.println("combo1"+cmbMovie.getValue());//잘뜸
+		
 
 		// 콤보박스에서 선택된 값 가져오기
 
 		if(cmbMovie.getValue() != null) {// null이 아니면 다음 페이지 접속 가능	
-			System.out.println("combo2"+cmbMovie.getValue()); // 잘뜸
-			if(cmbMovie.getValue().equals("타이타닉")) {
-				System.out.println("title설정"+sd.getSelTitle()); //오류
-				sd.setSelTitle(cmbMovie.getValue()); //오류
+			if(cmbMovie.getValue().equals("타이타닉")) {	
+				sd.setSelTitle(cmbMovie.getValue());
 				sd.setSelRoom(1);
 			} else if(cmbMovie.getValue().equals("더 퍼스트 슬램덩크")) {
 				sd.setSelTitle(cmbMovie.getValue());		
