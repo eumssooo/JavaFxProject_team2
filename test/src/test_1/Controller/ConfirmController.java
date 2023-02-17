@@ -79,6 +79,7 @@ public class ConfirmController {
 		
 		System.out.println(sd.getUserId());
 		
+		// t에 sd값을 넣어서 저장해줘서 삭제도 지금 선택한 좌석만 삭제됨
 		t.setUserId(sd.getUserId());
 		t.setSeatNum(sd.getSelSeatNum());
 		t.setRoomNum(sd.getSelRoom());
