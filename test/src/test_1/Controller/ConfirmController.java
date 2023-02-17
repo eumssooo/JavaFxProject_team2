@@ -17,7 +17,7 @@ import test_1.DAO.*;
 
 public class ConfirmController {
 	private Parent root;
-	private Ticket t;
+	private Ticket t = new Ticket();
 	private CommonService cs;
 	private TicketDAO td;
 	private TicketService ts;
@@ -73,11 +73,20 @@ public class ConfirmController {
 	// 나머지는 다른 controller에서
 	public void cancelTicket() {
 		// 정말로 티켓을 취소하시겠습니까?
-		td.cancelSeat(sd);
-		td.cancelTicket(t); // t에 저장된거 없음
+//		td.cancelSeat(sd);
+//		td.cancelTicket(t); // t에 저장된거 없음
 		
-//		ts.cancelTickets();
-//		cs.alertMsg("티켓 취소", "티켓 취소", "티켓이 취소 되었습니다.");
-//		td.cancelTicket(t);
+		System.out.println(sd.getUserId());
+		
+		t.setUserId(sd.getUserId());
+		t.setSeatNum(sd.getSelSeatNum());
+		t.setRoomNum(sd.getSelRoom());
+		t.setMovieName(sd.getSelTitle());
+		t.setDay(sd.getSelDate());
+		
+		ts.cancelTickets();
+		cs.alertMsg("티켓 취소", "티켓 취소", "티켓이 취소 되었습니다.");
+		
+		td.cancelTicket(t);
 	}
 }

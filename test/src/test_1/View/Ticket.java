@@ -48,8 +48,8 @@ public class Ticket {
 	public String getUserId() {
 		return userId;
 	}
-	public void setUserId() {
-		this.userId = Customer.getId();
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	public String getSeatNum() {
 		return seatNum;

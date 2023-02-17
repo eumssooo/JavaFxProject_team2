@@ -26,6 +26,7 @@ public class TicketServiceImpl implements TicketService{
 	private TicketDAO td;
 	private CommonService cs;
 	private selData sd;
+	Button[] cancels = new Button[20];
 
 	public TicketServiceImpl(){
 		td = new TicketDAOImpl();
@@ -42,7 +43,7 @@ public class TicketServiceImpl implements TicketService{
 		Label confirmTitle = (Label)root.lookup("#confirmTitle");
 		confirmTitle.setText(sd.getUserName() + " 님의 예매 내역"); //ticket.getUserName()
 		String cancel = "#cancelTicket";
-		Button[] cancels = new Button[20];
+		
 		
 		for(int i = 0; i<tickets.size(); i++) {
 			cancel += i;
@@ -95,7 +96,10 @@ public class TicketServiceImpl implements TicketService{
 	@Override
 	public void cancelTickets() {
 		// TODO Auto-generated method stub
-		tickets.remove(0);
+	      for(int i = 0; i < tickets.size(); i++) {
+	          if(cancels[i].isPressed())
+	          tickets.remove(i);
+	       }
 		//index값을 뭐로 가져오냐
 		
 	}
