@@ -84,10 +84,10 @@ public class ConfirmController {
 		t.setMovieName(sd.getSelTitle());
 		t.setDay(sd.getSelDate());
 		
-		ts.cancelTickets();
+		 // t를 받아오자
 		cs.alertMsg("티켓 취소", "티켓 취소", "티켓이 취소 되었습니다.");
 		
-		td.cancelTicket(t);
-		td.cancelSeat(sd);
+		td.cancelTicket(ts.cancelTickets());
+//		td.cancelSeat(sd);
 	}
 }

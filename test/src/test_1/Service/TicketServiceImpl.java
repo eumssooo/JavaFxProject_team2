@@ -23,7 +23,7 @@ import test_1.DAO.*;
 public class TicketServiceImpl implements TicketService{
 	//	private Ticket ticket;
 	public static ArrayList<Ticket> tickets = new ArrayList<Ticket>();
-	public static TableView tableView = new TableView();
+	public static TableView<Ticket> tableView = new TableView<>();
 	private TicketDAO td;
 	private CommonService cs;
 	private selData sd;
@@ -42,7 +42,7 @@ public class TicketServiceImpl implements TicketService{
 //		sd.setUserName(td.getDAO(Customer.getId()));
 		
 		Label confirmTitle = (Label)root.lookup("#confirmTitle");
-		confirmTitle.setText(sd.getUserName() + " 님의 예매 내역"); //ticket.getUserName()
+		confirmTitle.setText(td.getDAO(Customer.getId()) + " 님의 예매 내역"); //ticket.getUserName()
 		cancelbtn = (Button)root.lookup("#cancelTicket");
 		cancelbtn.setVisible(true);
 		
@@ -65,13 +65,13 @@ public class TicketServiceImpl implements TicketService{
 
 			tableView.getColumns().addAll(userName,movieName,roomNum,day,seatNum,cost,reserveDate);
 
-			//List<Ticket> ticketList = td.selectTicket(ticket.getUserId());	// ticket.getUserId()
+			List<Ticket> ticketList = td.selectTicket(Customer.getId());	// ticket.getUserId()
 			
+			ObservableList<Ticket> data = 
+					FXCollections.observableArrayList(ticketList);
+			tableView.setItems(data);
+			tableView.setFixedCellSize(60);
 		}
-		ObservableList<Ticket> data = 
-				FXCollections.observableArrayList(tickets);
-		tableView.setItems(data);
-		tableView.setFixedCellSize(60);
 		
 	}
 
@@ -85,23 +85,16 @@ public class TicketServiceImpl implements TicketService{
 		// sd.getUserName(), sd.getUserId()
 		t.print_Ticket();
 		tickets.add(t);
+		
 	}
 
 	@Override
-	public void cancelTickets() {
+	public Ticket cancelTickets() {
 		// TODO Auto-generated method stub
 		
 		int n = tableView.getSelectionModel().getSelectedIndex();
 		
-	    if(cancelbtn.isPressed()) {
-	    	tickets.remove(n);
-	    	
-	    }
-	    
-	    for(int i = 0; i<tickets.size(); i++) {
-	    	System.out.println((i+1) + "번 행-------------------------");
-	    	tickets.get(i).print_Ticket();
-	    }
+	    return tickets.get(n);
 	}
 
 
