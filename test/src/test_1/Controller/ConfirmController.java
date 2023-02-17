@@ -73,7 +73,7 @@ public class ConfirmController {
 	// 나머지는 다른 controller에서
 	public void cancelTicket() {
 		// 정말로 티켓을 취소하시겠습니까?
-//		td.cancelSeat(sd);
+		td.cancelSeat(sd);
 //		td.cancelTicket(t); // t에 저장된거 없음
 		
 		System.out.println(sd.getUserId());
