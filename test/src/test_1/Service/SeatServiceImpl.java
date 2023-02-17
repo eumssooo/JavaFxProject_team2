@@ -195,7 +195,7 @@ public class SeatServiceImpl implements SeatService {
 		for(int i = 0; i < selarray.length; i++) {
 			if(selarray[i].isSelected()) {
 				if(cnt >= sd.getSelAdultNum() + sd.getSelChildrenNum()) {
-					cs.alertMsg("인원 초과", "인원 초과", "인원 초과에욥!!!");
+					cs.alertMsg("인원 초과", "인원 초과", "선택한 관람인원 초과입니다.");
 					selarray[i].requestFocus();
 					// 마지막으로 선택된 체크박스를 가져와야 함
 					selarray[i].setSelected(false);

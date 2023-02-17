@@ -66,7 +66,7 @@ public class SeatDAOImpl implements SeatDAO {
 			
 			pstmt.setString(1, String.valueOf(sd.getSelRoom()));
 			pstmt.setString(2, sd.getSelDate());
-			pstmt.setString(2, sd.getSelTime());
+			pstmt.setString(3, sd.getSelTime());
 			
 			rs = pstmt.executeQuery();
 			
