@@ -60,14 +60,15 @@ public class TicketDAOImpl implements TicketDAO{
 	
 	@Override
 	public void cancelTicket(Ticket t) {
-		String sql = "delete from ticket "+ "where userId = ? and seatNum = ? and roomNum = ? and movieName = ? and day = ? and time=?";
+		String sql = "delete from ticket where userId = ? and seatNum = ? and roomNum = ? and movieName = ? and day = ? and time= ?";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, t.getUserId());
+			System.out.println(t.getUserId());//안뜸
 			pstmt.setString(2, t.getSeatNum());
 			pstmt.setString(3, String.valueOf(t.getRoomNum()));
 			pstmt.setString(4, t.getMovieName());
-			pstmt.setString(5, t.getDay());;
+			pstmt.setString(5, t.getDay());
 			pstmt.setString(6, t.getTime());
 			pstmt.executeUpdate();
 			System.out.println("티켓 예약 취소 작업");
@@ -81,16 +82,16 @@ public class TicketDAOImpl implements TicketDAO{
 	}
 
 	@Override
-	public void cancelSeat(selData sd) {
+	public void cancelSeat(Ticket t) {
 		String sql = "delete from seat where roomNum = ? and seatNum = ? and day = ? and reserved = ? ";
 
 		
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, String.valueOf(sd.getSelRoom()));
-			pstmt.setString(2, sd.getSelSeatNum());
-			pstmt.setString(3, sd.getSelDate());
-			pstmt.setString(4, sd.getSelTime());
+			pstmt.setString(1, String.valueOf(t.getRoomNum()));
+			pstmt.setString(2, t.getSeatNum());
+			pstmt.setString(3, t.getDay());
+			pstmt.setString(4, t.getTime());
 			
 			pstmt.executeUpdate();
 			System.out.println("좌석 예약 취소 작업");
@@ -102,6 +103,7 @@ public class TicketDAOImpl implements TicketDAO{
 		}
 	}
 
+	
 	@Override
 	public void enrollTicket(selData sd) {
 		sd.setReserveDate();	// 현재시간 setter에서 "등록하는 순간" 계산 -> 결제완료와 동시에 enrollTicket 실행
