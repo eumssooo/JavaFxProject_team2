@@ -22,7 +22,7 @@ public class Ticket {
 		this.roomNum = roomNum;
 		this.movieName = movieName;
 		this.day = day;
-		this.setTime(time);
+		this.time = time;
 		this.reserveDate = reserveDate;
 		this.cost = cost;
 		this.person = person;
