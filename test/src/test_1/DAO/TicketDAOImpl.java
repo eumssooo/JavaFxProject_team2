@@ -64,7 +64,7 @@ public class TicketDAOImpl implements TicketDAO{
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, t.getUserId());
-			System.out.println(t.getUserId());//안뜸
+			System.out.println(t.getUserId());
 			pstmt.setString(2, t.getSeatNum());
 			pstmt.setString(3, String.valueOf(t.getRoomNum()));
 			pstmt.setString(4, t.getMovieName());

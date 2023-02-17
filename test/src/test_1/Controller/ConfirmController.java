@@ -41,7 +41,9 @@ public class ConfirmController {
 	// 예매 내역 UI 출력
 	public void printTickets() {
 		sd.print_selData();
-		ts.printTicket(root ,sd);
+		System.out.println("프린트티켓 직전");
+		ts.printTicket(root ,sd); // 이게 테이블뷰 출력되는거
+		System.out.println("인서트 직전");
 		ts.insertTicketFromSd(sd);
 	}
 

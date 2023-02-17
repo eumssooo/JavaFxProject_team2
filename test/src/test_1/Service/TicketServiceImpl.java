@@ -48,6 +48,11 @@ public class TicketServiceImpl implements TicketService{
 		cancelbtn = (Button)root.lookup("#cancelTicket");
 		cancelbtn.setVisible(true);
 		
+		ticketList = td.selectTicket(Customer.getId());	// ticket.getUserId()
+		
+		ObservableList<Ticket> data = 
+				FXCollections.observableArrayList(ticketList);
+		
 		tableView = (TableView)root.lookup("#confirmTable");
 		if(tableView.getColumns().isEmpty()) {
 			TableColumn<Ticket, String> userName = new TableColumn<>("이름");
@@ -67,14 +72,19 @@ public class TicketServiceImpl implements TicketService{
 
 			tableView.getColumns().addAll(userName,movieName,roomNum,day,seatNum,cost,reserveDate);
 
-			ticketList = td.selectTicket(Customer.getId());	// ticket.getUserId()
-			
-			ObservableList<Ticket> data = 
-					FXCollections.observableArrayList(ticketList);
-			tableView.setItems(data);
-			tableView.setFixedCellSize(60);
+//			ticketList = td.selectTicket(Customer.getId());	// ticket.getUserId()
+//			
+//			ObservableList<Ticket> data = 
+//					FXCollections.observableArrayList(ticketList);
+//			tableView.getItems().clear();
+//			tableView.setItems(data);
+//			tableView.setFixedCellSize(60);
+		} else {
+
 		}
-		
+		tableView.getItems().clear();
+		tableView.setItems(data);
+		tableView.setFixedCellSize(60);
 	}
 
 	@Override
