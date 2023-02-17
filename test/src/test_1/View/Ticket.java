@@ -7,6 +7,7 @@ public class Ticket {
 	private int roomNum;
 	private String movieName;
 	private String day;
+	private String time;
 	private String reserveDate;
 	private	int cost;
 	private int person;
@@ -14,13 +15,14 @@ public class Ticket {
 	public Ticket() {}	// 기본 이니셜라이저
 	public Ticket(String userName, String userId, String seatNum,
 			int roomNum, String movieName, String day, String reserveDate,
-			int cost, int person) {
+			String time, int cost, int person) {
 		this.userName = userName;
 		this.userId = userId;
 		this.seatNum = seatNum;
 		this.roomNum = roomNum;
 		this.movieName = movieName;
 		this.day = day;
+		this.setTime(time);
 		this.reserveDate = reserveDate;
 		this.cost = cost;
 		this.person = person;
@@ -92,6 +94,12 @@ public class Ticket {
 	}
 	public void setPerson(int person) {
 		this.person = person;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
 	}
 	
 	

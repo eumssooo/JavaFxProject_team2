@@ -40,9 +40,10 @@ public class TicketDAOImpl implements TicketDAO{
 				t.setRoomNum(rs.getInt(4));
 				t.setMovieName(rs.getString(5));
 				t.setDay(rs.getString(6));
-				t.setReserveDate(rs.getString(7));
-				t.setCost(rs.getInt(8));
-				t.setPerson( rs.getInt(9));
+				t.setTime(rs.getString(7));
+				t.setReserveDate(rs.getString(8));
+				t.setCost(rs.getInt(9));
+				t.setPerson( rs.getInt(10));
 				
 				ticketList.add(t);
 				System.out.println("티켓 확인 작업");
@@ -59,7 +60,7 @@ public class TicketDAOImpl implements TicketDAO{
 	public void cancelTicket(Ticket t) {
 		String sql = "delete from ticket "+ "where userId = ? "
 				+ "and seatNum = ? and roomNum = ? and movieName = ? "
-				+ "and day = ?";
+				+ "and day = ?"+ "and time=?";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, t.getUserId());
@@ -67,6 +68,7 @@ public class TicketDAOImpl implements TicketDAO{
 			pstmt.setInt(3, t.getRoomNum());
 			pstmt.setString(4, t.getMovieName());
 			pstmt.setString(5, t.getDay());;
+			pstmt.setString(6, t.getTime());
 			pstmt.executeUpdate();
 			System.out.println("티켓 예약 취소 작업");
 			
