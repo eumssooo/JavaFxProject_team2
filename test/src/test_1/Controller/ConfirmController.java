@@ -74,9 +74,7 @@ public class ConfirmController {
 	
 	// 나머지는 다른 controller에서
 	public void cancelTicket() {
-		// 정말로 티켓을 취소하시겠습니까?
-
-//		td.cancelTicket(t); // t에 저장된거 없음
+		// t에 저장된거 없음
 		
 		// t에 sd값을 넣어서 저장해줘서 삭제도 지금 선택한 좌석만 삭제됨
 		t.setUserId(sd.getUserId());
@@ -85,6 +83,7 @@ public class ConfirmController {
 		t.setMovieName(sd.getSelTitle());
 		t.setDay(sd.getSelDate());
 		t.setTime(sd.getSelTime());
+		
 		
 		td.cancelTicket(t);
 		td.cancelSeat(sd);

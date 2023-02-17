@@ -94,8 +94,6 @@ public class TicketServiceImpl implements TicketService{
 	@Override
 	public Ticket cancelTickets() {
 		// TODO Auto-generated method stub
-		System.out.println("tickets 값 넣어졌는지"+tickets);
-		System.out.println("tickets 값 넣어졌는지"+tickets.size());
 		
 		int n = tableView.getSelectionModel().getSelectedIndex();
 		
